@@ -140,6 +140,27 @@ Dedicated docs now exist for:
 ### 5. Discovery Map Input
 `data/raw/discovery_urls.txt`
 
+### 6. Live Intelligence Extractors
+High-value source extractors that produce machine-readable output:
+
+#### Legistar Agenda Extractor
+`scripts/extract_legistar.py` — Fort Worth City Council agenda / meeting scraper.
+
+Fetches the Legistar calendar (Telerik RadGrid, HTML-encoded parameters) and enriches each meeting with iCal records. Produces `data/legistar-meetings.json` with:
+- body name, meeting date/time, location
+- iCal / agenda / minutes / video URLs
+- agenda and minutes availability flags
+- cancellation status
+- ISO-formatted start/end datetimes
+
+```bash
+# Scrape calendar (first page = 20 most-recent meetings)
+python3 scripts/extract_legistar.py --max-pages 2 --enrich --min-delay 3
+
+# Output: data/legistar-meetings.json
+```
+
+
 The DAO source list extracted from `FWTX-DAO/fwtx-scraper` and preserved as a discovery input.
 
 Important: this list is treated as **lead generation**, not truth.
