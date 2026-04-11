@@ -1,0 +1,832 @@
+[
+  {
+    "id": 1,
+    "url": "https://www.fortworthtexas.gov",
+    "host": "www.fortworthtexas.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 2,
+    "url": "https://mapit.fortworthtexas.gov",
+    "host": "mapit.fortworthtexas.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 3,
+    "url": "https://fortworthgov.legistar.com",
+    "host": "fortworthgov.legistar.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 4,
+    "url": "https://www.ncourt.com/x-press/x-onlinepayments.aspx?juris=35244751-5EC6-41B2-B4C6-2BD08CF14073",
+    "host": "www.ncourt.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 5,
+    "url": "https://www.tarrantcountytx.gov",
+    "host": "www.tarrantcountytx.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 6,
+    "url": "https://tarrant.tx.publicsearch.us",
+    "host": "tarrant.tx.publicsearch.us",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 7,
+    "url": "https://countyfusion.tarrantcounty.com",
+    "host": "countyfusion.tarrantcounty.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 8,
+    "url": "https://hscmsoa.tarrantcounty.com",
+    "host": "hscmsoa.tarrantcounty.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 9,
+    "url": "https://www.arlingtontx.gov",
+    "host": "www.arlingtontx.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 10,
+    "url": "https://www.gptx.org",
+    "host": "www.gptx.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 11,
+    "url": "https://www.mansfieldtexas.gov",
+    "host": "www.mansfieldtexas.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 12,
+    "url": "https://www.grapevinetexas.gov",
+    "host": "www.grapevinetexas.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 13,
+    "url": "https://www.eulesstx.gov",
+    "host": "www.eulesstx.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 14,
+    "url": "https://www.ci.bedford.tx.us",
+    "host": "www.ci.bedford.tx.us",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 15,
+    "url": "https://www.hursttx.gov",
+    "host": "www.hursttx.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 16,
+    "url": "https://www.colleyville.com",
+    "host": "www.colleyville.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 17,
+    "url": "https://www.cityofkeller.com",
+    "host": "www.cityofkeller.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 18,
+    "url": "https://www.nrhtx.com",
+    "host": "www.nrhtx.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 19,
+    "url": "https://www.haltomcitytx.com",
+    "host": "www.haltomcitytx.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 20,
+    "url": "https://www.watauga.org",
+    "host": "www.watauga.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 21,
+    "url": "https://www.richlandhills.com",
+    "host": "www.richlandhills.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 22,
+    "url": "https://www.foresthilltx.org",
+    "host": "www.foresthilltx.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 23,
+    "url": "https://www.whitesettlement.org",
+    "host": "www.whitesettlement.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 24,
+    "url": "https://www.saginawtx.org",
+    "host": "www.saginawtx.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 25,
+    "url": "https://www.azletx.gov",
+    "host": "www.azletx.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 26,
+    "url": "https://www.crowleytx.gov",
+    "host": "www.crowleytx.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 27,
+    "url": "https://www.burlesontx.com",
+    "host": "www.burlesontx.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 28,
+    "url": "https://www.cityofsouthlake.com",
+    "host": "www.cityofsouthlake.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 29,
+    "url": "https://www.weatherfordtx.gov",
+    "host": "www.weatherfordtx.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 30,
+    "url": "https://www.benbrook-tx.gov",
+    "host": "www.benbrook-tx.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 31,
+    "url": "https://www.trophyclub.org",
+    "host": "www.trophyclub.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 32,
+    "url": "https://www.roanoketx.com",
+    "host": "www.roanoketx.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 33,
+    "url": "https://www.haslet.org",
+    "host": "www.haslet.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 34,
+    "url": "https://www.lakeworth-tx.com",
+    "host": "www.lakeworth-tx.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 35,
+    "url": "https://www.riveroakstx.com",
+    "host": "www.riveroakstx.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 36,
+    "url": "https://www.sansomparktx.org",
+    "host": "www.sansomparktx.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 37,
+    "url": "https://www.westworthvillage.org",
+    "host": "www.westworthvillage.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 38,
+    "url": "https://www.evermantx.net",
+    "host": "www.evermantx.net",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 39,
+    "url": "https://www.kennedale.org",
+    "host": "www.kennedale.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 40,
+    "url": "https://www.pantegotx.org",
+    "host": "www.pantegotx.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 41,
+    "url": "https://www.dgardenstx.com",
+    "host": "www.dgardenstx.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 42,
+    "url": "https://www.lakesidetx.org",
+    "host": "www.lakesidetx.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 43,
+    "url": "https://www.westlaketx.org",
+    "host": "www.westlaketx.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 44,
+    "url": "https://www.flower-mound.com",
+    "host": "www.flower-mound.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 45,
+    "url": "https://www.westoverhillstx.gov",
+    "host": "www.westoverhillstx.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 46,
+    "url": "https://www.edgecliffvillage.org",
+    "host": "www.edgecliffvillage.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 47,
+    "url": "https://www.pelicanbay-tx.gov",
+    "host": "www.pelicanbay-tx.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 48,
+    "url": "https://www.doubleoaktx.org",
+    "host": "www.doubleoaktx.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 49,
+    "url": "https://www.coppercanyon-tx.org",
+    "host": "www.coppercanyon-tx.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 50,
+    "url": "https://www.crosstimber-tx.org",
+    "host": "www.crosstimber-tx.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 51,
+    "url": "https://www.dishtx.org",
+    "host": "www.dishtx.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 52,
+    "url": "https://www.fwisd.org",
+    "host": "www.fwisd.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 53,
+    "url": "https://www.aisd.net",
+    "host": "www.aisd.net",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 54,
+    "url": "https://www.mansfieldisd.org",
+    "host": "www.mansfieldisd.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 55,
+    "url": "https://www.kellerisd.net",
+    "host": "www.kellerisd.net",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 56,
+    "url": "https://www.gpisd.org",
+    "host": "www.gpisd.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 57,
+    "url": "https://www.heb-isd.net",
+    "host": "www.heb-isd.net",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 58,
+    "url": "https://www.birdvilleisd.net",
+    "host": "www.birdvilleisd.net",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 59,
+    "url": "https://www.nwisd.org",
+    "host": "www.nwisd.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 60,
+    "url": "https://www.cfbisd.edu",
+    "host": "www.cfbisd.edu",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 61,
+    "url": "https://www.whitesettlementisd.org",
+    "host": "www.whitesettlementisd.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 62,
+    "url": "https://www.evermanisd.org",
+    "host": "www.evermanisd.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 63,
+    "url": "https://www.crowleyisd.net",
+    "host": "www.crowleyisd.net",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 64,
+    "url": "https://www.azleisd.net",
+    "host": "www.azleisd.net",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 65,
+    "url": "https://www.weatherfordisd.com",
+    "host": "www.weatherfordisd.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 66,
+    "url": "https://www.springtownisd.net",
+    "host": "www.springtownisd.net",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 67,
+    "url": "https://www.godleyisd.net",
+    "host": "www.godleyisd.net",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 68,
+    "url": "https://www.albedoisd.org",
+    "host": "www.albedoisd.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 69,
+    "url": "https://www.mineralisd.net",
+    "host": "www.mineralisd.net",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 70,
+    "url": "https://www.benbrookisd.net",
+    "host": "www.benbrookisd.net",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 71,
+    "url": "https://www.tccd.edu",
+    "host": "www.tccd.edu",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 72,
+    "url": "https://www.trwd.com",
+    "host": "www.trwd.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 73,
+    "url": "https://www.jpshealthnet.org",
+    "host": "www.jpshealthnet.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 74,
+    "url": "https://ridetrinitymetro.org",
+    "host": "ridetrinitymetro.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 75,
+    "url": "https://www.tarrantesd1.org",
+    "host": "www.tarrantesd1.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 76,
+    "url": "https://www.nctcog.org",
+    "host": "www.nctcog.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 77,
+    "url": "https://www.dfwairport.com",
+    "host": "www.dfwairport.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 78,
+    "url": "https://www.trwd.com",
+    "host": "www.trwd.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 79,
+    "url": "https://www.tarrantappraisal.com",
+    "host": "www.tarrantappraisal.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 80,
+    "url": "https://www.tarranttax.com",
+    "host": "www.tarranttax.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 81,
+    "url": "https://www.wmud.org",
+    "host": "www.wmud.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 82,
+    "url": "https://www.harrisridgemud.com",
+    "host": "www.harrisridgemud.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  },
+  {
+    "id": 83,
+    "url": "https://www.northeastmud.com",
+    "host": "www.northeastmud.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "unvalidated",
+    "tier": null,
+    "accessType": [],
+    "notes": ""
+  }
+]
