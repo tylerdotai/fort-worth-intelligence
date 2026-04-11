@@ -80,6 +80,9 @@ fort-worth-intelligence/
 ### 1. Structured Source Catalog
 `docs/source-catalog.md`
 
+Validation progress is also tracked in:
+- `data/raw/discovery_urls.validated.json`
+
 A normalized catalog of Fort Worth / Tarrant public data sources, organized by domain:
 - core government
 - council / agendas / ordinances
@@ -161,8 +164,9 @@ for a single Fort Worth address, you have something immediately useful for:
 - [x] Build initial Fort Worth / Tarrant source catalog
 - [x] Write research narrative from validated sources
 - [x] Preserve DAO-discovered source inventory
-- [ ] Normalize all 83 DAO sources into canonical institution records
-- [ ] Validate every source against official domains
+- [x] Normalize all 83 DAO sources into canonical institution records
+- [x] Run initial validation pass across all DAO-discovered sources
+- [ ] Validate every source manually against canonical official domains
 - [ ] Add API / portal / GIS / docs / scrape capability matrix
 - [ ] Add address-centric source resolution layer
 - [ ] Add district / parcel / school / tax relationship model

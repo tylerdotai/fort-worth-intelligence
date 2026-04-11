@@ -1,0 +1,1605 @@
+[
+  {
+    "id": 1,
+    "url": "https://www.fortworthtexas.gov",
+    "host": "www.fortworthtexas.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "Official source blocks automated access; retain as canonical official source.",
+    "finalUrl": "https://www.fortworthtexas.gov/",
+    "statusCode": 403,
+    "server": "",
+    "contentType": "text/html",
+    "title": "Access Denied",
+    "canonicalEntity": "City of Fort Worth"
+  },
+  {
+    "id": 2,
+    "url": "https://mapit.fortworthtexas.gov",
+    "host": "mapit.fortworthtexas.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "A",
+    "accessType": [
+      "GIS"
+    ],
+    "notes": "",
+    "finalUrl": "https://mapit.fortworthtexas.gov/",
+    "statusCode": 200,
+    "server": "Microsoft-IIS/10.0",
+    "contentType": "text/html",
+    "title": "Fort Worth GIS",
+    "canonicalEntity": "Fort Worth GIS"
+  },
+  {
+    "id": 3,
+    "url": "https://fortworthgov.legistar.com",
+    "host": "fortworthgov.legistar.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "GIS",
+      "Portal",
+      "Docs"
+    ],
+    "notes": "",
+    "finalUrl": "https://fortworthgov.legistar.com/Calendar.aspx",
+    "statusCode": 200,
+    "server": "Microsoft-IIS/10.0",
+    "contentType": "text/html; charset=utf-8",
+    "title": "City of Fort Worth - Calendar",
+    "canonicalEntity": "City of Fort Worth Legislative System"
+  },
+  {
+    "id": 4,
+    "url": "https://www.ncourt.com/x-press/x-onlinepayments.aspx?juris=35244751-5EC6-41B2-B4C6-2BD08CF14073",
+    "host": "www.ncourt.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Portal"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.ncourt.com/x-press/x-onlinepayments.aspx?juris=35244751-5EC6-41B2-B4C6-2BD08CF14073",
+    "statusCode": 200,
+    "server": "Microsoft-IIS/10.0",
+    "contentType": "text/html; charset=utf-8",
+    "title": "Pay Tickets Online - Fort Worth, Texas, Fort Worth Municipal Court",
+    "canonicalEntity": "Pay Tickets Online - Fort Worth, Texas, Fort Worth Municipal Court"
+  },
+  {
+    "id": 5,
+    "url": "https://www.tarrantcountytx.gov",
+    "host": "www.tarrantcountytx.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.tarrantcountytx.gov/en.html",
+    "statusCode": 200,
+    "server": "Apache",
+    "contentType": "text/html;charset=utf-8",
+    "title": "Tarrant County - Home",
+    "canonicalEntity": "Tarrant County"
+  },
+  {
+    "id": 6,
+    "url": "https://tarrant.tx.publicsearch.us",
+    "host": "tarrant.tx.publicsearch.us",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Portal"
+    ],
+    "notes": "",
+    "finalUrl": "https://tarrant.tx.publicsearch.us/",
+    "statusCode": 200,
+    "server": "openresty",
+    "contentType": "text/html; charset=utf-8",
+    "title": "Official Record Search - Quick Search - Tarrant County, Texas County Clerk",
+    "canonicalEntity": "Official Record Search - Quick Search - Tarrant County, Texas County Clerk"
+  },
+  {
+    "id": 7,
+    "url": "https://countyfusion.tarrantcounty.com",
+    "host": "countyfusion.tarrantcounty.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Portal"
+    ],
+    "notes": "",
+    "finalUrl": "https://countyfusion.tarrantcounty.com/",
+    "statusCode": 200,
+    "server": "",
+    "contentType": "text/html;charset=UTF-8",
+    "title": "Welcome to Tarrant County",
+    "canonicalEntity": "Welcome to Tarrant County"
+  },
+  {
+    "id": 8,
+    "url": "https://hscmsoa.tarrantcounty.com",
+    "host": "hscmsoa.tarrantcounty.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://hscmsoa.tarrantcounty.com/",
+    "statusCode": 200,
+    "server": "Microsoft-IIS/10.0",
+    "contentType": "text/html",
+    "title": "IIS Windows Server",
+    "canonicalEntity": "IIS Windows Server"
+  },
+  {
+    "id": 9,
+    "url": "https://www.arlingtontx.gov",
+    "host": "www.arlingtontx.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "Official source blocks automated access; retain as canonical official source.",
+    "finalUrl": "https://www.arlingtontx.gov/",
+    "statusCode": 403,
+    "server": "",
+    "contentType": "text/html",
+    "title": "Access Denied",
+    "canonicalEntity": "Access Denied"
+  },
+  {
+    "id": 10,
+    "url": "https://www.gptx.org",
+    "host": "www.gptx.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "needs-review",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.gptx.org/",
+    "statusCode": 403,
+    "server": "",
+    "contentType": "text/html",
+    "title": "Access Denied",
+    "canonicalEntity": "Access Denied"
+  },
+  {
+    "id": 11,
+    "url": "https://www.mansfieldtexas.gov",
+    "host": "www.mansfieldtexas.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.mansfieldtexas.gov/",
+    "statusCode": 200,
+    "server": "Microsoft-IIS/10.0",
+    "contentType": "text/html; charset=utf-8",
+    "title": "",
+    "canonicalEntity": "www.mansfieldtexas.gov"
+  },
+  {
+    "id": 12,
+    "url": "https://www.grapevinetexas.gov",
+    "host": "www.grapevinetexas.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.grapevinetexas.gov/",
+    "statusCode": 200,
+    "server": "",
+    "contentType": "text/html; charset=utf-8",
+    "title": "",
+    "canonicalEntity": "www.grapevinetexas.gov"
+  },
+  {
+    "id": 13,
+    "url": "https://www.eulesstx.gov",
+    "host": "www.eulesstx.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "Official source blocks automated access; retain as canonical official source.",
+    "finalUrl": "https://www.eulesstx.gov/",
+    "statusCode": 403,
+    "server": "AkamaiGHost",
+    "contentType": "text/html",
+    "title": "Access Denied",
+    "canonicalEntity": "Access Denied"
+  },
+  {
+    "id": 14,
+    "url": "https://www.ci.bedford.tx.us",
+    "host": "www.ci.bedford.tx.us",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.ci.bedford.tx.us', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b70468f80>: Failed to re",
+    "canonicalEntity": "www.ci.bedford.tx.us"
+  },
+  {
+    "id": 15,
+    "url": "https://www.hursttx.gov",
+    "host": "www.hursttx.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "Official source blocks automated access; retain as canonical official source.",
+    "finalUrl": "https://www.hursttx.gov/",
+    "statusCode": 403,
+    "server": "AkamaiNetStorage",
+    "contentType": "",
+    "title": "",
+    "canonicalEntity": "www.hursttx.gov"
+  },
+  {
+    "id": 16,
+    "url": "https://www.colleyville.com",
+    "host": "www.colleyville.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "needs-review",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.colleyville.com/",
+    "statusCode": 403,
+    "server": "AkamaiGHost",
+    "contentType": "text/html",
+    "title": "Access Denied",
+    "canonicalEntity": "Access Denied"
+  },
+  {
+    "id": 17,
+    "url": "https://www.cityofkeller.com",
+    "host": "www.cityofkeller.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "needs-review",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.cityofkeller.com/",
+    "statusCode": 403,
+    "server": "AkamaiNetStorage",
+    "contentType": "",
+    "title": "",
+    "canonicalEntity": "www.cityofkeller.com"
+  },
+  {
+    "id": 18,
+    "url": "https://www.nrhtx.com",
+    "host": "www.nrhtx.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.nrhtx.com/",
+    "statusCode": 200,
+    "server": "cloudflare",
+    "contentType": "text/html; charset=utf-8",
+    "title": "",
+    "canonicalEntity": "www.nrhtx.com"
+  },
+  {
+    "id": 19,
+    "url": "https://www.haltomcitytx.com",
+    "host": "www.haltomcitytx.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.haltomcitytx.com/",
+    "statusCode": 200,
+    "server": "",
+    "contentType": "text/html; charset=utf-8",
+    "title": "",
+    "canonicalEntity": "www.haltomcitytx.com"
+  },
+  {
+    "id": 20,
+    "url": "https://www.watauga.org",
+    "host": "www.watauga.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.watauga.org', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1000",
+    "canonicalEntity": "www.watauga.org"
+  },
+  {
+    "id": 21,
+    "url": "https://www.richlandhills.com",
+    "host": "www.richlandhills.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.richlandhills.com/",
+    "statusCode": 200,
+    "server": "",
+    "contentType": "text/html; charset=utf-8",
+    "title": "",
+    "canonicalEntity": "www.richlandhills.com"
+  },
+  {
+    "id": 22,
+    "url": "https://www.foresthilltx.org",
+    "host": "www.foresthilltx.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.foresthilltx.org/",
+    "statusCode": 200,
+    "server": "",
+    "contentType": "text/html; charset=utf-8",
+    "title": "",
+    "canonicalEntity": "www.foresthilltx.org"
+  },
+  {
+    "id": 23,
+    "url": "https://www.whitesettlement.org",
+    "host": "www.whitesettlement.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.whitesettlement.org/",
+    "statusCode": 200,
+    "server": "Vercel",
+    "contentType": "text/html; charset=utf-8",
+    "title": "White Settlement Community Resource",
+    "canonicalEntity": "White Settlement Community Resource"
+  },
+  {
+    "id": 24,
+    "url": "https://www.saginawtx.org",
+    "host": "www.saginawtx.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.saginawtx.org/",
+    "statusCode": 200,
+    "server": "cloudflare",
+    "contentType": "text/html; charset=UTF-8",
+    "title": "saginawtx",
+    "canonicalEntity": "saginawtx"
+  },
+  {
+    "id": 25,
+    "url": "https://www.azletx.gov",
+    "host": "www.azletx.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.azletx.gov', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b706f2e40>: Failed to resolve ",
+    "canonicalEntity": "www.azletx.gov"
+  },
+  {
+    "id": 26,
+    "url": "https://www.crowleytx.gov",
+    "host": "www.crowleytx.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.crowleytx.gov', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b7046a390>: Failed to resol",
+    "canonicalEntity": "www.crowleytx.gov"
+  },
+  {
+    "id": 27,
+    "url": "https://www.burlesontx.com",
+    "host": "www.burlesontx.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.burlesontx.com/",
+    "statusCode": 200,
+    "server": "",
+    "contentType": "text/html; charset=utf-8",
+    "title": "",
+    "canonicalEntity": "www.burlesontx.com"
+  },
+  {
+    "id": 28,
+    "url": "https://www.cityofsouthlake.com",
+    "host": "www.cityofsouthlake.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.cityofsouthlake.com/",
+    "statusCode": 200,
+    "server": "cloudflare",
+    "contentType": "text/html; charset=utf-8",
+    "title": "",
+    "canonicalEntity": "www.cityofsouthlake.com"
+  },
+  {
+    "id": 29,
+    "url": "https://www.weatherfordtx.gov",
+    "host": "www.weatherfordtx.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.weatherfordtx.gov/",
+    "statusCode": 200,
+    "server": "",
+    "contentType": "text/html; charset=utf-8",
+    "title": "",
+    "canonicalEntity": "www.weatherfordtx.gov"
+  },
+  {
+    "id": 30,
+    "url": "https://www.benbrook-tx.gov",
+    "host": "www.benbrook-tx.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.benbrook-tx.gov/",
+    "statusCode": 200,
+    "server": "",
+    "contentType": "text/html; charset=utf-8",
+    "title": "",
+    "canonicalEntity": "www.benbrook-tx.gov"
+  },
+  {
+    "id": 31,
+    "url": "https://www.trophyclub.org",
+    "host": "www.trophyclub.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.trophyclub.org/",
+    "statusCode": 200,
+    "server": "cloudflare",
+    "contentType": "text/html; charset=utf-8",
+    "title": "",
+    "canonicalEntity": "www.trophyclub.org"
+  },
+  {
+    "id": 32,
+    "url": "https://www.roanoketx.com",
+    "host": "www.roanoketx.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.roanoketx.com/",
+    "statusCode": 200,
+    "server": "",
+    "contentType": "text/html",
+    "title": "",
+    "canonicalEntity": "www.roanoketx.com"
+  },
+  {
+    "id": 33,
+    "url": "https://www.haslet.org",
+    "host": "www.haslet.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.haslet.org/",
+    "statusCode": 200,
+    "server": "cloudflare",
+    "contentType": "text/html; charset=utf-8",
+    "title": "",
+    "canonicalEntity": "www.haslet.org"
+  },
+  {
+    "id": 34,
+    "url": "https://www.lakeworth-tx.com",
+    "host": "www.lakeworth-tx.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.lakeworth-tx.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b70469dc0>: Failed to re",
+    "canonicalEntity": "www.lakeworth-tx.com"
+  },
+  {
+    "id": 35,
+    "url": "https://www.riveroakstx.com",
+    "host": "riveroakstx.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://riveroakstx.com/",
+    "statusCode": 200,
+    "server": "Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips PHP/5.4.16",
+    "contentType": "text/html; charset=UTF-8",
+    "title": "City of River Oaks, Texas",
+    "canonicalEntity": "City of River Oaks, Texas"
+  },
+  {
+    "id": 36,
+    "url": "https://www.sansomparktx.org",
+    "host": "www.sansomparktx.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.sansomparktx.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b7046a3f0>: Failed to re",
+    "canonicalEntity": "www.sansomparktx.org"
+  },
+  {
+    "id": 37,
+    "url": "https://www.westworthvillage.org",
+    "host": "www.westworthvillage.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.westworthvillage.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b7046be90>: Failed t",
+    "canonicalEntity": "www.westworthvillage.org"
+  },
+  {
+    "id": 38,
+    "url": "https://www.evermantx.net",
+    "host": "www.evermantx.net",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))",
+    "canonicalEntity": "www.evermantx.net"
+  },
+  {
+    "id": 39,
+    "url": "https://www.kennedale.org",
+    "host": "www.kennedale.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.kennedale.org/",
+    "statusCode": 200,
+    "server": "",
+    "contentType": "text/html",
+    "title": "",
+    "canonicalEntity": "www.kennedale.org"
+  },
+  {
+    "id": 40,
+    "url": "https://www.pantegotx.org",
+    "host": "www.pantegotx.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.pantegotx.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b70468e60>: Failed to resol",
+    "canonicalEntity": "www.pantegotx.org"
+  },
+  {
+    "id": 41,
+    "url": "https://www.dgardenstx.com",
+    "host": "www.dgardenstx.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.dgardenstx.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b704681d0>: Failed to reso",
+    "canonicalEntity": "www.dgardenstx.com"
+  },
+  {
+    "id": 42,
+    "url": "https://www.lakesidetx.org",
+    "host": "www.lakesidetx.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.lakesidetx.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b7046b380>: Failed to reso",
+    "canonicalEntity": "www.lakesidetx.org"
+  },
+  {
+    "id": 43,
+    "url": "https://www.westlaketx.org",
+    "host": "www.westlaketx.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.westlaketx.org', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x703b70469dc0>, 'Connection to ",
+    "canonicalEntity": "www.westlaketx.org"
+  },
+  {
+    "id": 44,
+    "url": "https://www.flower-mound.com",
+    "host": "www.flowermound.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.flowermound.gov/",
+    "statusCode": 200,
+    "server": "Microsoft-IIS/10.0",
+    "contentType": "text/html; charset=utf-8",
+    "title": "",
+    "canonicalEntity": "www.flowermound.gov"
+  },
+  {
+    "id": 45,
+    "url": "https://www.westoverhillstx.gov",
+    "host": "www.westoverhillstx.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.westoverhillstx.gov', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b7046a330>: Failed to",
+    "canonicalEntity": "www.westoverhillstx.gov"
+  },
+  {
+    "id": 46,
+    "url": "https://www.edgecliffvillage.org",
+    "host": "techbullion.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://techbullion.com/upcoming-new-launches-in-singapore-a-comprehensive-guide-for-buyers-and-investors/",
+    "statusCode": 200,
+    "server": "cloudflare",
+    "contentType": "text/html; charset=UTF-8",
+    "title": "",
+    "canonicalEntity": "techbullion.com"
+  },
+  {
+    "id": 47,
+    "url": "https://www.pelicanbay-tx.gov",
+    "host": "www.pelicanbay-tx.gov",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.pelicanbay-tx.gov', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b704692e0>: Failed to r",
+    "canonicalEntity": "www.pelicanbay-tx.gov"
+  },
+  {
+    "id": 48,
+    "url": "https://www.doubleoaktx.org",
+    "host": "www.doubleoaktx.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.doubleoaktx.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b7047a810>: Failed to res",
+    "canonicalEntity": "www.doubleoaktx.org"
+  },
+  {
+    "id": 49,
+    "url": "https://www.coppercanyon-tx.org",
+    "host": "www.coppercanyon-tx.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "needs-review",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.coppercanyon-tx.org/",
+    "statusCode": 403,
+    "server": "cloudflare",
+    "contentType": "text/html; charset=UTF-8",
+    "title": "Just a moment...",
+    "canonicalEntity": "Just a moment..."
+  },
+  {
+    "id": 50,
+    "url": "https://www.crosstimber-tx.org",
+    "host": "www.crosstimber-tx.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.crosstimber-tx.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b7046bb90>: Failed to ",
+    "canonicalEntity": "www.crosstimber-tx.org"
+  },
+  {
+    "id": 51,
+    "url": "https://www.dishtx.org",
+    "host": "www.dishtx.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.dishtx.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b70478e00>: Failed to resolve ",
+    "canonicalEntity": "www.dishtx.org"
+  },
+  {
+    "id": 52,
+    "url": "https://www.fwisd.org",
+    "host": "www.fwisd.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.fwisd.org/",
+    "statusCode": 200,
+    "server": "cloudflare",
+    "contentType": "text/html; charset=utf-8",
+    "title": "Home - Fort Worth Independent School District",
+    "canonicalEntity": "Home - Fort Worth Independent School District"
+  },
+  {
+    "id": 53,
+    "url": "https://www.aisd.net",
+    "host": "www.aisd.net",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.aisd.net/",
+    "statusCode": 200,
+    "server": "cloudflare",
+    "contentType": "text/html; charset=UTF-8",
+    "title": "Home &raquo; Arlington ISD",
+    "canonicalEntity": "Home &raquo; Arlington ISD"
+  },
+  {
+    "id": 54,
+    "url": "https://www.mansfieldisd.org",
+    "host": "www.mansfieldisd.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.mansfieldisd.org/",
+    "statusCode": 200,
+    "server": "cloudflare",
+    "contentType": "text/html; charset=utf-8",
+    "title": "Mansfield Independent School District",
+    "canonicalEntity": "Mansfield Independent School District"
+  },
+  {
+    "id": 55,
+    "url": "https://www.kellerisd.net",
+    "host": "www.kellerisd.net",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.kellerisd.net/",
+    "statusCode": 200,
+    "server": "cloudflare",
+    "contentType": "text/html; charset=utf-8",
+    "title": "Home - Keller Independent School District",
+    "canonicalEntity": "Home - Keller Independent School District"
+  },
+  {
+    "id": 56,
+    "url": "https://www.gpisd.org",
+    "host": "www.gpisd.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.gpisd.org/",
+    "statusCode": 200,
+    "server": "cloudflare",
+    "contentType": "text/html; charset=utf-8",
+    "title": "Grand Prairie Independent School District",
+    "canonicalEntity": "Grand Prairie Independent School District"
+  },
+  {
+    "id": 57,
+    "url": "https://www.heb-isd.net",
+    "host": "www.heb-isd.net",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.heb-isd.net', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b70468da0>: Failed to resolve",
+    "canonicalEntity": "www.heb-isd.net"
+  },
+  {
+    "id": 58,
+    "url": "https://www.birdvilleisd.net",
+    "host": "www.birdvilleisd.net",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.birdvilleisd.net', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protoc",
+    "canonicalEntity": "www.birdvilleisd.net"
+  },
+  {
+    "id": 59,
+    "url": "https://www.nwisd.org",
+    "host": "www.nwisd.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "needs-review",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.nwisd.org/",
+    "statusCode": 403,
+    "server": "openresty",
+    "contentType": "text/html",
+    "title": "403 Forbidden",
+    "canonicalEntity": "403 Forbidden"
+  },
+  {
+    "id": 60,
+    "url": "https://www.cfbisd.edu",
+    "host": "www.cfbisd.edu",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.cfbisd.edu/",
+    "statusCode": 200,
+    "server": "cloudflare",
+    "contentType": "text/html; charset=utf-8",
+    "title": "Home - Carrollton-Farmers Branch ISD",
+    "canonicalEntity": "Home - Carrollton-Farmers Branch ISD"
+  },
+  {
+    "id": 61,
+    "url": "https://www.whitesettlementisd.org",
+    "host": "www.whitesettlementisd.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.whitesettlementisd.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b7047a330>: Failed",
+    "canonicalEntity": "www.whitesettlementisd.org"
+  },
+  {
+    "id": 62,
+    "url": "https://www.evermanisd.org",
+    "host": "www.evermanisd.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.evermanisd.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b704693a0>: Failed to reso",
+    "canonicalEntity": "www.evermanisd.org"
+  },
+  {
+    "id": 63,
+    "url": "https://www.crowleyisd.net",
+    "host": "www.crowleyisd.net",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.crowleyisd.net', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: ",
+    "canonicalEntity": "www.crowleyisd.net"
+  },
+  {
+    "id": 64,
+    "url": "https://www.azleisd.net",
+    "host": "www.azleisd.net",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.azleisd.net/",
+    "statusCode": 200,
+    "server": "",
+    "contentType": "text/html; charset=utf-8",
+    "title": "Client Challenge",
+    "canonicalEntity": "Client Challenge"
+  },
+  {
+    "id": 65,
+    "url": "https://www.weatherfordisd.com",
+    "host": "www.weatherfordisd.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.weatherfordisd.com/",
+    "statusCode": 200,
+    "server": "cloudflare",
+    "contentType": "text/html;charset=utf-8",
+    "title": "Weatherford Independent School District",
+    "canonicalEntity": "Weatherford Independent School District"
+  },
+  {
+    "id": 66,
+    "url": "https://www.springtownisd.net",
+    "host": "www.springtownisd.net",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.springtownisd.net/",
+    "statusCode": 200,
+    "server": "",
+    "contentType": "text/html; charset=utf-8",
+    "title": "Client Challenge",
+    "canonicalEntity": "Client Challenge"
+  },
+  {
+    "id": 67,
+    "url": "https://www.godleyisd.net",
+    "host": "www.godleyisd.net",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.godleyisd.net/",
+    "statusCode": 200,
+    "server": "cloudflare",
+    "contentType": "text/html; charset=utf-8",
+    "title": "Home - Godley ISD",
+    "canonicalEntity": "Home - Godley ISD"
+  },
+  {
+    "id": 68,
+    "url": "https://www.albedoisd.org",
+    "host": "www.albedoisd.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.albedoisd.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b7047bb90>: Failed to resol",
+    "canonicalEntity": "www.albedoisd.org"
+  },
+  {
+    "id": 69,
+    "url": "https://www.mineralisd.net",
+    "host": "www.mineralisd.net",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.mineralisd.net', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b704a5310>: Failed to reso",
+    "canonicalEntity": "www.mineralisd.net"
+  },
+  {
+    "id": 70,
+    "url": "https://www.benbrookisd.net",
+    "host": "www.benbrookisd.net",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.benbrookisd.net', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b704a6120>: Failed to res",
+    "canonicalEntity": "www.benbrookisd.net"
+  },
+  {
+    "id": 71,
+    "url": "https://www.tccd.edu",
+    "host": "www.tccd.edu",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.tccd.edu/",
+    "statusCode": 200,
+    "server": "",
+    "contentType": "text/html; charset=utf-8",
+    "title": "Tarrant County College (TCC): Success Within Reach",
+    "canonicalEntity": "Tarrant County College (TCC): Success Within Reach"
+  },
+  {
+    "id": 72,
+    "url": "https://www.trwd.com",
+    "host": "www.trwd.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.trwd.com/",
+    "statusCode": 200,
+    "server": "nginx",
+    "contentType": "text/html; charset=UTF-8",
+    "title": "Tarrant Regional Water District",
+    "canonicalEntity": "Tarrant Regional Water District"
+  },
+  {
+    "id": 73,
+    "url": "https://www.jpshealthnet.org",
+    "host": "www.jpshealthnet.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.jpshealthnet.org/",
+    "statusCode": 200,
+    "server": "",
+    "contentType": "text/html; charset=UTF-8",
+    "title": "Home | JPS Health Network",
+    "canonicalEntity": "JPS Health Network"
+  },
+  {
+    "id": 74,
+    "url": "https://ridetrinitymetro.org",
+    "host": "ridetrinitymetro.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://ridetrinitymetro.org/",
+    "statusCode": 200,
+    "server": "",
+    "contentType": "text/html; charset=UTF-8",
+    "title": "",
+    "canonicalEntity": "Trinity Metro"
+  },
+  {
+    "id": 75,
+    "url": "https://www.tarrantesd1.org",
+    "host": "www.tarrantesd1.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.tarrantesd1.org/",
+    "statusCode": 200,
+    "server": "nginx",
+    "contentType": "text/html;charset=utf-8",
+    "title": "",
+    "canonicalEntity": "www.tarrantesd1.org"
+  },
+  {
+    "id": 76,
+    "url": "https://www.nctcog.org",
+    "host": "www.nctcog.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.nctcog.org/",
+    "statusCode": 200,
+    "server": "Microsoft-IIS/10.0",
+    "contentType": "text/html; charset=utf-8",
+    "title": "Home",
+    "canonicalEntity": "North Central Texas Council of Governments"
+  },
+  {
+    "id": 77,
+    "url": "https://www.dfwairport.com",
+    "host": "www.dfwairport.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.dfwairport.com/",
+    "statusCode": 200,
+    "server": "AmazonS3",
+    "contentType": "text/html",
+    "title": "Welcome to Dallas Fort Worth International Airport",
+    "canonicalEntity": "DFW Airport"
+  },
+  {
+    "id": 78,
+    "url": "https://www.trwd.com",
+    "host": "www.trwd.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "A",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.trwd.com/",
+    "statusCode": 200,
+    "server": "nginx",
+    "contentType": "text/html; charset=UTF-8",
+    "title": "Tarrant Regional Water District",
+    "canonicalEntity": "Tarrant Regional Water District"
+  },
+  {
+    "id": 79,
+    "url": "https://www.tarrantappraisal.com",
+    "host": "www.tarrantappraisal.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.tarrantappraisal.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b704a72c0>: Failed t",
+    "canonicalEntity": "www.tarrantappraisal.com"
+  },
+  {
+    "id": 80,
+    "url": "https://www.tarranttax.com",
+    "host": "www.tarranttax.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "validated",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": "https://www.tarranttax.com/",
+    "statusCode": 200,
+    "server": "",
+    "contentType": "text/html",
+    "title": "",
+    "canonicalEntity": "www.tarranttax.com"
+  },
+  {
+    "id": 81,
+    "url": "https://www.wmud.org",
+    "host": "www.wmud.org",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.wmud.org', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostna",
+    "canonicalEntity": "www.wmud.org"
+  },
+  {
+    "id": 82,
+    "url": "https://www.harrisridgemud.com",
+    "host": "www.harrisridgemud.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.harrisridgemud.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b704a76e0>: Failed to ",
+    "canonicalEntity": "www.harrisridgemud.com"
+  },
+  {
+    "id": 83,
+    "url": "https://www.northeastmud.com",
+    "host": "www.northeastmud.com",
+    "discoveredFrom": "fwtx-scraper",
+    "validationStatus": "error",
+    "tier": "B",
+    "accessType": [
+      "Docs",
+      "Scrape"
+    ],
+    "notes": "",
+    "finalUrl": null,
+    "statusCode": null,
+    "server": "",
+    "contentType": "",
+    "title": "",
+    "error": "HTTPSConnectionPool(host='www.northeastmud.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b704a73b0>: Failed to re",
+    "canonicalEntity": "www.northeastmud.com"
+  }
+]

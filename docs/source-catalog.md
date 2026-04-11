@@ -7,6 +7,17 @@ Validation standard:
 - DAO repos used as discovery maps only
 - secondary sources only when needed and clearly labeled
 
+## Current validation snapshot
+- DAO-discovered source count: **83**
+- initial automated validation complete: **83 / 83**
+- validated reachable sources: **45**
+- validated official but bot-blocked sources: **4**
+- needs manual review: **5**
+- network / timeout / access errors pending manual retry: **29**
+
+Machine-readable registry:
+- `data/raw/discovery_urls.validated.json`
+
 ## Source grading
 - **Tier A**: official government / institutional / direct API / direct portal
 - **Tier B**: official vendor-hosted system acting as system of record
