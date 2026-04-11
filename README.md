@@ -75,6 +75,7 @@ fort-worth-intelligence/
 │   │   ├── canonical_institutions.json     # 14 core canonical institutions
 │   │   └── source_layer_mappings.json      # Layer → institution crosswalk
 │   ├── legistar-meetings.json              # City council calendar (20 meetings)
+│   ├── legistar-agenda-items.json          # Agenda items from council meetings (429 items)
 │   ├── tad-parcels-fort-worth-SAMPLE.json  # TAD sample (~1%, ~2800 records)
 │   └── tad/                                # Full TAD certified data (283,802 parcels)
 │       └── PropertyData_R_2025(Certified).ZIP  # Download from tad.org
@@ -90,7 +91,8 @@ fort-worth-intelligence/
 │   ├── tad-parcel-data-ingestion.md        # TAD data layout + field docs
 │   └── relationship-scaffold.md
 └── scripts/
-    ├── extract_legistar.py                # City council agenda scraper
+    ├── extract_legistar.py                # City council calendar scraper (iCal enrich)
+    ├── extract_legistar_agenda.py         # Agenda item extractor (MeetingDetail parser)
     ├── extract_tad_parcels.py             # TAD certified data parser
     └── resolve_address.py                 # Census geocoder + TAD parcel join
 ```
@@ -156,22 +158,22 @@ Dedicated docs now exist for:
 ### 6. Live Intelligence Extractors
 High-value source extractors that produce machine-readable output:
 
-#### Legistar Agenda Extractor
-`scripts/extract_legistar.py` — Fort Worth City Council agenda / meeting scraper.
+#### Legistar Calendar + Agenda Items
+Two scripts — one for the calendar, one for agenda items.
 
-Fetches the Legistar calendar (Telerik RadGrid, HTML-encoded parameters) and enriches each meeting with iCal records. Produces `data/legistar-meetings.json` with:
-- body name, meeting date/time, location
-- iCal / agenda / minutes / video URLs
-- agenda and minutes availability flags
-- cancellation status
-- ISO-formatted start/end datetimes
+**Calendar:** `scripts/extract_legistar.py` — Fetches Legistar calendar (Telerik RadGrid) and enriches each meeting with iCal records. Produces `data/legistar-meetings.json` with 20 meetings.
 
 ```bash
-# Scrape calendar (first page = 20 most-recent meetings)
 python3 scripts/extract_legistar.py --max-pages 2 --enrich --min-delay 3
-
-# Output: data/legistar-meetings.json
 ```
+
+**Agenda items:** `scripts/extract_legistar_agenda.py` — Fetches `MeetingDetail.aspx` for each meeting and parses the agenda table into structured JSON. Produces `data/legistar-agenda-items.json` with 429 agenda items.
+
+```bash
+python3 scripts/extract_legistar_agenda.py --min-delay 4
+```
+
+**Per item:** file number (M&C, ZC, etc.), version, item number, type, title, council district (CD), status (Approved/Adopted/Continued), attachments, video link.
 
 #### TAD Certified Appraisal Data
 `scripts/extract_tad_parcels.py` — Tarrant Appraisal District certified residential data parser.
