@@ -1,15 +1,19 @@
 [
   {
     "layer": "parcel-appraisal-tax",
+    "slug": "parcel-appraisal-tax",
+    "description": "Parcel, appraisal, and tax lookup for Fort Worth / Tarrant County",
     "sources": [
       "tarrant-appraisal-district",
-      "tarrant-county-tax-assessor-collector",
+      "www-tarranttax-com",
       "fort-worth-gis",
-      "tarrant-public-search"
+      "official-record-search-quick-search-tarrant-county-texas-county-clerk"
     ]
   },
   {
     "layer": "gis-address-resolution",
+    "slug": "gis-address-resolution",
+    "description": "Address-centric GIS resolution across Fort Worth layers",
     "sources": [
       "fort-worth-gis",
       "city-of-fort-worth",
@@ -20,6 +24,8 @@
   },
   {
     "layer": "legistar-agendas-ordinances",
+    "slug": "legistar-agendas-ordinances",
+    "description": "City council and board agenda / ordinance change tracking",
     "sources": [
       "city-of-fort-worth-legislative-system",
       "city-of-fort-worth"
@@ -27,22 +33,26 @@
   },
   {
     "layer": "school-districts",
+    "slug": "school-districts",
+    "description": "School district governance and meeting tracking",
     "sources": [
-      "fort-worth-isd",
-      "arlington-isd",
-      "mansfield-isd",
-      "keller-isd",
-      "birdville-isd",
-      "heb-isd",
-      "tarrant-county-college-district"
+      "home-fort-worth-independent-school-district",
+      "home-raquo-arlington-isd",
+      "mansfield-independent-school-district",
+      "home-keller-independent-school-district",
+      "www-birdvilleisd-net",
+      "www-heb-isd-net",
+      "tarrant-county-college-tcc-success-within-reach"
     ]
   },
   {
     "layer": "utilities-special-districts",
+    "slug": "utilities-special-districts",
+    "description": "Utility districts, MUDs, water authorities, and ESDs",
     "sources": [
       "tarrant-regional-water-district",
-      "tarrant-esd-1",
-      "wmud",
+      "www-tarrantesd1-org",
+      "walnut-creek-wmud-official-site",
       "harris-ridge-mud",
       "northeast-tarrant-county-mud"
     ]
