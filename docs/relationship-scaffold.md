@@ -54,7 +54,8 @@ Starter relationship model for turning the Fort Worth source registry into a civ
 ## Suggested next implementation files
 - `data/model/relationships.json`
 - `data/model/entity-types.json`
-- `data/model/address-resolution-schema.json`
+- **`docs/address-resolution-schema.md`** — canonical schema for address → district pipeline (AVAILABLE)
+- `scripts/resolve_address_full.py` — orchestrates full pipeline
 
 ## Why this matters
 
