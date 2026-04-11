@@ -68,8 +68,16 @@ fort-worth-intelligence/
 ├── assets/
 │   └── fort-worth-intelligence.png
 ├── data/
-│   └── raw/
-│       └── discovery_urls.txt
+│   ├── raw/
+│   │   ├── discovery_urls.txt               # DAO-discovered leads (83 sources)
+│   │   ├── discovery_urls.validated.json   # All 83 validated + categorized
+│   │   ├── discovery_urls.normalized.json  # Cleaned, deduped
+│   │   ├── canonical_institutions.json     # 14 core canonical institutions
+│   │   └── source_layer_mappings.json      # Layer → institution crosswalk
+│   ├── legistar-meetings.json              # City council calendar (20 meetings)
+│   ├── tad-parcels-fort-worth-SAMPLE.json  # TAD sample (~1%, ~2800 records)
+│   └── tad/                                # Full TAD certified data (283,802 parcels)
+│       └── PropertyData_R_2025(Certified).ZIP  # Download from tad.org
 ├── docs/
 │   ├── source-catalog.md
 │   ├── capability-matrix.md
@@ -78,8 +86,13 @@ fort-worth-intelligence/
 │   ├── legistar-agenda-ordinance-layer.md
 │   ├── school-district-layer.md
 │   ├── utilities-special-district-layer.md
-│   └── research-narrative.md
+│   ├── address-resolution-gis-join.md      # GIS join + geocoding architecture
+│   ├── tad-parcel-data-ingestion.md        # TAD data layout + field docs
+│   └── relationship-scaffold.md
 └── scripts/
+    ├── extract_legistar.py                # City council agenda scraper
+    ├── extract_tad_parcels.py             # TAD certified data parser
+    └── resolve_address.py                 # Census geocoder + TAD parcel join
 ```
 
 ## What’s Included
@@ -160,6 +173,53 @@ python3 scripts/extract_legistar.py --max-pages 2 --enrich --min-delay 3
 # Output: data/legistar-meetings.json
 ```
 
+#### TAD Certified Appraisal Data
+`scripts/extract_tad_parcels.py` — Tarrant Appraisal District certified residential data parser.
+
+Downloads from `https://www.tad.org/content/data-download/` and parses the pipe-delimited certified export. Produces `data/tad-parcels-fort-worth.json` with 283,802 Fort Worth residential parcels.
+
+**Data per parcel:**
+```
+account_num, owner_name, owner_address, situs_address
+school_name, year_built, living_area, num_bedrooms/bathrooms
+total_value, appraised_value, land_value, improvement_value
+land_acres, gis_link, legal_desc, deed_date, arb_indicator
+```
+
+```bash
+# Download fresh data
+curl -L "https://www.tad.org/content/data-download/PropertyData_R_2025(Certified).ZIP" \
+  -o data/tad/PropertyData_R_2025(Certified).ZIP
+
+# Extract Fort Worth parcels
+python3 scripts/extract_tad_parcels.py
+
+# Or use the Python module directly:
+python3 scripts/extract_tad_parcels.py --city "FORT WORTH" --limit 100
+```
+
+**Stats:** 283,802 Fort Worth parcels | Median value $262,645 | P90 $452,011
+
+#### Address Resolver
+`scripts/resolve_address.py` — Census geocoder + TAD parcel join.
+
+Takes a Fort Worth address → returns appraisal record + geocoded lat/lon:
+- Uses Census Bureau TIGER/Line geocoder (free, no API key)
+- Joins to TAD parcel data by normalized situs address
+- Returns: lat/lon, owner, total/appraised value, school district, GIS link, legal desc
+
+```bash
+# Resolve any Fort Worth address
+python3 scripts/resolve_address.py "704 E Weatherford St"
+
+# With JSON output
+python3 scripts/resolve_address.py "313 N Harding St" --file output.json
+
+# Output:
+# Address: 704 E Weatherford St
+#   lat=32.759263, lon=-97.328255
+#   TAD: acct=1309 | DAILEY, TODD | $556,381 | FW ISD | built=1910 | gis=14437-29-32
+```
 
 The DAO source list extracted from `FWTX-DAO/fwtx-scraper` and preserved as a discovery input.
 
@@ -213,9 +273,14 @@ for a single Fort Worth address, you have something immediately useful for:
 - [x] Preserve DAO-discovered source inventory
 - [x] Normalize all 83 DAO sources into canonical institution records
 - [x] Run initial validation pass across all DAO-discovered sources
+- [x] Legistar city council agenda extractor (working, 20 meetings)
+- [x] TAD certified appraisal data extractor (283,802 Fort Worth parcels)
+- [x] Address resolver: Census geocoder + TAD parcel join
+- [x] GIS join architecture doc (GIS_Link → TAXPIN → ESRI shape file)
 - [ ] Validate every source manually against canonical official domains
-- [ ] Add API / portal / GIS / docs / scrape capability matrix
-- [ ] Add address-centric source resolution layer
+- [ ] Batch geocode all 283K Fort Worth addresses via Census (one-time setup)
+- [ ] Build council district join using Fort Worth GIS shapefile
+- [ ] Build TAD entity association file (per-entity taxable values)
 - [ ] Add district / parcel / school / tax relationship model
 - [ ] Add legislative / agenda / ordinance change-tracking targets
 - [ ] Add machine-readable JSON source registry
