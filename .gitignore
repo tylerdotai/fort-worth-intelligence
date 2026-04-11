@@ -1,0 +1,11 @@
+
+# TAD bulk data (re-download from https://www.tad.org/content/data-download/)
+data/tad/PropertyData_R_2025\(Certified\).ZIP
+data/tad-parcels-fort-worth.json
+data/tad/tad-parcels-fort-worth.json
+
+
+# TAD data — download from https://www.tad.org/content/data-download/
+data/tad/
+data/tad-parcels-fort-worth.json
+data/tad-parcels-sample.json
