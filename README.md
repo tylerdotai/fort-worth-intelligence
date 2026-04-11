@@ -50,6 +50,7 @@ This repo exists to map that whole surface in a way that is actually usable.
 It combines:
 - a **structured source catalog**
 - a **research narrative** explaining the landscape
+- a **capability matrix** for API / GIS / portal / docs / bulk / scrape-only classification
 - DAO-discovered discovery maps used as leads only
 - validation bias toward official and institutional sources
 
@@ -71,6 +72,7 @@ fort-worth-intelligence/
 │       └── discovery_urls.txt
 ├── docs/
 │   ├── source-catalog.md
+│   ├── capability-matrix.md
 │   └── research-narrative.md
 └── scripts/
 ```
@@ -111,7 +113,18 @@ A strategic narrative explaining:
 - what product and infrastructure opportunities this unlocks
 - what to build next if the goal is a serious Fort Worth intelligence stack
 
-### 3. Discovery Map Input
+### 3. Capability Matrix
+`docs/capability-matrix.md`
+
+A working matrix for how the Fort Worth source surface can actually be consumed:
+- API
+- GIS
+- portal
+- docs
+- bulk
+- scrape-only
+
+### 4. Discovery Map Input
 `data/raw/discovery_urls.txt`
 
 The DAO source list extracted from `FWTX-DAO/fwtx-scraper` and preserved as a discovery input.

@@ -10,13 +10,14 @@
       "Docs",
       "Scrape"
     ],
-    "notes": "Official source blocks automated access; retain as canonical official source.",
+    "notes": "Official source blocks automated access; retain as canonical official source. Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": "https://www.fortworthtexas.gov/",
     "statusCode": 403,
     "server": "",
     "contentType": "text/html",
     "title": "Access Denied",
-    "canonicalEntity": "City of Fort Worth"
+    "canonicalEntity": "City of Fort Worth",
+    "canonicalUrl": "https://www.fortworthtexas.gov/"
   },
   {
     "id": 2,
@@ -34,7 +35,8 @@
     "server": "Microsoft-IIS/10.0",
     "contentType": "text/html",
     "title": "Fort Worth GIS",
-    "canonicalEntity": "Fort Worth GIS"
+    "canonicalEntity": "Fort Worth GIS",
+    "canonicalUrl": "https://mapit.fortworthtexas.gov/"
   },
   {
     "id": 3,
@@ -54,7 +56,8 @@
     "server": "Microsoft-IIS/10.0",
     "contentType": "text/html; charset=utf-8",
     "title": "City of Fort Worth - Calendar",
-    "canonicalEntity": "City of Fort Worth Legislative System"
+    "canonicalEntity": "City of Fort Worth Legislative System",
+    "canonicalUrl": "https://fortworthgov.legistar.com/Calendar.aspx"
   },
   {
     "id": 4,
@@ -72,7 +75,8 @@
     "server": "Microsoft-IIS/10.0",
     "contentType": "text/html; charset=utf-8",
     "title": "Pay Tickets Online - Fort Worth, Texas, Fort Worth Municipal Court",
-    "canonicalEntity": "Pay Tickets Online - Fort Worth, Texas, Fort Worth Municipal Court"
+    "canonicalEntity": "Pay Tickets Online - Fort Worth, Texas, Fort Worth Municipal Court",
+    "canonicalUrl": "https://www.ncourt.com/x-press/x-onlinepayments.aspx?juris=35244751-5EC6-41B2-B4C6-2BD08CF14073"
   },
   {
     "id": 5,
@@ -91,7 +95,8 @@
     "server": "Apache",
     "contentType": "text/html;charset=utf-8",
     "title": "Tarrant County - Home",
-    "canonicalEntity": "Tarrant County"
+    "canonicalEntity": "Tarrant County",
+    "canonicalUrl": "https://www.tarrantcountytx.gov/en.html"
   },
   {
     "id": 6,
@@ -109,7 +114,8 @@
     "server": "openresty",
     "contentType": "text/html; charset=utf-8",
     "title": "Official Record Search - Quick Search - Tarrant County, Texas County Clerk",
-    "canonicalEntity": "Official Record Search - Quick Search - Tarrant County, Texas County Clerk"
+    "canonicalEntity": "Official Record Search - Quick Search - Tarrant County, Texas County Clerk",
+    "canonicalUrl": "https://tarrant.tx.publicsearch.us/"
   },
   {
     "id": 7,
@@ -127,7 +133,8 @@
     "server": "",
     "contentType": "text/html;charset=UTF-8",
     "title": "Welcome to Tarrant County",
-    "canonicalEntity": "Welcome to Tarrant County"
+    "canonicalEntity": "Welcome to Tarrant County",
+    "canonicalUrl": "https://countyfusion.tarrantcounty.com/"
   },
   {
     "id": 8,
@@ -146,7 +153,8 @@
     "server": "Microsoft-IIS/10.0",
     "contentType": "text/html",
     "title": "IIS Windows Server",
-    "canonicalEntity": "IIS Windows Server"
+    "canonicalEntity": "IIS Windows Server",
+    "canonicalUrl": "https://hscmsoa.tarrantcounty.com/"
   },
   {
     "id": 9,
@@ -159,32 +167,34 @@
       "Docs",
       "Scrape"
     ],
-    "notes": "Official source blocks automated access; retain as canonical official source.",
+    "notes": "Official source blocks automated access; retain as canonical official source. Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": "https://www.arlingtontx.gov/",
     "statusCode": 403,
     "server": "",
     "contentType": "text/html",
     "title": "Access Denied",
-    "canonicalEntity": "Access Denied"
+    "canonicalEntity": "Access Denied",
+    "canonicalUrl": "https://www.arlingtontx.gov/"
   },
   {
     "id": 10,
     "url": "https://www.gptx.org",
     "host": "www.gptx.org",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "needs-review",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": "https://www.gptx.org/",
     "statusCode": 403,
     "server": "",
     "contentType": "text/html",
     "title": "Access Denied",
-    "canonicalEntity": "Access Denied"
+    "canonicalEntity": "Access Denied",
+    "canonicalUrl": "https://www.gptx.org/"
   },
   {
     "id": 11,
@@ -203,7 +213,8 @@
     "server": "Microsoft-IIS/10.0",
     "contentType": "text/html; charset=utf-8",
     "title": "",
-    "canonicalEntity": "www.mansfieldtexas.gov"
+    "canonicalEntity": "www.mansfieldtexas.gov",
+    "canonicalUrl": "https://www.mansfieldtexas.gov/"
   },
   {
     "id": 12,
@@ -222,7 +233,8 @@
     "server": "",
     "contentType": "text/html; charset=utf-8",
     "title": "",
-    "canonicalEntity": "www.grapevinetexas.gov"
+    "canonicalEntity": "www.grapevinetexas.gov",
+    "canonicalUrl": "https://www.grapevinetexas.gov/"
   },
   {
     "id": 13,
@@ -235,33 +247,35 @@
       "Docs",
       "Scrape"
     ],
-    "notes": "Official source blocks automated access; retain as canonical official source.",
+    "notes": "Official source blocks automated access; retain as canonical official source. Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": "https://www.eulesstx.gov/",
     "statusCode": 403,
     "server": "AkamaiGHost",
     "contentType": "text/html",
     "title": "Access Denied",
-    "canonicalEntity": "Access Denied"
+    "canonicalEntity": "Access Denied",
+    "canonicalUrl": "https://www.eulesstx.gov/"
   },
   {
     "id": 14,
     "url": "https://www.ci.bedford.tx.us",
     "host": "www.ci.bedford.tx.us",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
+    "validationStatus": "validated-official-blocked",
     "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.ci.bedford.tx.us', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b70468f80>: Failed to re",
-    "canonicalEntity": "www.ci.bedford.tx.us"
+    "canonicalEntity": "www.ci.bedford.tx.us",
+    "canonicalUrl": "https://www.ci.bedford.tx.us"
   },
   {
     "id": 15,
@@ -274,51 +288,54 @@
       "Docs",
       "Scrape"
     ],
-    "notes": "Official source blocks automated access; retain as canonical official source.",
+    "notes": "Official source blocks automated access; retain as canonical official source. Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": "https://www.hursttx.gov/",
     "statusCode": 403,
     "server": "AkamaiNetStorage",
     "contentType": "",
     "title": "",
-    "canonicalEntity": "www.hursttx.gov"
+    "canonicalEntity": "www.hursttx.gov",
+    "canonicalUrl": "https://www.hursttx.gov/"
   },
   {
     "id": 16,
     "url": "https://www.colleyville.com",
     "host": "www.colleyville.com",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "needs-review",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": "https://www.colleyville.com/",
     "statusCode": 403,
     "server": "AkamaiGHost",
     "contentType": "text/html",
     "title": "Access Denied",
-    "canonicalEntity": "Access Denied"
+    "canonicalEntity": "Access Denied",
+    "canonicalUrl": "https://www.colleyville.com/"
   },
   {
     "id": 17,
     "url": "https://www.cityofkeller.com",
     "host": "www.cityofkeller.com",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "needs-review",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": "https://www.cityofkeller.com/",
     "statusCode": 403,
     "server": "AkamaiNetStorage",
     "contentType": "",
     "title": "",
-    "canonicalEntity": "www.cityofkeller.com"
+    "canonicalEntity": "www.cityofkeller.com",
+    "canonicalUrl": "https://www.cityofkeller.com/"
   },
   {
     "id": 18,
@@ -337,7 +354,8 @@
     "server": "cloudflare",
     "contentType": "text/html; charset=utf-8",
     "title": "",
-    "canonicalEntity": "www.nrhtx.com"
+    "canonicalEntity": "www.nrhtx.com",
+    "canonicalUrl": "https://www.nrhtx.com/"
   },
   {
     "id": 19,
@@ -356,27 +374,29 @@
     "server": "",
     "contentType": "text/html; charset=utf-8",
     "title": "",
-    "canonicalEntity": "www.haltomcitytx.com"
+    "canonicalEntity": "www.haltomcitytx.com",
+    "canonicalUrl": "https://www.haltomcitytx.com/"
   },
   {
     "id": 20,
     "url": "https://www.watauga.org",
     "host": "www.watauga.org",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.watauga.org', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1000",
-    "canonicalEntity": "www.watauga.org"
+    "canonicalEntity": "www.watauga.org",
+    "canonicalUrl": "https://www.watauga.org"
   },
   {
     "id": 21,
@@ -395,7 +415,8 @@
     "server": "",
     "contentType": "text/html; charset=utf-8",
     "title": "",
-    "canonicalEntity": "www.richlandhills.com"
+    "canonicalEntity": "www.richlandhills.com",
+    "canonicalUrl": "https://www.richlandhills.com/"
   },
   {
     "id": 22,
@@ -414,7 +435,8 @@
     "server": "",
     "contentType": "text/html; charset=utf-8",
     "title": "",
-    "canonicalEntity": "www.foresthilltx.org"
+    "canonicalEntity": "www.foresthilltx.org",
+    "canonicalUrl": "https://www.foresthilltx.org/"
   },
   {
     "id": 23,
@@ -433,7 +455,8 @@
     "server": "Vercel",
     "contentType": "text/html; charset=utf-8",
     "title": "White Settlement Community Resource",
-    "canonicalEntity": "White Settlement Community Resource"
+    "canonicalEntity": "White Settlement Community Resource",
+    "canonicalUrl": "https://www.whitesettlement.org/"
   },
   {
     "id": 24,
@@ -452,47 +475,50 @@
     "server": "cloudflare",
     "contentType": "text/html; charset=UTF-8",
     "title": "saginawtx",
-    "canonicalEntity": "saginawtx"
+    "canonicalEntity": "saginawtx",
+    "canonicalUrl": "https://www.saginawtx.org/"
   },
   {
     "id": 25,
     "url": "https://www.azletx.gov",
     "host": "www.azletx.gov",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
+    "validationStatus": "validated-official-blocked",
     "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.azletx.gov', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b706f2e40>: Failed to resolve ",
-    "canonicalEntity": "www.azletx.gov"
+    "canonicalEntity": "www.azletx.gov",
+    "canonicalUrl": "https://www.azletx.gov"
   },
   {
     "id": 26,
     "url": "https://www.crowleytx.gov",
     "host": "www.crowleytx.gov",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
+    "validationStatus": "validated-official-blocked",
     "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.crowleytx.gov', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b7046a390>: Failed to resol",
-    "canonicalEntity": "www.crowleytx.gov"
+    "canonicalEntity": "www.crowleytx.gov",
+    "canonicalUrl": "https://www.crowleytx.gov"
   },
   {
     "id": 27,
@@ -511,7 +537,8 @@
     "server": "",
     "contentType": "text/html; charset=utf-8",
     "title": "",
-    "canonicalEntity": "www.burlesontx.com"
+    "canonicalEntity": "www.burlesontx.com",
+    "canonicalUrl": "https://www.burlesontx.com/"
   },
   {
     "id": 28,
@@ -530,7 +557,8 @@
     "server": "cloudflare",
     "contentType": "text/html; charset=utf-8",
     "title": "",
-    "canonicalEntity": "www.cityofsouthlake.com"
+    "canonicalEntity": "www.cityofsouthlake.com",
+    "canonicalUrl": "https://www.cityofsouthlake.com/"
   },
   {
     "id": 29,
@@ -549,7 +577,8 @@
     "server": "",
     "contentType": "text/html; charset=utf-8",
     "title": "",
-    "canonicalEntity": "www.weatherfordtx.gov"
+    "canonicalEntity": "www.weatherfordtx.gov",
+    "canonicalUrl": "https://www.weatherfordtx.gov/"
   },
   {
     "id": 30,
@@ -568,7 +597,8 @@
     "server": "",
     "contentType": "text/html; charset=utf-8",
     "title": "",
-    "canonicalEntity": "www.benbrook-tx.gov"
+    "canonicalEntity": "www.benbrook-tx.gov",
+    "canonicalUrl": "https://www.benbrook-tx.gov/"
   },
   {
     "id": 31,
@@ -587,7 +617,8 @@
     "server": "cloudflare",
     "contentType": "text/html; charset=utf-8",
     "title": "",
-    "canonicalEntity": "www.trophyclub.org"
+    "canonicalEntity": "www.trophyclub.org",
+    "canonicalUrl": "https://www.trophyclub.org/"
   },
   {
     "id": 32,
@@ -606,7 +637,8 @@
     "server": "",
     "contentType": "text/html",
     "title": "",
-    "canonicalEntity": "www.roanoketx.com"
+    "canonicalEntity": "www.roanoketx.com",
+    "canonicalUrl": "https://www.roanoketx.com/"
   },
   {
     "id": 33,
@@ -625,27 +657,29 @@
     "server": "cloudflare",
     "contentType": "text/html; charset=utf-8",
     "title": "",
-    "canonicalEntity": "www.haslet.org"
+    "canonicalEntity": "www.haslet.org",
+    "canonicalUrl": "https://www.haslet.org/"
   },
   {
     "id": 34,
     "url": "https://www.lakeworth-tx.com",
     "host": "www.lakeworth-tx.com",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.lakeworth-tx.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b70469dc0>: Failed to re",
-    "canonicalEntity": "www.lakeworth-tx.com"
+    "canonicalEntity": "www.lakeworth-tx.com",
+    "canonicalUrl": "https://www.lakeworth-tx.com"
   },
   {
     "id": 35,
@@ -664,67 +698,71 @@
     "server": "Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips PHP/5.4.16",
     "contentType": "text/html; charset=UTF-8",
     "title": "City of River Oaks, Texas",
-    "canonicalEntity": "City of River Oaks, Texas"
+    "canonicalEntity": "City of River Oaks, Texas",
+    "canonicalUrl": "https://riveroakstx.com/"
   },
   {
     "id": 36,
     "url": "https://www.sansomparktx.org",
     "host": "www.sansomparktx.org",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.sansomparktx.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b7046a3f0>: Failed to re",
-    "canonicalEntity": "www.sansomparktx.org"
+    "canonicalEntity": "www.sansomparktx.org",
+    "canonicalUrl": "https://www.sansomparktx.org"
   },
   {
     "id": 37,
     "url": "https://www.westworthvillage.org",
     "host": "www.westworthvillage.org",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.westworthvillage.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b7046be90>: Failed t",
-    "canonicalEntity": "www.westworthvillage.org"
+    "canonicalEntity": "www.westworthvillage.org",
+    "canonicalUrl": "https://www.westworthvillage.org"
   },
   {
     "id": 38,
     "url": "https://www.evermantx.net",
     "host": "www.evermantx.net",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))",
-    "canonicalEntity": "www.evermantx.net"
+    "canonicalEntity": "www.evermantx.net",
+    "canonicalUrl": "https://www.evermantx.net"
   },
   {
     "id": 39,
@@ -743,87 +781,92 @@
     "server": "",
     "contentType": "text/html",
     "title": "",
-    "canonicalEntity": "www.kennedale.org"
+    "canonicalEntity": "www.kennedale.org",
+    "canonicalUrl": "https://www.kennedale.org/"
   },
   {
     "id": 40,
     "url": "https://www.pantegotx.org",
     "host": "www.pantegotx.org",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.pantegotx.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b70468e60>: Failed to resol",
-    "canonicalEntity": "www.pantegotx.org"
+    "canonicalEntity": "www.pantegotx.org",
+    "canonicalUrl": "https://www.pantegotx.org"
   },
   {
     "id": 41,
     "url": "https://www.dgardenstx.com",
     "host": "www.dgardenstx.com",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.dgardenstx.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b704681d0>: Failed to reso",
-    "canonicalEntity": "www.dgardenstx.com"
+    "canonicalEntity": "www.dgardenstx.com",
+    "canonicalUrl": "https://www.dgardenstx.com"
   },
   {
     "id": 42,
     "url": "https://www.lakesidetx.org",
     "host": "www.lakesidetx.org",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.lakesidetx.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b7046b380>: Failed to reso",
-    "canonicalEntity": "www.lakesidetx.org"
+    "canonicalEntity": "www.lakesidetx.org",
+    "canonicalUrl": "https://www.lakesidetx.org"
   },
   {
     "id": 43,
     "url": "https://www.westlaketx.org",
     "host": "www.westlaketx.org",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.westlaketx.org', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x703b70469dc0>, 'Connection to ",
-    "canonicalEntity": "www.westlaketx.org"
+    "canonicalEntity": "www.westlaketx.org",
+    "canonicalUrl": "https://www.westlaketx.org"
   },
   {
     "id": 44,
@@ -842,27 +885,29 @@
     "server": "Microsoft-IIS/10.0",
     "contentType": "text/html; charset=utf-8",
     "title": "",
-    "canonicalEntity": "www.flowermound.gov"
+    "canonicalEntity": "www.flowermound.gov",
+    "canonicalUrl": "https://www.flowermound.gov/"
   },
   {
     "id": 45,
     "url": "https://www.westoverhillstx.gov",
     "host": "www.westoverhillstx.gov",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
+    "validationStatus": "validated-official-blocked",
     "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.westoverhillstx.gov', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b7046a330>: Failed to",
-    "canonicalEntity": "www.westoverhillstx.gov"
+    "canonicalEntity": "www.westoverhillstx.gov",
+    "canonicalUrl": "https://www.westoverhillstx.gov"
   },
   {
     "id": 46,
@@ -881,106 +926,112 @@
     "server": "cloudflare",
     "contentType": "text/html; charset=UTF-8",
     "title": "",
-    "canonicalEntity": "techbullion.com"
+    "canonicalEntity": "techbullion.com",
+    "canonicalUrl": "https://techbullion.com/upcoming-new-launches-in-singapore-a-comprehensive-guide-for-buyers-and-investors/"
   },
   {
     "id": 47,
     "url": "https://www.pelicanbay-tx.gov",
     "host": "www.pelicanbay-tx.gov",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
+    "validationStatus": "validated-official-blocked",
     "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.pelicanbay-tx.gov', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b704692e0>: Failed to r",
-    "canonicalEntity": "www.pelicanbay-tx.gov"
+    "canonicalEntity": "www.pelicanbay-tx.gov",
+    "canonicalUrl": "https://www.pelicanbay-tx.gov"
   },
   {
     "id": 48,
     "url": "https://www.doubleoaktx.org",
     "host": "www.doubleoaktx.org",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.doubleoaktx.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b7047a810>: Failed to res",
-    "canonicalEntity": "www.doubleoaktx.org"
+    "canonicalEntity": "www.doubleoaktx.org",
+    "canonicalUrl": "https://www.doubleoaktx.org"
   },
   {
     "id": 49,
     "url": "https://www.coppercanyon-tx.org",
     "host": "www.coppercanyon-tx.org",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "needs-review",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": "https://www.coppercanyon-tx.org/",
     "statusCode": 403,
     "server": "cloudflare",
     "contentType": "text/html; charset=UTF-8",
     "title": "Just a moment...",
-    "canonicalEntity": "Just a moment..."
+    "canonicalEntity": "Just a moment...",
+    "canonicalUrl": "https://www.coppercanyon-tx.org/"
   },
   {
     "id": 50,
     "url": "https://www.crosstimber-tx.org",
     "host": "www.crosstimber-tx.org",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.crosstimber-tx.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b7046bb90>: Failed to ",
-    "canonicalEntity": "www.crosstimber-tx.org"
+    "canonicalEntity": "www.crosstimber-tx.org",
+    "canonicalUrl": "https://www.crosstimber-tx.org"
   },
   {
     "id": 51,
     "url": "https://www.dishtx.org",
     "host": "www.dishtx.org",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.dishtx.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b70478e00>: Failed to resolve ",
-    "canonicalEntity": "www.dishtx.org"
+    "canonicalEntity": "www.dishtx.org",
+    "canonicalUrl": "https://www.dishtx.org"
   },
   {
     "id": 52,
@@ -999,7 +1050,8 @@
     "server": "cloudflare",
     "contentType": "text/html; charset=utf-8",
     "title": "Home - Fort Worth Independent School District",
-    "canonicalEntity": "Home - Fort Worth Independent School District"
+    "canonicalEntity": "Home - Fort Worth Independent School District",
+    "canonicalUrl": "https://www.fwisd.org/"
   },
   {
     "id": 53,
@@ -1018,7 +1070,8 @@
     "server": "cloudflare",
     "contentType": "text/html; charset=UTF-8",
     "title": "Home &raquo; Arlington ISD",
-    "canonicalEntity": "Home &raquo; Arlington ISD"
+    "canonicalEntity": "Home &raquo; Arlington ISD",
+    "canonicalUrl": "https://www.aisd.net/"
   },
   {
     "id": 54,
@@ -1037,7 +1090,8 @@
     "server": "cloudflare",
     "contentType": "text/html; charset=utf-8",
     "title": "Mansfield Independent School District",
-    "canonicalEntity": "Mansfield Independent School District"
+    "canonicalEntity": "Mansfield Independent School District",
+    "canonicalUrl": "https://www.mansfieldisd.org/"
   },
   {
     "id": 55,
@@ -1056,7 +1110,8 @@
     "server": "cloudflare",
     "contentType": "text/html; charset=utf-8",
     "title": "Home - Keller Independent School District",
-    "canonicalEntity": "Home - Keller Independent School District"
+    "canonicalEntity": "Home - Keller Independent School District",
+    "canonicalUrl": "https://www.kellerisd.net/"
   },
   {
     "id": 56,
@@ -1075,66 +1130,70 @@
     "server": "cloudflare",
     "contentType": "text/html; charset=utf-8",
     "title": "Grand Prairie Independent School District",
-    "canonicalEntity": "Grand Prairie Independent School District"
+    "canonicalEntity": "Grand Prairie Independent School District",
+    "canonicalUrl": "https://www.gpisd.org/"
   },
   {
     "id": 57,
     "url": "https://www.heb-isd.net",
     "host": "www.heb-isd.net",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.heb-isd.net', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b70468da0>: Failed to resolve",
-    "canonicalEntity": "www.heb-isd.net"
+    "canonicalEntity": "www.heb-isd.net",
+    "canonicalUrl": "https://www.heb-isd.net"
   },
   {
     "id": 58,
     "url": "https://www.birdvilleisd.net",
     "host": "www.birdvilleisd.net",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.birdvilleisd.net', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protoc",
-    "canonicalEntity": "www.birdvilleisd.net"
+    "canonicalEntity": "www.birdvilleisd.net",
+    "canonicalUrl": "https://www.birdvilleisd.net"
   },
   {
     "id": 59,
     "url": "https://www.nwisd.org",
     "host": "www.nwisd.org",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "needs-review",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": "https://www.nwisd.org/",
     "statusCode": 403,
     "server": "openresty",
     "contentType": "text/html",
     "title": "403 Forbidden",
-    "canonicalEntity": "403 Forbidden"
+    "canonicalEntity": "403 Forbidden",
+    "canonicalUrl": "https://www.nwisd.org/"
   },
   {
     "id": 60,
@@ -1153,67 +1212,71 @@
     "server": "cloudflare",
     "contentType": "text/html; charset=utf-8",
     "title": "Home - Carrollton-Farmers Branch ISD",
-    "canonicalEntity": "Home - Carrollton-Farmers Branch ISD"
+    "canonicalEntity": "Home - Carrollton-Farmers Branch ISD",
+    "canonicalUrl": "https://www.cfbisd.edu/"
   },
   {
     "id": 61,
     "url": "https://www.whitesettlementisd.org",
     "host": "www.whitesettlementisd.org",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.whitesettlementisd.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b7047a330>: Failed",
-    "canonicalEntity": "www.whitesettlementisd.org"
+    "canonicalEntity": "www.whitesettlementisd.org",
+    "canonicalUrl": "https://www.whitesettlementisd.org"
   },
   {
     "id": 62,
     "url": "https://www.evermanisd.org",
     "host": "www.evermanisd.org",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.evermanisd.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b704693a0>: Failed to reso",
-    "canonicalEntity": "www.evermanisd.org"
+    "canonicalEntity": "www.evermanisd.org",
+    "canonicalUrl": "https://www.evermanisd.org"
   },
   {
     "id": 63,
     "url": "https://www.crowleyisd.net",
     "host": "www.crowleyisd.net",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.crowleyisd.net', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: ",
-    "canonicalEntity": "www.crowleyisd.net"
+    "canonicalEntity": "www.crowleyisd.net",
+    "canonicalUrl": "https://www.crowleyisd.net"
   },
   {
     "id": 64,
@@ -1232,7 +1295,8 @@
     "server": "",
     "contentType": "text/html; charset=utf-8",
     "title": "Client Challenge",
-    "canonicalEntity": "Client Challenge"
+    "canonicalEntity": "Client Challenge",
+    "canonicalUrl": "https://www.azleisd.net/"
   },
   {
     "id": 65,
@@ -1251,7 +1315,8 @@
     "server": "cloudflare",
     "contentType": "text/html;charset=utf-8",
     "title": "Weatherford Independent School District",
-    "canonicalEntity": "Weatherford Independent School District"
+    "canonicalEntity": "Weatherford Independent School District",
+    "canonicalUrl": "https://www.weatherfordisd.com/"
   },
   {
     "id": 66,
@@ -1270,7 +1335,8 @@
     "server": "",
     "contentType": "text/html; charset=utf-8",
     "title": "Client Challenge",
-    "canonicalEntity": "Client Challenge"
+    "canonicalEntity": "Client Challenge",
+    "canonicalUrl": "https://www.springtownisd.net/"
   },
   {
     "id": 67,
@@ -1289,67 +1355,71 @@
     "server": "cloudflare",
     "contentType": "text/html; charset=utf-8",
     "title": "Home - Godley ISD",
-    "canonicalEntity": "Home - Godley ISD"
+    "canonicalEntity": "Home - Godley ISD",
+    "canonicalUrl": "https://www.godleyisd.net/"
   },
   {
     "id": 68,
     "url": "https://www.albedoisd.org",
     "host": "www.albedoisd.org",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "DAO discovery URL appears to contain a typo; canonical official domain is aledoisd.org. Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.albedoisd.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b7047bb90>: Failed to resol",
-    "canonicalEntity": "www.albedoisd.org"
+    "canonicalEntity": "Aledo Independent School District",
+    "canonicalUrl": "https://www.aledoisd.org"
   },
   {
     "id": 69,
     "url": "https://www.mineralisd.net",
     "host": "www.mineralisd.net",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.mineralisd.net', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b704a5310>: Failed to reso",
-    "canonicalEntity": "www.mineralisd.net"
+    "canonicalEntity": "www.mineralisd.net",
+    "canonicalUrl": "https://www.mineralisd.net"
   },
   {
     "id": 70,
     "url": "https://www.benbrookisd.net",
     "host": "www.benbrookisd.net",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.benbrookisd.net', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b704a6120>: Failed to res",
-    "canonicalEntity": "www.benbrookisd.net"
+    "canonicalEntity": "www.benbrookisd.net",
+    "canonicalUrl": "https://www.benbrookisd.net"
   },
   {
     "id": 71,
@@ -1368,7 +1438,8 @@
     "server": "",
     "contentType": "text/html; charset=utf-8",
     "title": "Tarrant County College (TCC): Success Within Reach",
-    "canonicalEntity": "Tarrant County College (TCC): Success Within Reach"
+    "canonicalEntity": "Tarrant County College (TCC): Success Within Reach",
+    "canonicalUrl": "https://www.tccd.edu/"
   },
   {
     "id": 72,
@@ -1387,7 +1458,8 @@
     "server": "nginx",
     "contentType": "text/html; charset=UTF-8",
     "title": "Tarrant Regional Water District",
-    "canonicalEntity": "Tarrant Regional Water District"
+    "canonicalEntity": "Tarrant Regional Water District",
+    "canonicalUrl": "https://www.trwd.com/"
   },
   {
     "id": 73,
@@ -1406,7 +1478,8 @@
     "server": "",
     "contentType": "text/html; charset=UTF-8",
     "title": "Home | JPS Health Network",
-    "canonicalEntity": "JPS Health Network"
+    "canonicalEntity": "JPS Health Network",
+    "canonicalUrl": "https://www.jpshealthnet.org/"
   },
   {
     "id": 74,
@@ -1425,7 +1498,8 @@
     "server": "",
     "contentType": "text/html; charset=UTF-8",
     "title": "",
-    "canonicalEntity": "Trinity Metro"
+    "canonicalEntity": "Trinity Metro",
+    "canonicalUrl": "https://ridetrinitymetro.org/"
   },
   {
     "id": 75,
@@ -1444,7 +1518,8 @@
     "server": "nginx",
     "contentType": "text/html;charset=utf-8",
     "title": "",
-    "canonicalEntity": "www.tarrantesd1.org"
+    "canonicalEntity": "www.tarrantesd1.org",
+    "canonicalUrl": "https://www.tarrantesd1.org/"
   },
   {
     "id": 76,
@@ -1463,7 +1538,8 @@
     "server": "Microsoft-IIS/10.0",
     "contentType": "text/html; charset=utf-8",
     "title": "Home",
-    "canonicalEntity": "North Central Texas Council of Governments"
+    "canonicalEntity": "North Central Texas Council of Governments",
+    "canonicalUrl": "https://www.nctcog.org/"
   },
   {
     "id": 77,
@@ -1482,7 +1558,8 @@
     "server": "AmazonS3",
     "contentType": "text/html",
     "title": "Welcome to Dallas Fort Worth International Airport",
-    "canonicalEntity": "DFW Airport"
+    "canonicalEntity": "DFW Airport",
+    "canonicalUrl": "https://www.dfwairport.com/"
   },
   {
     "id": 78,
@@ -1501,27 +1578,29 @@
     "server": "nginx",
     "contentType": "text/html; charset=UTF-8",
     "title": "Tarrant Regional Water District",
-    "canonicalEntity": "Tarrant Regional Water District"
+    "canonicalEntity": "Tarrant Regional Water District",
+    "canonicalUrl": "https://www.trwd.com/"
   },
   {
     "id": 79,
     "url": "https://www.tarrantappraisal.com",
     "host": "www.tarrantappraisal.com",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.tarrantappraisal.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b704a72c0>: Failed t",
-    "canonicalEntity": "www.tarrantappraisal.com"
+    "canonicalEntity": "Tarrant Appraisal District",
+    "canonicalUrl": "https://www.tad.org"
   },
   {
     "id": 80,
@@ -1540,66 +1619,70 @@
     "server": "",
     "contentType": "text/html",
     "title": "",
-    "canonicalEntity": "www.tarranttax.com"
+    "canonicalEntity": "www.tarranttax.com",
+    "canonicalUrl": "https://www.tarranttax.com/"
   },
   {
     "id": 81,
     "url": "https://www.wmud.org",
     "host": "www.wmud.org",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.wmud.org', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostna",
-    "canonicalEntity": "www.wmud.org"
+    "canonicalEntity": "Walnut Creek / WMUD official site",
+    "canonicalUrl": "https://www.wmud.org"
   },
   {
     "id": 82,
     "url": "https://www.harrisridgemud.com",
     "host": "www.harrisridgemud.com",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.harrisridgemud.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b704a76e0>: Failed to ",
-    "canonicalEntity": "www.harrisridgemud.com"
+    "canonicalEntity": "Harris Ridge MUD",
+    "canonicalUrl": "https://www.harrisridgemud.com"
   },
   {
     "id": 83,
     "url": "https://www.northeastmud.com",
     "host": "www.northeastmud.com",
     "discoveredFrom": "fwtx-scraper",
-    "validationStatus": "error",
-    "tier": "B",
+    "validationStatus": "validated-official-blocked",
+    "tier": "A",
     "accessType": [
       "Docs",
       "Scrape"
     ],
-    "notes": "",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky.",
     "finalUrl": null,
     "statusCode": null,
     "server": "",
     "contentType": "",
     "title": "",
     "error": "HTTPSConnectionPool(host='www.northeastmud.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x703b704a73b0>: Failed to re",
-    "canonicalEntity": "www.northeastmud.com"
+    "canonicalEntity": "Northeast Tarrant County MUD",
+    "canonicalUrl": "https://www.northeastmud.com"
   }
 ]
