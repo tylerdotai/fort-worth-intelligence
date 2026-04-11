@@ -151,6 +151,7 @@ Dedicated docs now exist for:
 - Legistar / agendas / ordinances
 - school districts
 - utilities / special districts
+- `docs/monitoring-signals.md` — change-frequency matrix for all layers (polling intervals, alert triggers, output schema)
 
 ### 5. Discovery Map Input
 `data/raw/discovery_urls.txt`
@@ -224,6 +225,29 @@ python3 scripts/resolve_address.py "313 N Harding St" --file output.json
 ```
 
 The DAO source list extracted from `FWTX-DAO/fwtx-scraper` and preserved as a discovery input.
+
+#### Fort Worth Development Permits
+`scripts/extract_fw_permits.py` — ArcGIS Hub API client for City of Fort Worth Open Data permits.
+
+Uses the public `CFW_Open_Data_Development_Permits_View` feature service (no auth required).
+
+```bash
+# Last 7 days of permits (default — 1,200+ records)
+python3 scripts/extract_fw_permits.py --days 7 --min-delay 2
+
+# Issued permits from last 30 days
+python3 scripts/extract_fw_permits.py --status Issued --days 30
+
+# By permit type
+python3 scripts/extract_fw_permits.py --type Building --days 7
+
+# Search by address
+python3 scripts/extract_fw_permits.py --address "E Weatherford"
+```
+
+**Data per permit:** permit\_no, type, subtype, address, owner, file\_date, current\_status, job\_value, work\_description, coordinates.
+
+Stats: ~1,258 permits/week from Fort Worth Development Services permit center.
 
 Important: this list is treated as **lead generation**, not truth.
 
