@@ -1,0 +1,50 @@
+[
+  {
+    "layer": "parcel-appraisal-tax",
+    "sources": [
+      "tarrant-appraisal-district",
+      "tarrant-county-tax-assessor-collector",
+      "fort-worth-gis",
+      "tarrant-public-search"
+    ]
+  },
+  {
+    "layer": "gis-address-resolution",
+    "sources": [
+      "fort-worth-gis",
+      "city-of-fort-worth",
+      "tarrant-appraisal-district",
+      "trinity-metro",
+      "north-central-texas-council-of-governments"
+    ]
+  },
+  {
+    "layer": "legistar-agendas-ordinances",
+    "sources": [
+      "city-of-fort-worth-legislative-system",
+      "city-of-fort-worth"
+    ]
+  },
+  {
+    "layer": "school-districts",
+    "sources": [
+      "fort-worth-isd",
+      "arlington-isd",
+      "mansfield-isd",
+      "keller-isd",
+      "birdville-isd",
+      "heb-isd",
+      "tarrant-county-college-district"
+    ]
+  },
+  {
+    "layer": "utilities-special-districts",
+    "sources": [
+      "tarrant-regional-water-district",
+      "tarrant-esd-1",
+      "wmud",
+      "harris-ridge-mud",
+      "northeast-tarrant-county-mud"
+    ]
+  }
+]

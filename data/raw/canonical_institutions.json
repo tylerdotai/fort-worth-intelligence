@@ -1,98 +1,1147 @@
 [
   {
-    "slug": "city-of-fort-worth",
-    "name": "City of Fort Worth",
-    "category": "government",
-    "canonicalUrl": "https://www.fortworthtexas.gov",
-    "accessTypes": ["Docs", "Scrape"],
-    "tier": "A"
+    "slug": "tarrant-county-college-tcc-success-within-reach",
+    "name": "Tarrant County College (TCC): Success Within Reach",
+    "category": "college",
+    "canonicalUrl": "https://www.tccd.edu/",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 71,
+    "validationStatus": "validated",
+    "notes": ""
   },
   {
-    "slug": "fort-worth-gis",
-    "name": "Fort Worth GIS / MapIt",
-    "category": "gis",
-    "canonicalUrl": "https://mapit.fortworthtexas.gov",
-    "accessTypes": ["GIS", "Portal"],
-    "tier": "A"
-  },
-  {
-    "slug": "fort-worth-legistar",
-    "name": "City of Fort Worth Legislative System",
-    "category": "legislative",
-    "canonicalUrl": "https://fortworthgov.legistar.com",
-    "accessTypes": ["Portal", "Docs"],
-    "tier": "A"
+    "slug": "iis-windows-server",
+    "name": "IIS Windows Server",
+    "category": "county-government",
+    "canonicalUrl": "https://hscmsoa.tarrantcounty.com/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 8,
+    "validationStatus": "validated",
+    "notes": ""
   },
   {
     "slug": "tarrant-county",
     "name": "Tarrant County",
-    "category": "government",
-    "canonicalUrl": "https://www.tarrantcountytx.gov",
-    "accessTypes": ["Docs", "Scrape"],
-    "tier": "A"
+    "category": "county-government",
+    "canonicalUrl": "https://www.tarrantcountytx.gov/en.html",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 5,
+    "validationStatus": "validated",
+    "notes": ""
   },
   {
-    "slug": "tarrant-public-search",
-    "name": "Tarrant Public Search",
-    "category": "records",
-    "canonicalUrl": "https://tarrant.tx.publicsearch.us",
-    "accessTypes": ["Portal"],
-    "tier": "B"
-  },
-  {
-    "slug": "tarrant-appraisal-district",
-    "name": "Tarrant Appraisal District",
-    "category": "property-tax",
-    "canonicalUrl": "https://www.tad.org",
-    "accessTypes": ["Portal", "Docs"],
-    "tier": "A"
-  },
-  {
-    "slug": "tarrant-tax-office",
-    "name": "Tarrant County Tax Assessor-Collector",
-    "category": "property-tax",
-    "canonicalUrl": "https://taxoffice.tarrantcountytx.gov",
-    "accessTypes": ["Portal", "Docs"],
-    "tier": "A"
-  },
-  {
-    "slug": "trinity-metro",
-    "name": "Trinity Metro",
-    "category": "transit",
-    "canonicalUrl": "https://ridetrinitymetro.org",
-    "accessTypes": ["Docs", "Scrape"],
-    "tier": "A"
-  },
-  {
-    "slug": "trwd",
-    "name": "Tarrant Regional Water District",
-    "category": "water-utility",
-    "canonicalUrl": "https://www.trwd.com",
-    "accessTypes": ["Docs", "Scrape"],
-    "tier": "A"
+    "slug": "www-ci-bedford-tx-us",
+    "name": "www.ci.bedford.tx.us",
+    "category": "county-government",
+    "canonicalUrl": "https://www.ci.bedford.tx.us",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 14,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
   },
   {
     "slug": "jps-health-network",
     "name": "JPS Health Network",
     "category": "health",
-    "canonicalUrl": "https://www.jpshealthnet.org",
-    "accessTypes": ["Docs", "Scrape"],
-    "tier": "A"
+    "canonicalUrl": "https://www.jpshealthnet.org/",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 73,
+    "validationStatus": "validated",
+    "notes": ""
   },
   {
-    "slug": "nctcog",
-    "name": "North Central Texas Council of Governments",
-    "category": "regional-planning",
-    "canonicalUrl": "https://www.nctcog.org",
-    "accessTypes": ["Docs", "Bulk", "Scrape"],
-    "tier": "A"
+    "slug": "city-of-fort-worth-legislative-system",
+    "name": "City of Fort Worth Legislative System",
+    "category": "legislative",
+    "canonicalUrl": "https://fortworthgov.legistar.com/Calendar.aspx",
+    "tier": "B",
+    "accessTypes": [
+      "GIS",
+      "Portal",
+      "Docs"
+    ],
+    "sourceRecordId": 3,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "access-denied",
+    "name": "Access Denied",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.arlingtontx.gov/",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 9,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official source blocks automated access; retain as canonical official source. Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "access-denied",
+    "name": "Access Denied",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.gptx.org/",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 10,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "access-denied",
+    "name": "Access Denied",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.eulesstx.gov/",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 13,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official source blocks automated access; retain as canonical official source. Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "access-denied",
+    "name": "Access Denied",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.colleyville.com/",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 16,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "city-of-fort-worth",
+    "name": "City of Fort Worth",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.fortworthtexas.gov/",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 1,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official source blocks automated access; retain as canonical official source. Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "city-of-river-oaks-texas",
+    "name": "City of River Oaks, Texas",
+    "category": "municipal-government",
+    "canonicalUrl": "https://riveroakstx.com/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 35,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "fort-worth-gis",
+    "name": "Fort Worth GIS",
+    "category": "municipal-government",
+    "canonicalUrl": "https://mapit.fortworthtexas.gov/",
+    "tier": "A",
+    "accessTypes": [
+      "GIS"
+    ],
+    "sourceRecordId": 2,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "just-a-moment",
+    "name": "Just a moment...",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.coppercanyon-tx.org/",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 49,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "tarrant-appraisal-district",
+    "name": "Tarrant Appraisal District",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.tad.org",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 79,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "white-settlement-community-resource",
+    "name": "White Settlement Community Resource",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.whitesettlement.org/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 23,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "saginawtx",
+    "name": "saginawtx",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.saginawtx.org/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 24,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "techbullion-com",
+    "name": "techbullion.com",
+    "category": "municipal-government",
+    "canonicalUrl": "https://techbullion.com/upcoming-new-launches-in-singapore-a-comprehensive-guide-for-buyers-and-investors/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 46,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "www-azletx-gov",
+    "name": "www.azletx.gov",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.azletx.gov",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 25,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-benbrook-tx-gov",
+    "name": "www.benbrook-tx.gov",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.benbrook-tx.gov/",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 30,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "www-burlesontx-com",
+    "name": "www.burlesontx.com",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.burlesontx.com/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 27,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "www-cityofkeller-com",
+    "name": "www.cityofkeller.com",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.cityofkeller.com/",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 17,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-cityofsouthlake-com",
+    "name": "www.cityofsouthlake.com",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.cityofsouthlake.com/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 28,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "www-crosstimber-tx-org",
+    "name": "www.crosstimber-tx.org",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.crosstimber-tx.org",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 50,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-crowleytx-gov",
+    "name": "www.crowleytx.gov",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.crowleytx.gov",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 26,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-dgardenstx-com",
+    "name": "www.dgardenstx.com",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.dgardenstx.com",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 41,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-dishtx-org",
+    "name": "www.dishtx.org",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.dishtx.org",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 51,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-doubleoaktx-org",
+    "name": "www.doubleoaktx.org",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.doubleoaktx.org",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 48,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-evermantx-net",
+    "name": "www.evermantx.net",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.evermantx.net",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 38,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-flowermound-gov",
+    "name": "www.flowermound.gov",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.flowermound.gov/",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 44,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "www-foresthilltx-org",
+    "name": "www.foresthilltx.org",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.foresthilltx.org/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 22,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "www-grapevinetexas-gov",
+    "name": "www.grapevinetexas.gov",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.grapevinetexas.gov/",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 12,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "www-haltomcitytx-com",
+    "name": "www.haltomcitytx.com",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.haltomcitytx.com/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 19,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "www-haslet-org",
+    "name": "www.haslet.org",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.haslet.org/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 33,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "www-hursttx-gov",
+    "name": "www.hursttx.gov",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.hursttx.gov/",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 15,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official source blocks automated access; retain as canonical official source. Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-kennedale-org",
+    "name": "www.kennedale.org",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.kennedale.org/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 39,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "www-lakesidetx-org",
+    "name": "www.lakesidetx.org",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.lakesidetx.org",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 42,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-lakeworth-tx-com",
+    "name": "www.lakeworth-tx.com",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.lakeworth-tx.com",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 34,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-mansfieldtexas-gov",
+    "name": "www.mansfieldtexas.gov",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.mansfieldtexas.gov/",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 11,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "www-nrhtx-com",
+    "name": "www.nrhtx.com",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.nrhtx.com/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 18,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "www-pantegotx-org",
+    "name": "www.pantegotx.org",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.pantegotx.org",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 40,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-pelicanbay-tx-gov",
+    "name": "www.pelicanbay-tx.gov",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.pelicanbay-tx.gov",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 47,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-richlandhills-com",
+    "name": "www.richlandhills.com",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.richlandhills.com/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 21,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "www-roanoketx-com",
+    "name": "www.roanoketx.com",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.roanoketx.com/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 32,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "www-sansomparktx-org",
+    "name": "www.sansomparktx.org",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.sansomparktx.org",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 36,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-tarrantesd1-org",
+    "name": "www.tarrantesd1.org",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.tarrantesd1.org/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 75,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "www-trophyclub-org",
+    "name": "www.trophyclub.org",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.trophyclub.org/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 31,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "www-watauga-org",
+    "name": "www.watauga.org",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.watauga.org",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 20,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-weatherfordtx-gov",
+    "name": "www.weatherfordtx.gov",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.weatherfordtx.gov/",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 29,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "www-westlaketx-org",
+    "name": "www.westlaketx.org",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.westlaketx.org",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 43,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-westoverhillstx-gov",
+    "name": "www.westoverhillstx.gov",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.westoverhillstx.gov",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 45,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-westworthvillage-org",
+    "name": "www.westworthvillage.org",
+    "category": "municipal-government",
+    "canonicalUrl": "https://www.westworthvillage.org",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 37,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-tarranttax-com",
+    "name": "www.tarranttax.com",
+    "category": "property-tax",
+    "canonicalUrl": "https://www.tarranttax.com/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 80,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "official-record-search-quick-search-tarrant-county-texas-county-clerk",
+    "name": "Official Record Search - Quick Search - Tarrant County, Texas County Clerk",
+    "category": "records-or-vendor-portal",
+    "canonicalUrl": "https://tarrant.tx.publicsearch.us/",
+    "tier": "B",
+    "accessTypes": [
+      "Portal"
+    ],
+    "sourceRecordId": 6,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "pay-tickets-online-fort-worth-texas-fort-worth-municipal-court",
+    "name": "Pay Tickets Online - Fort Worth, Texas, Fort Worth Municipal Court",
+    "category": "records-or-vendor-portal",
+    "canonicalUrl": "https://www.ncourt.com/x-press/x-onlinepayments.aspx?juris=35244751-5EC6-41B2-B4C6-2BD08CF14073",
+    "tier": "B",
+    "accessTypes": [
+      "Portal"
+    ],
+    "sourceRecordId": 4,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "welcome-to-tarrant-county",
+    "name": "Welcome to Tarrant County",
+    "category": "records-or-vendor-portal",
+    "canonicalUrl": "https://countyfusion.tarrantcounty.com/",
+    "tier": "B",
+    "accessTypes": [
+      "Portal"
+    ],
+    "sourceRecordId": 7,
+    "validationStatus": "validated",
+    "notes": ""
   },
   {
     "slug": "dfw-airport",
-    "name": "DFW International Airport",
+    "name": "DFW Airport",
     "category": "regional-infrastructure",
-    "canonicalUrl": "https://www.dfwairport.com",
-    "accessTypes": ["Docs", "Scrape"],
-    "tier": "A"
+    "canonicalUrl": "https://www.dfwairport.com/",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 77,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "north-central-texas-council-of-governments",
+    "name": "North Central Texas Council of Governments",
+    "category": "regional-planning",
+    "canonicalUrl": "https://www.nctcog.org/",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 76,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "403-forbidden",
+    "name": "403 Forbidden",
+    "category": "school-district",
+    "canonicalUrl": "https://www.nwisd.org/",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 59,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "aledo-independent-school-district",
+    "name": "Aledo Independent School District",
+    "category": "school-district",
+    "canonicalUrl": "https://www.aledoisd.org",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 68,
+    "validationStatus": "validated-official-blocked",
+    "notes": "DAO discovery URL appears to contain a typo; canonical official domain is aledoisd.org. Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "client-challenge",
+    "name": "Client Challenge",
+    "category": "school-district",
+    "canonicalUrl": "https://www.azleisd.net/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 64,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "client-challenge",
+    "name": "Client Challenge",
+    "category": "school-district",
+    "canonicalUrl": "https://www.springtownisd.net/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 66,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "grand-prairie-independent-school-district",
+    "name": "Grand Prairie Independent School District",
+    "category": "school-district",
+    "canonicalUrl": "https://www.gpisd.org/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 56,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "home-raquo-arlington-isd",
+    "name": "Home &raquo; Arlington ISD",
+    "category": "school-district",
+    "canonicalUrl": "https://www.aisd.net/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 53,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "home-carrollton-farmers-branch-isd",
+    "name": "Home - Carrollton-Farmers Branch ISD",
+    "category": "school-district",
+    "canonicalUrl": "https://www.cfbisd.edu/",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 60,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "home-fort-worth-independent-school-district",
+    "name": "Home - Fort Worth Independent School District",
+    "category": "school-district",
+    "canonicalUrl": "https://www.fwisd.org/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 52,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "home-godley-isd",
+    "name": "Home - Godley ISD",
+    "category": "school-district",
+    "canonicalUrl": "https://www.godleyisd.net/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 67,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "home-keller-independent-school-district",
+    "name": "Home - Keller Independent School District",
+    "category": "school-district",
+    "canonicalUrl": "https://www.kellerisd.net/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 55,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "mansfield-independent-school-district",
+    "name": "Mansfield Independent School District",
+    "category": "school-district",
+    "canonicalUrl": "https://www.mansfieldisd.org/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 54,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "weatherford-independent-school-district",
+    "name": "Weatherford Independent School District",
+    "category": "school-district",
+    "canonicalUrl": "https://www.weatherfordisd.com/",
+    "tier": "B",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 65,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "www-benbrookisd-net",
+    "name": "www.benbrookisd.net",
+    "category": "school-district",
+    "canonicalUrl": "https://www.benbrookisd.net",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 70,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-birdvilleisd-net",
+    "name": "www.birdvilleisd.net",
+    "category": "school-district",
+    "canonicalUrl": "https://www.birdvilleisd.net",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 58,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-crowleyisd-net",
+    "name": "www.crowleyisd.net",
+    "category": "school-district",
+    "canonicalUrl": "https://www.crowleyisd.net",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 63,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-evermanisd-org",
+    "name": "www.evermanisd.org",
+    "category": "school-district",
+    "canonicalUrl": "https://www.evermanisd.org",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 62,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-heb-isd-net",
+    "name": "www.heb-isd.net",
+    "category": "school-district",
+    "canonicalUrl": "https://www.heb-isd.net",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 57,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-mineralisd-net",
+    "name": "www.mineralisd.net",
+    "category": "school-district",
+    "canonicalUrl": "https://www.mineralisd.net",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 69,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "www-whitesettlementisd-org",
+    "name": "www.whitesettlementisd.org",
+    "category": "school-district",
+    "canonicalUrl": "https://www.whitesettlementisd.org",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 61,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "trinity-metro",
+    "name": "Trinity Metro",
+    "category": "transit",
+    "canonicalUrl": "https://ridetrinitymetro.org/",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 74,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "harris-ridge-mud",
+    "name": "Harris Ridge MUD",
+    "category": "utility-or-special-district",
+    "canonicalUrl": "https://www.harrisridgemud.com",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 82,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "northeast-tarrant-county-mud",
+    "name": "Northeast Tarrant County MUD",
+    "category": "utility-or-special-district",
+    "canonicalUrl": "https://www.northeastmud.com",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 83,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
+  },
+  {
+    "slug": "tarrant-regional-water-district",
+    "name": "Tarrant Regional Water District",
+    "category": "utility-or-special-district",
+    "canonicalUrl": "https://www.trwd.com/",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 78,
+    "validationStatus": "validated",
+    "notes": ""
+  },
+  {
+    "slug": "walnut-creek-wmud-official-site",
+    "name": "Walnut Creek / WMUD official site",
+    "category": "utility-or-special-district",
+    "canonicalUrl": "https://www.wmud.org",
+    "tier": "A",
+    "accessTypes": [
+      "Docs",
+      "Scrape"
+    ],
+    "sourceRecordId": 81,
+    "validationStatus": "validated-official-blocked",
+    "notes": "Official institutional source retained as canonical even when automated validation is blocked or flaky."
   }
 ]
