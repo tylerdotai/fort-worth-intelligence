@@ -1,0 +1,98 @@
+[
+  {
+    "slug": "city-of-fort-worth",
+    "name": "City of Fort Worth",
+    "category": "government",
+    "canonicalUrl": "https://www.fortworthtexas.gov",
+    "accessTypes": ["Docs", "Scrape"],
+    "tier": "A"
+  },
+  {
+    "slug": "fort-worth-gis",
+    "name": "Fort Worth GIS / MapIt",
+    "category": "gis",
+    "canonicalUrl": "https://mapit.fortworthtexas.gov",
+    "accessTypes": ["GIS", "Portal"],
+    "tier": "A"
+  },
+  {
+    "slug": "fort-worth-legistar",
+    "name": "City of Fort Worth Legislative System",
+    "category": "legislative",
+    "canonicalUrl": "https://fortworthgov.legistar.com",
+    "accessTypes": ["Portal", "Docs"],
+    "tier": "A"
+  },
+  {
+    "slug": "tarrant-county",
+    "name": "Tarrant County",
+    "category": "government",
+    "canonicalUrl": "https://www.tarrantcountytx.gov",
+    "accessTypes": ["Docs", "Scrape"],
+    "tier": "A"
+  },
+  {
+    "slug": "tarrant-public-search",
+    "name": "Tarrant Public Search",
+    "category": "records",
+    "canonicalUrl": "https://tarrant.tx.publicsearch.us",
+    "accessTypes": ["Portal"],
+    "tier": "B"
+  },
+  {
+    "slug": "tarrant-appraisal-district",
+    "name": "Tarrant Appraisal District",
+    "category": "property-tax",
+    "canonicalUrl": "https://www.tad.org",
+    "accessTypes": ["Portal", "Docs"],
+    "tier": "A"
+  },
+  {
+    "slug": "tarrant-tax-office",
+    "name": "Tarrant County Tax Assessor-Collector",
+    "category": "property-tax",
+    "canonicalUrl": "https://taxoffice.tarrantcountytx.gov",
+    "accessTypes": ["Portal", "Docs"],
+    "tier": "A"
+  },
+  {
+    "slug": "trinity-metro",
+    "name": "Trinity Metro",
+    "category": "transit",
+    "canonicalUrl": "https://ridetrinitymetro.org",
+    "accessTypes": ["Docs", "Scrape"],
+    "tier": "A"
+  },
+  {
+    "slug": "trwd",
+    "name": "Tarrant Regional Water District",
+    "category": "water-utility",
+    "canonicalUrl": "https://www.trwd.com",
+    "accessTypes": ["Docs", "Scrape"],
+    "tier": "A"
+  },
+  {
+    "slug": "jps-health-network",
+    "name": "JPS Health Network",
+    "category": "health",
+    "canonicalUrl": "https://www.jpshealthnet.org",
+    "accessTypes": ["Docs", "Scrape"],
+    "tier": "A"
+  },
+  {
+    "slug": "nctcog",
+    "name": "North Central Texas Council of Governments",
+    "category": "regional-planning",
+    "canonicalUrl": "https://www.nctcog.org",
+    "accessTypes": ["Docs", "Bulk", "Scrape"],
+    "tier": "A"
+  },
+  {
+    "slug": "dfw-airport",
+    "name": "DFW International Airport",
+    "category": "regional-infrastructure",
+    "canonicalUrl": "https://www.dfwairport.com",
+    "accessTypes": ["Docs", "Scrape"],
+    "tier": "A"
+  }
+]

@@ -73,6 +73,11 @@ fort-worth-intelligence/
 ├── docs/
 │   ├── source-catalog.md
 │   ├── capability-matrix.md
+│   ├── parcel-appraisal-tax-layer.md
+│   ├── gis-address-resolution-layer.md
+│   ├── legistar-agenda-ordinance-layer.md
+│   ├── school-district-layer.md
+│   ├── utilities-special-district-layer.md
 │   └── research-narrative.md
 └── scripts/
 ```
@@ -124,7 +129,15 @@ A working matrix for how the Fort Worth source surface can actually be consumed:
 - bulk
 - scrape-only
 
-### 4. Discovery Map Input
+### 4. High-Value Data Layers
+Dedicated docs now exist for:
+- parcel / appraisal / tax
+- GIS / address resolution
+- Legistar / agendas / ordinances
+- school districts
+- utilities / special districts
+
+### 5. Discovery Map Input
 `data/raw/discovery_urls.txt`
 
 The DAO source list extracted from `FWTX-DAO/fwtx-scraper` and preserved as a discovery input.
