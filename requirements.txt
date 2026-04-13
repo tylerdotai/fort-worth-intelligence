@@ -7,3 +7,5 @@ shapely
 pyproj
 pandas
 redis
+requests
+sentry-sdk

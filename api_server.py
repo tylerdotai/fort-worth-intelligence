@@ -29,6 +29,25 @@ import hashlib
 import os
 import json
 
+# ── Sentry error tracking ─────────────────────────────────────────────────────
+# Set SENTRY_DSN env var to enable. Without it, Sentry is disabled silently.
+_sentry_initialized = False
+if os.environ.get("SENTRY_DSN"):
+    try:
+        import sentry_sdk
+        from sentry_sdk.integrations.fastapi import FastApiIntegration
+        sentry_sdk.init(
+            dsn=os.environ["SENTRY_DSN"],
+            integrations=[FastApiIntegration()],
+            environment=os.environ.get("ENVIRONMENT", "development"),
+            release=os.environ.get("VERSION", "dev"),
+            traces_sample_rate=0.1,
+        )
+        _sentry_initialized = True
+        print("[INFO] Sentry initialized", file=sys.stderr)
+    except Exception as e:
+        print(f"[WARN] Sentry init failed: {e}", file=sys.stderr)
+
 # Redis caching — connect if REDIS_URL is set
 _redis = None
 def get_redis():

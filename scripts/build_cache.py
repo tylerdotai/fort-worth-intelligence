@@ -19,8 +19,8 @@ import sqlite3, json, time, sys, requests, re
 from pathlib import Path
 from statistics import mean
 
-DB_PATH = "/tmp/fort-worth-intelligence/data/fw_cache.db"
-TAD_PATH = "/tmp/fort-worth-intelligence/data/tad/tad-parcels-fort-worth.json"
+DB_PATH = "/home/tyler/fort-worth-intelligence/data/fw_cache.db"
+TAD_PATH = "/home/tyler/fort-worth-intelligence/data/tad/tad-parcels-fort-worth.json"
 GEOCODER = "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress"
 
 # ── Normalize an address for cache lookup ─────────────────────────────────────
@@ -50,8 +50,8 @@ def geocode_census(addr: str) -> dict | None:
     """Geocode via Census TIGER/Line. Returns {lat, lon, matched_address} or None."""
     params = {
         "address": addr,
-        "benchmark": "Public_AR_Current",
-        "vintage": "Current_Current",
+        "benchmark": "4",
+        "vintage": "4",
         "format": "json",
     }
     try:
