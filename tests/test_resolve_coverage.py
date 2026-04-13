@@ -205,6 +205,9 @@ class TestGeocoderEdgeCases:
 
     def test_geocode_none_still_resolves_parcel(self):
         """Census returns no match → resolution continues with parcel data."""
+        from pathlib import Path
+        if not (Path(__file__).parent.parent / "data" / "tad-parcels-fort-worth.json").exists():
+            pytest.skip("TAD parcel data required — not in repo (large file). See README for setup.")
         import scripts.resolve_address_full as r
         # If census fails but we have TAD data, parcel lookup still works
         result = r.resolve_full("704 E Weatherford St, Fort Worth, TX 76102")
