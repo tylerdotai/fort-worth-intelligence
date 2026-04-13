@@ -1,0 +1,57 @@
+# Civic Twin Build State
+# Managed by civic-twin-builder skill suite
+# Do not edit manually
+
+schema: "civic-twin-build/v1"
+
+steps:
+
+  - id: 1
+    name: civic-source-registry
+    status: complete
+    completed_at: "2026-04-13T07:28:00Z"
+    notes: Source manifest written, 15 sources catalogued
+
+  - id: 2
+    name: civic-ingestion-pipeline
+    status: complete
+    completed_at: "2026-04-13T07:45:00Z"
+    notes: Extractors built: legistar, TAD parcels, permits, crime, GIS join
+
+  - id: 3
+    name: civic-ontology-maintainer
+    status: complete
+    completed_at: "2026-04-13T08:10:00Z"
+    notes: ONTOLOGY.md written, CityGML 3.0 base, FW namespace defined
+
+  - id: 4
+    name: civic-graph-api
+    status: complete
+    completed_at: "2026-04-13T08:33:00Z"
+    notes: >
+      Graph traversal, query/entities, query/aggregate, meta/schema endpoints.
+      20 API tests added. api_server coverage 51%.
+      Test suite: 101 passed, 14 skipped.
+
+  - id: 5
+    name: civic-spatial-temporal
+    status: complete
+    completed_at: "2026-04-13T08:55:00Z"
+    notes: >
+      Temporal fields (valid_from/to, snapshot_id, tax_year) added to parcel records.
+      Council district GeoJSON geometry added to graph response.
+      Snapshot diff tool (scripts/snapshot_diff.py) built with 19 tests.
+      TAD mtime used as snapshot_id.
+
+  - id: 6
+    name: civic-twin-ops
+    status: pending
+    notes: Alerting, monitoring, and operational runbook
+
+  - id: 7
+    name: civic-twin-builder
+    status: pending
+    notes: Orchestration — tie all 6 skills together into the twin
+
+current_step: 5
+last_updated: "2026-04-13T08:55:00Z"

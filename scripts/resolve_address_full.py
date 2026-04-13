@@ -338,8 +338,22 @@ def resolve_full(address: str, output_path: str = None) -> dict:
     """
     Resolve an address through the full intelligence pipeline.
     Returns the canonical resolved record dict.
+
+    Spatial-temporal fields:
+    - snapshot_id: derived from TAD data file mtime (ISO8601 date of the certified roll)
+    - valid_from/valid_to: appraisal year validity window (Jan 1 of tax year)
+    - geometry: council district boundary exposed as GeoJSON
     """
+    import shapely.geometry
+
     start = datetime.now(timezone.utc)
+
+    # Snapshot metadata — mtime of TAD data file, if present
+    tad_mtime = None
+    if TAD_PATH.exists():
+        tad_mtime = datetime.fromtimestamp(TAD_PATH.stat().st_mtime, tz=timezone.utc).date().isoformat()
+    snapshot_id = f"tad-{tad_mtime}" if tad_mtime else None
+
     result = {
         "schema_version": "1.0",
         "resolved_at":     start.isoformat(),
@@ -356,6 +370,8 @@ def resolve_full(address: str, output_path: str = None) -> dict:
             "tad_lookup":   None,
             "cd_lookup":    None,
             "resolution_ms": None,
+            "snapshot_id":   snapshot_id,
+            "tad_fetched_at": tad_mtime,
         },
         "_caveats": [],
     }
@@ -384,6 +400,7 @@ def resolve_full(address: str, output_path: str = None) -> dict:
     parcels = find_parcel(address, geo, tad_idx)
     if parcels:
         p0 = parcels[0]
+        tax_year = p0.get("tax_year") or tad_mtime[:4] if tad_mtime else datetime.now().year
         result["parcel"] = {
             "pidn":          p0.get("account_num"),
             "gis_link":       p0.get("gis_link"),
@@ -399,6 +416,11 @@ def resolve_full(address: str, output_path: str = None) -> dict:
             "exemptions":     p0.get("exemptions", "").split(",") if p0.get("exemptions") else [],
             "legal":          p0.get("legal_desc"),
             "census_tract":  p0.get("census_tract"),
+            # ── temporal fields (spatial-temporal layer) ──
+            "tax_year":       tax_year,
+            "valid_from":     f"{tax_year}-01-01",      # Jan 1 of appraisal year
+            "valid_to":       f"{tax_year}-12-31",      # Dec 31 — refreshed each April
+            "snapshot_id":    snapshot_id,
         }
         result["school_district"] = {
             "name": p0.get("school_name"),
@@ -414,11 +436,26 @@ def resolve_full(address: str, output_path: str = None) -> dict:
     council_info = {}
     if cd:
         member = COUNCIL_MEMBERS.get(str(cd), {})
+        # Attach GeoJSON geometry from cached polygons (spatial-temporal layer)
+        cd_geojson = None
+        polygons = load_council_districts()
+        if cd in polygons and HAS_SHAPELY:
+            poly = polygons[cd]["polygon"]
+            try:
+                cd_geojson = shapely.geometry.mapping(poly)
+            except Exception:
+                pass  # geometry conversion failed — omit geometry field
         council_info = {
             "district_number": cd,
             "councilmember":   member.get("name", "(verify current)"),
             "email":           member.get("email", ""),
             "source":          "mapit.fortworthtexas.gov/OpenData_Boundaries/MapServer/2",
+            # ── spatial fields ──
+            "geometry_type": cd_geojson["type"] if cd_geojson else None,
+            "geometry_geojson": cd_geojson,
+            "centroid_lat":   lat,
+            "centroid_lon":   lon,
+            "srid":           "EPSG:4326",
         }
     result["council_district"] = council_info if council_info else None
     result["_meta"]["cd_lookup"] = f"tcgis={cd}" if cd else "not_found"
