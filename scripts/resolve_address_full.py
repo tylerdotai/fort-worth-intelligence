@@ -22,6 +22,16 @@ from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from shapely.geometry import Point, Polygon
 from shapely import contains
+try:
+    from pyproj import Transformer
+    HAS_PYPROJ = True
+except ImportError:
+    HAS_PYPROJ = False
+try:
+    from shapely.geometry import Point as SPoint
+    HAS_SHAPELY = True
+except ImportError:
+    HAS_SHAPELY = False
 
 # ─── Paths ───────────────────────────────────────────────────────────────────
 REPO      = Path(__file__).parent.parent
@@ -350,6 +360,88 @@ def resolve_full(address: str, output_path: str = None) -> dict:
     parcel_city = parcels[0].get("situs_city", "FORT WORTH") if parcels else "FORT WORTH"
     result["utilities"] = resolve_utilities(address, parcel_city)
 
+    # 5. State Representative — via TCGIS StateRepresentative layer (EPSG:2276)
+    # Requires pyproj + shapely. Static lookup table for Fort Worth TX House districts.
+    if HAS_PYPROJ and HAS_SHAPELY and lat and lon:
+        from shapely.geometry import Point as SPoint
+        tcg_svc = (
+            "https://mapit.tarrantcounty.com/arcgis/rest/services"
+            "/Dynamic/StateRepresentative/MapServer/0"
+        )
+        TX_SP_EPSG = "EPSG:2276"
+        TX_HOUSE_REPS = {
+            90: {"name": "Ramon Romero, Jr.", "party": "Democratic",
+                 "phone": "(512) 463-0608", "email": "ramon.romero@house.texas.gov"},
+            91: {"name": "Stephanie Klick", "party": "Republican",
+                 "phone": "(512) 463-0656", "email": "stephanie.klick@house.texas.gov"},
+            92: {"name": "Salman Bhojani", "party": "Democratic",
+                 "phone": "(512) 463-0714", "email": "salman.bhojani@house.texas.gov"},
+            93: {"name": "Nate Schatzline", "party": "Republican",
+                 "phone": "(512) 463-0682", "email": "nate.schatzline@house.texas.gov"},
+            94: {"name": "Tony Tinderholt", "party": "Republican",
+                 "phone": "(512) 463-0724", "email": "tony.tinderholt@house.texas.gov"},
+            95: {"name": "Nicole Collier", "party": "Democratic",
+                 "phone": "(512) 463-0710", "email": "nicole.collier@house.texas.gov"},
+            96: {"name": "David Cook", "party": "Republican",
+                 "phone": "(512) 463-0494", "email": "david.cook@house.texas.gov"},
+            97: {"name": "Craig Goldman", "party": "Republican",
+                 "phone": "(512) 463-0688", "email": "craig.goldman@house.texas.gov"},
+            98: {"name": "Giovanni Capriglione", "party": "Republican",
+                 "phone": "(512) 463-0622", "email": "giovanni.capriglione@house.texas.gov"},
+            99: {"name": "Charlie Geren", "party": "Republican",
+                 "phone": "(512) 463-0616", "email": "charlie.geren@house.texas.gov"},
+            101: {"name": "Chris Turner", "party": "Democratic",
+                  "phone": "(512) 463-0696", "email": "chris.turner@house.texas.gov"},
+        }
+        try:
+            transformer = Transformer.from_crs("epsg:4326", TX_SP_EPSG, always_xy=True)
+            x, y = transformer.transform(lon, lat)
+            point = SPoint(x, y)
+            # Try cached polygons first
+            if _district_polygons is None:
+                pass  # loaded on demand below
+            found_district = None
+            if _district_polygons:
+                for d, poly in _district_polygons.items():
+                    if poly.is_valid and contains(poly, point):
+                        found_district = d
+                        break
+            if found_district is None:
+                # Load polygons on demand
+                import urllib.request, urllib.parse
+                params = urllib.parse.urlencode({
+                    "f": "json", "where": "1=1", "outFields": "District",
+                    "returnGeometry": "true", "resultRecordCount": 200,
+                })
+                req = urllib.request.Request(
+                    f"{tcg_svc}/query?{params}",
+                    headers={"User-Agent": "FortWorthIntelligence/1.0"}
+                )
+                with urllib.request.urlopen(req, timeout=60) as r:
+                    tcg_data = json.loads(r.read())
+                for feat in tcg_data.get("features", []):
+                    d = feat["attributes"].get("District")
+                    rings = feat.get("geometry", {}).get("rings", [])
+                    if d and rings:
+                        poly_d = Polygon(rings[0])
+                        _district_polygons[d] = poly_d
+                        if poly_d.is_valid and contains(poly_d, point):
+                            found_district = d
+            if found_district:
+                rep = TX_HOUSE_REPS.get(found_district, {})
+                result["state_representative"] = {
+                    "level": "state_house",
+                    "district": str(found_district),
+                    "name": rep.get("name", "Unknown"),
+                    "party": rep.get("party"),
+                    "phone": rep.get("phone"),
+                    "email": rep.get("email"),
+                    "boundary_source": "TCG​IS StateRepresentative MapServer",
+                }
+                result["_meta"]["state_rep_lookup"] = f"district {found_district}"
+        except Exception as e:
+            result["_meta"]["state_rep_lookup"] = f"error: {e}"
+
     # Timing
     result["_meta"]["resolution_ms"] = int(
         (datetime.now(timezone.utc) - start).total_seconds() * 1000
@@ -399,7 +491,12 @@ def main():
     print(f"  Value:   ${parcel.get('market_value', 0):,}" if parcel.get('market_value') else "  Value: N/A")
     print(f"  School:  {school.get('name', 'N/A')}")
     print(f"  Council: District {cd.get('district_number', 'N/A')} — {cd.get('councilmember', 'N/A')}")
-    print(f"  Utilities: water={result['utilities']['water']['provider'] or 'N/A'}")
+    if result.get('state_representative'):
+        sr = result['state_representative']
+        print(f"  TX House: District {sr.get('district')} — {sr.get('name')} ({sr.get('party')})")
+        print(f"  TX House email: {sr.get('email', 'N/A')} | {sr.get('phone', 'N/A')}")
+    water = result['utilities']['water']['provider'] if result.get('utilities') else None
+    print(f"  Utilities: water={water or 'N/A'}")
     if result.get("_caveats"):
         for c in result["_caveats"]:
             print(f"  ! {c}")
