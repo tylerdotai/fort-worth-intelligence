@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fort Worth Intelligence — Civic Twin Viewer</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #ff6b00;
+      --orange-dark: #cc5500;
+      --bg: #0d0d0d;
+      --panel: #141414;
+      --panel-border: #2a2a2a;
+      --text: #e8e8e8;
+      --muted: #888;
+      --green: #00c853;
+      --yellow: #ffd600;
+    }
+
+    html, body { height: 100%; background: var(--bg); color: var(--text); font-family: 'Josefin Sans', sans-serif; }
+
+    #app { display: flex; flex-direction: column; height: 100vh; }
+
+    /* ── Header ─────────────────────────────────────────────── */
+    header {
+      background: var(--panel);
+      border-bottom: 1px solid var(--panel-border);
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      height: 60px;
+      flex-shrink: 0;
+    }
+    header h1 { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.05em; color: var(--orange); }
+    header h1 span { color: var(--muted); font-weight: 400; }
+
+    #api-status {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+    #api-status .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); }
+    #api-status .dot.ok { background: var(--green); }
+    #api-status .dot.err { background: #ff3b3b; }
+
+    /* ── Search bar ─────────────────────────────────────────── */
+    #search-bar {
+      display: flex;
+      gap: 0;
+      max-width: 600px;
+      width: 100%;
+    }
+    #search-bar input {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--panel-border);
+      border-right: none;
+      color: var(--text);
+      padding: 10px 16px;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      border-radius: 4px 0 0 4px;
+    }
+    #search-bar input:focus { border-color: var(--orange); }
+    #search-bar input::placeholder { color: var(--muted); }
+    #search-bar button {
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 0 4px 4px 0;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+    #search-bar button:hover { background: var(--orange-dark); }
+    #search-bar button:disabled { background: #444; cursor: not-allowed; }
+
+    /* ── Body ───────────────────────────────────────────────── */
+    #body { display: flex; flex: 1; overflow: hidden; }
+
+    /* ── Map ────────────────────────────────────────────────── */
+    #map {
+      flex: 1;
+      background: #1a1a1a;
+    }
+    .leaflet-container { background: #1a1a1a; }
+
+    /* ── Info panel ─────────────────────────────────────────── */
+    #info-panel {
+      width: 360px;
+      background: var(--panel);
+      border-left: 1px solid var(--panel-border);
+      overflow-y: auto;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel-section {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--panel-border);
+    }
+    .panel-section:last-child { border-bottom: none; }
+
+    .section-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+
+    /* Address */
+    .resolved-address { font-size: 1.05rem; font-weight: 600; line-height: 1.4; }
+
+    /* Coordinates */
+    .coords {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* Data rows */
+    .data-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      padding: 5px 0;
+      border-bottom: 1px solid #1e1e1e;
+      font-size: 0.85rem;
+    }
+    .data-row:last-child { border-bottom: none; }
+    .data-row .label { color: var(--muted); flex-shrink: 0; }
+    .data-row .value { font-weight: 600; text-align: right; }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: var(--orange);
+      color: #fff;
+    }
+
+    /* Council card */
+    .council-card {
+      background: #1a1a1a;
+      border-radius: 6px;
+      padding: 12px;
+      border: 1px solid var(--panel-border);
+    }
+    .council-card .cd-num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--orange);
+      line-height: 1;
+    }
+    .council-card .cd-name { font-size: 0.9rem; font-weight: 600; margin-top: 4px; }
+    .council-card .cd-email { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+
+    /* Loading spinner */
+    .spinner {
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid #444;
+      border-top-color: var(--orange);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Empty state */
+    .empty-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      gap: 12px;
+      color: var(--muted);
+      text-align: center;
+      padding: 40px;
+    }
+    .empty-state .lobster { font-size: 3rem; }
+    .empty-state p { font-size: 0.9rem; line-height: 1.5; }
+
+    /* Disclaimer */
+    .disclaimer {
+      font-size: 0.65rem;
+      color: #555;
+      text-align: center;
+      padding: 12px;
+      line-height: 1.4;
+    }
+
+    /* Loading overlay */
+    #loading-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(13,13,13,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      display: none;
+    }
+    #loading-overlay.visible { display: flex; }
+    .loading-box {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 8px;
+      padding: 24px 40px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .loading-box .spinner { width: 28px; height: 28px; border-width: 3px; }
+    .loading-box p { font-size: 0.85rem; color: var(--muted); }
+
+    /* Popup */
+    .leaflet-popup-content-wrapper { background: var(--panel); color: var(--text); border: 1px solid var(--panel-border); border-radius: 6px; }
+    .leaflet-popup-tip { background: var(--panel); }
+    .leaflet-popup-content { margin: 12px 14px; font-family: 'Josefin Sans', sans-serif; }
+    .popup-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; color: var(--orange); }
+    .popup-row { font-size: 0.8rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+<div id="app">
+
+  <header>
+    <h1>FORT WORTH <span>/ Civic Twin</span></h1>
+    <form id="search-bar" onsubmit="return false;">
+      <input
+        id="address-input"
+        type="text"
+        placeholder="704 E Weatherford St, Fort Worth, TX 76102"
+        autocomplete="off"
+      />
+      <button id="search-btn" onclick="doSearch()">Resolve</button>
+    </form>
+    <div id="api-status">
+      <div class="dot" id="status-dot"></div>
+      <span id="status-text">checking</span>
+    </div>
+  </header>
+
+  <div id="body">
+    <div id="map"></div>
+    <div id="info-panel">
+      <div class="empty-state" id="empty-state">
+        <div class="lobster">🦞</div>
+        <p>Enter a Fort Worth address above to explore its civic context — council district, parcel data, permits, land use, and more.</p>
+        <p style="font-size:0.75rem; color:#555;">Powered by Fort Worth Intelligence API</p>
+      </div>
+      <div id="resolved-data" style="display:none;"></div>
+    </div>
+  </div>
+
+</div>
+
+<div id="loading-overlay">
+  <div class="loading-box">
+    <div class="spinner"></div>
+    <p id="loading-msg">Resolving address…</p>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// ── Config ──────────────────────────────────────────────────────────────
+const API_BASE = window.location.origin;
+const FW_CENTER = [32.755, -97.331];  // Fort Worth CBD
+const DEFAULT_ZOOM = 14;
+
+// ── State ──────────────────────────────────────────────────────────────
+let map;
+let markerLayer;
+let polygonLayer;
+let lastData = null;
+
+// ── Map init ────────────────────────────────────────────────────────────
+function initMap() {
+  map = L.map('map', {
+    center: FW_CENTER,
+    zoom: DEFAULT_ZOOM,
+    zoomControl: true,
+  });
+
+  // Dark base tiles
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 20,
+  }).addTo(map);
+
+  markerLayer = L.layerGroup().addTo(map);
+  polygonLayer = L.layerGroup().addTo(map);
+}
+
+// ── API helpers ─────────────────────────────────────────────────────────
+async function checkHealth() {
+  const dot = document.getElementById('status-dot');
+  const text = document.getElementById('status-text');
+  try {
+    const r = await fetch(`${API_BASE}/health`);
+    if (r.ok) {
+      dot.className = 'dot ok';
+      text.textContent = 'API live';
+    } else {
+      dot.className = 'dot err';
+      text.textContent = 'API error';
+    }
+  } catch {
+    dot.className = 'dot err';
+    text.textContent = 'offline';
+  }
+}
+
+async function doSearch() {
+  const input = document.getElementById('address-input');
+  const btn = document.getElementById('search-btn');
+  const addr = input.value.trim();
+  if (!addr) return;
+
+  showLoading('Resolving address…');
+  btn.disabled = true;
+
+  try {
+    const r = await fetch(`${API_BASE}/resolve?address=${encodeURIComponent(addr)}`);
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const data = await r.json();
+    lastData = data;
+    renderResult(data);
+    renderOnMap(data);
+  } catch (e) {
+    alert('Resolve failed: ' + e.message);
+  } finally {
+    hideLoading();
+    btn.disabled = false;
+  }
+}
+
+// ── Render resolved data ────────────────────────────────────────────────
+function renderResult(d) {
+  document.getElementById('empty-state').style.display = 'none';
+  const panel = document.getElementById('resolved-data');
+  panel.style.display = 'block';
+
+  const coords = d.coordinates || {};
+  const parcel = d.parcel || {};
+  const council = d.council_district || {};
+  const school = d.school_district || {};
+  const permits = d.permits || {};
+  const flu = d.future_land_use || {};
+  const stateRep = d.state_representative || {};
+  const meta = d._meta || {};
+
+  const fmt = (v) => v != null ? String(v) : '—';
+  const fmtMoney = (v) => {
+    if (v == null) return '—';
+    const n = Number(v);
+    return isNaN(n) ? fmt(v) : '$' + n.toLocaleString();
+  };
+  const fmtAddr = (v) => v != null ? v : '—';
+
+  panel.innerHTML = `
+    <!-- Address + coords -->
+    <div class="panel-section">
+      <div class="section-label">Resolved Address</div>
+      <div class="resolved-address">${fmtAddr(d.query_address)}</div>
+      <div class="coords">${fmt(coords.lat)}, ${fmt(coords.lon)} &nbsp;|&nbsp; geocoder: ${fmt(coords.geocoder)}</div>
+    </div>
+
+    <!-- Council District -->
+    ${council.district_number ? `
+    <div class="panel-section">
+      <div class="section-label">Council District</div>
+      <div class="council-card">
+        <div class="cd-num">${council.district_number}</div>
+        <div class="cd-name">${fmt(council.councilmember)}</div>
+        <div class="cd-email">${fmt(council.email)}</div>
+      </div>
+    </div>
+    ` : ''}
+
+    <!-- Parcel -->
+    ${parcel.pidn ? `
+    <div class="panel-section">
+      <div class="section-label">Parcel (TAD)</div>
+      <div class="data-row"><span class="label">PIDN</span><span class="value">${fmt(parcel.pidn)}</span></div>
+      <div class="data-row"><span class="label">Owner</span><span class="value">${fmt(parcel.owner_name)}</span></div>
+      <div class="data-row"><span class="label">Type</span><span class="value">${fmt(parcel.owner_type)}</span></div>
+      <div class="data-row"><span class="label">Market Value</span><span class="value">${fmtMoney(parcel.market_value)}</span></div>
+      <div class="data-row"><span class="label">Land Value</span><span class="value">${fmtMoney(parcel.land_value)}</span></div>
+      <div class="data-row"><span class="label">Year Built</span><span class="value">${fmt(parcel.year_built)}</span></div>
+      ${parcel.exemptions && parcel.exemptions.length ? `<div class="data-row"><span class="label">Exemptions</span><span class="value">${parcel.exemptions.join(', ')}</span></div>` : ''}
+      <div class="data-row"><span class="label">Tax Year</span><span class="value">${fmt(parcel.tax_year)}</span></div>
+      <div class="data-row"><span class="label">Valid</span><span class="value">${fmt(parcel.valid_from)} → ${fmt(parcel.valid_to)}</span></div>
+    </div>
+    ` : ''}
+
+    <!-- School District -->
+    ${school.name ? `
+    <div class="panel-section">
+      <div class="section-label">School District</div>
+      <div class="data-row"><span class="label">District</span><span class="value">${fmt(school.name)}</span></div>
+    </div>
+    ` : ''}
+
+    <!-- Utilities -->
+    ${d.utilities ? `
+    <div class="panel-section">
+      <div class="section-label">Utilities</div>
+      ${Object.entries(d.utilities).filter(([k,v]) => v && v.provider).map(([k, v]) => `
+        <div class="data-row"><span class="label">${k.replace('_', ' ')}</span><span class="value">${v.provider || '—'}</span></div>
+      `).join('')}
+    </div>
+    ` : ''}
+
+    <!-- Future Land Use -->
+    ${flu.land_use ? `
+    <div class="panel-section">
+      <div class="section-label">Future Land Use</div>
+      <div class="data-row"><span class="label">Designation</span><span class="value">${fmt(flu.land_use)}</span></div>
+      <div class="data-row"><span class="label">Type</span><span class="value">${fmt(flu.type)}</span></div>
+      ${flu.growth_center ? `<div class="data-row"><span class="label">Growth Center</span><span class="value">${fmt(flu.growth_center)}</span></div>` : ''}
+    </div>
+    ` : ''}
+
+    <!-- Permits -->
+    ${permits.count > 0 ? `
+    <div class="panel-section">
+      <div class="section-label">Permits <span class="badge">${permits.count}</span></div>
+      ${(permits.items || []).slice(0, 5).map(p => `
+        <div class="data-row" style="flex-direction:column; gap:2px;">
+          <span class="value" style="font-size:0.8rem;">${fmt(p.type)} ${fmt(p.subtype)}</span>
+          <span class="label" style="font-size:0.72rem;">${fmt(p.work_description)}</span>
+          <span class="label" style="font-size:0.72rem;">${fmt(p.current_status)} · ${fmtMoney(p.job_value)}</span>
+        </div>
+      `).join('')}
+    </div>
+    ` : ''}
+
+    <!-- State Rep -->
+    ${stateRep.name ? `
+    <div class="panel-section">
+      <div class="section-label">State Representative</div>
+      <div class="data-row"><span class="label">Name</span><span class="value">${fmt(stateRep.name)}</span></div>
+      <div class="data-row"><span class="label">District</span><span class="value">${fmt(stateRep.district)}</span></div>
+      <div class="data-row"><span class="label">Party</span><span class="value">${fmt(stateRep.party)}</span></div>
+    </div>
+    ` : ''}
+
+    <!-- Meta -->
+    <div class="panel-section">
+      <div class="section-label">Provenance</div>
+      <div class="data-row"><span class="label">Schema</span><span class="value">${fmt(d.schema_version)}</span></div>
+      <div class="data-row"><span class="label">Snapshot</span><span class="value" style="font-size:0.72rem;">${fmt(meta.snapshot_id || meta.tad_fetched_at || 'live')}</span></div>
+      <div class="data-row"><span class="label">Resolve time</span><span class="value">${fmt(meta.resolution_ms)}ms</span></div>
+    </div>
+
+    <div class="disclaimer">
+      Data from City of Fort Worth, TAD, Tarrant County GIS, US Census.
+      Not for legal or commercial use.
+    </div>
+  `;
+}
+
+// ── Map rendering ───────────────────────────────────────────────────────
+function renderOnMap(d) {
+  markerLayer.clearLayers();
+  polygonLayer.clearLayers();
+
+  const coords = d.coordinates;
+  if (!coords || !coords.lat || !coords.lon) return;
+
+  const lat = coords.lat;
+  const lon = coords.lon;
+  const council = d.council_district || {};
+  const parcel = d.parcel || {};
+
+  // Pin
+  const pinIcon = L.divIcon({
+    html: `<div style="width:24px;height:24px;background:#ff6b00;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.5);"></div>`,
+    className: '',
+    iconSize: [24, 24],
+    iconAnchor: [12, 24],
+  });
+
+  const popup = `
+    <div class="popup-title">${d.query_address}</div>
+    <div class="popup-row">District ${council.district_number || '?'} — ${council.councilmember || ''}</div>
+    ${parcel.owner_name ? `<div class="popup-row">Owner: ${parcel.owner_name}</div>` : ''}
+    ${parcel.market_value ? `<div class="popup-row">Value: $${Number(parcel.market_value).toLocaleString()}</div>` : ''}
+    <div class="popup-row" style="color:#888;font-size:0.7rem;">${lat.toFixed(5)}, ${lon.toFixed(5)}</div>
+  `;
+
+  L.marker([lat, lon], { icon: pinIcon })
+    .bindPopup(popup)
+    .addTo(markerLayer);
+
+  map.setView([lat, lon], 16);
+
+  // Council district polygon
+  const geo = council.geometry_geojson;
+  if (geo && geo.type === 'Polygon') {
+    // Convert GeoJSON coordinates to Leaflet [lat, lon] format
+    // GeoJSON is [lon, lat], Leaflet wants [lat, lon]
+    const rings = geo.coordinates.map(ring =>
+      ring.map(([x, y]) => [y, x])
+    );
+
+    L.polygon(rings, {
+      color: '#ff6b00',
+      fillColor: '#ff6b00',
+      fillOpacity: 0.08,
+      weight: 2,
+      dashArray: '6 4',
+    })
+      .bindPopup(`Council District ${council.district_number}<br>${council.councilmember || ''}`)
+      .addTo(polygonLayer);
+  }
+}
+
+// ── Loading overlay ─────────────────────────────────────────────────────
+function showLoading(msg) {
+  document.getElementById('loading-msg').textContent = msg;
+  document.getElementById('loading-overlay').classList.add('visible');
+}
+function hideLoading() {
+  document.getElementById('loading-overlay').classList.remove('visible');
+}
+
+// ── Init ─────────────────────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+  initMap();
+  checkHealth();
+  setInterval(checkHealth, 30000);
+
+  // Enter key submits
+  document.getElementById('address-input').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') doSearch();
+  });
+
+  // Check URL for ?address= param
+  const params = new URLSearchParams(window.location.search);
+  const addr = params.get('address');
+  if (addr) {
+    document.getElementById('address-input').value = addr;
+    doSearch();
+  }
+});
+</script>
+</body>
+</html>

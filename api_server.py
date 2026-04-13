@@ -23,6 +23,7 @@ from typing import Optional
 
 from fastapi import FastAPI, Query, HTTPException, Path as PathParam, Response
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 # Import the orchestrator
@@ -121,6 +122,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Serve the Civic Twin Viewer (after REPO is defined below)
+
 # ─── Models ──────────────────────────────────────────────────────────────────
 
 class BatchResolveRequest(BaseModel):
@@ -132,8 +135,11 @@ class BatchResolveResponse(BaseModel):
 
 # ─── Helpers ─────────────────────────────────────────────────────────────────
 
-REPO = Path(__file__).parent.parent
+REPO = Path(__file__).parent
 META_FILE = REPO / "data" / "meta.json"
+VIEWER_DIR = REPO / "viewer"
+if VIEWER_DIR.exists():
+    app.mount("/viewer", StaticFiles(directory=str(VIEWER_DIR), html=True), name="viewer")
 
 def get_meta():
     if META_FILE.exists():
