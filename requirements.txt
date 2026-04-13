@@ -6,3 +6,4 @@ pyyaml
 shapely
 pyproj
 pandas
+redis

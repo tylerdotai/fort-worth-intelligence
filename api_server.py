@@ -25,6 +25,52 @@ from fastapi import FastAPI, Query, HTTPException, Path as PathParam, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
+import hashlib
+import os
+import json
+
+# Redis caching — connect if REDIS_URL is set
+_redis = None
+def get_redis():
+    global _redis
+    if _redis is None:
+        redis_url = os.environ.get("REDIS_URL", "redis://localhost:6379/0")
+        try:
+            import redis
+            _redis = redis.from_url(redis_url, decode_responses=True)
+            _redis.ping()
+        except Exception as e:
+            print(f"[WARN] Redis unavailable: {e}", file=sys.stderr)
+            _redis = None
+    return _redis
+
+FWI_CACHE_TTL = 60 * 60 * 24  # 24 hours
+
+def _cache_key(address: str) -> str:
+    """Address hash as Redis key."""
+    h = hashlib.sha256(address.lower().encode()).hexdigest()[:24]
+    return f"fwi:resolve:{h}"
+
+def _cache_get(address: str):
+    r = get_redis()
+    if r is None:
+        return None
+    try:
+        raw = r.get(_cache_key(address))
+        if raw:
+            return json.loads(raw)
+    except Exception:
+        pass
+    return None
+
+def _cache_set(address: str, data: dict):
+    r = get_redis()
+    if r is None:
+        return
+    try:
+        r.setex(_cache_key(address), FWI_CACHE_TTL, json.dumps(data))
+    except Exception:
+        pass
 
 # Import the orchestrator
 SCRIPTS_DIR = Path(__file__).parent / "scripts"
@@ -33,6 +79,7 @@ sys.path.insert(0, str(SCRIPTS_DIR))
 
 # Import after path setup
 from scripts.resolve_address_full import resolve_full
+from scripts.citygml_encoder import citygml_document
 from scripts.citygml_encoder import citygml_document
 
 # ─── Legistar data loader ───────────────────────────────────────────────────
@@ -163,12 +210,22 @@ def resolve(address: str = Query(..., description="Street address to resolve")):
     - School district
     - Utility districts
     - TX House representative
+
+    Results are cached in Redis for 24 hours to avoid hitting external APIs.
     """
+    # Check Redis cache first
+    cached = _cache_get(address)
+    if cached:
+        cached["_meta"]["cache_hit"] = True
+        cached["_meta"]["elapsed_ms"] = 0
+        return cached
+
     start = time.time()
     result = resolve_full(address)
     elapsed_ms = int((time.time() - start) * 1000)
     result["_meta"]["elapsed_ms"] = elapsed_ms
     result["_meta"]["resolved_address"] = address
+    result["_meta"]["cache_hit"] = False
 
     # Attach recent Legistar agenda items for the resolved council district
     cd = result.get("council_district") or {}
@@ -183,6 +240,9 @@ def resolve(address: str = Query(..., description="Street address to resolve")):
             }
         except Exception:
             result["council_agenda"] = {"error": "legistar unavailable"}
+
+    # Cache the result for 24 hours
+    _cache_set(address, result)
 
     return result
 
