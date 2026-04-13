@@ -75,9 +75,9 @@ fort-worth-intelligence/
 │   │   ├── canonical_institutions.json     # 14 core canonical institutions
 │   │   └── source_layer_mappings.json      # Layer → institution crosswalk
 │   ├── legistar-meetings.json              # City council calendar (20 meetings)
-│   ├── legistar-agenda-items.json          # Agenda items from council meetings (429 items)
+│   ├── legistar-agenda-items.json          # Agenda items (meetings[] with items[] nested)
 │   ├── tad-parcels-fort-worth-SAMPLE.json  # TAD sample (~1%, ~2800 records)
-│   └── tad/                                # Full TAD certified data (283,802 parcels)
+│   └── tad/                                # Full TAD certified data (283,808 parcels)
 │       └── PropertyData_R_2025(Certified).ZIP  # Download from tad.org
 ├── docs/
 │   ├── source-catalog.md
@@ -169,7 +169,7 @@ Two scripts — one for the calendar, one for agenda items.
 python3 scripts/extract_legistar.py --max-pages 2 --enrich --min-delay 3
 ```
 
-**Agenda items:** `scripts/extract_legistar_agenda.py` — Fetches `MeetingDetail.aspx` for each meeting and parses the agenda table into structured JSON. ⚠ Produces 0 items — known schema mismatch (meetings[] used instead of items[]).
+**Agenda items:** `scripts/extract_legistar_agenda.py` — Fetches `MeetingDetail.aspx` for each meeting and parses the agenda table into structured JSON. Output: `{meta, meetings[]}` where each meeting has `items[]`. Run with `--min-delay 5` to avoid rate limits.
 
 ```bash
 python3 scripts/extract_legistar_agenda.py --min-delay 4
@@ -251,7 +251,8 @@ Stats: ~1,258 permits/week from Fort Worth Development Services permit center.
 `scripts/extract_fw_crime.py` — ArcGIS FeatureServer client for Fort Worth Police Department incident data. Council district is pre-joined via FWPD 100m grid.
 
 ```bash
-python3 scripts/extract_fw_crime.py --days 7
+# Refresh crime data (last 30 days, up to 5000 records)
+python3 scripts/extract_fw_crime.py --days 30 --max 5000
 ```
 
 Important: this list is treated as **lead generation**, not truth.

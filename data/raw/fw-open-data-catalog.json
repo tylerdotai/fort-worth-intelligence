@@ -1,8 +1,106 @@
 {
   "meta": {
-    "source": "https://data.fortworthtexas.gov/browse",
-    "scraped_at": "2026-04-13T01:20:03Z",
-    "method": "Playwright DOM extraction"
+    "source": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/arcgis/rest/services",
+    "scraped_at": "2026-04-13T02:00:00Z",
+    "method": "FeatureServer index enumeration",
+    "total_services": 210
   },
-  "datasets": []
+  "datasets": {
+    "CFW_Current_Traffic_Accidents": {
+      "name": "CFW Traffic Accidents",
+      "type": "feature server",
+      "service_url": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/CFW_Current_Traffic_Accidents/FeatureServer",
+      "feature_server": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/CFW_Current_Traffic_Accidents/FeatureServer/0"
+    },
+    "CFW_FutureLandUse": {
+      "name": "Future Land Use",
+      "type": "feature server",
+      "service_url": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/CFW_FutureLandUse/FeatureServer",
+      "feature_server": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/CFW_FutureLandUse/FeatureServer/0"
+    },
+    "CFW_Open_Data_Certificates_of_Occupancy_Table_view": {
+      "name": "Certificates of Occupancy",
+      "type": "feature server",
+      "service_url": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/CFW_Open_Data_Certificates_of_Occupancy_Table_view/FeatureServer",
+      "feature_server": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/CFW_Open_Data_Certificates_of_Occupancy_Table_view/FeatureServer/0"
+    },
+    "CFW_Open_Data_Code_Violations_Table_view": {
+      "name": "Code Violations",
+      "type": "feature server",
+      "service_url": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/CFW_Open_Data_Code_Violations_Table_view/FeatureServer",
+      "feature_server": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/CFW_Open_Data_Code_Violations_Table_view/FeatureServer/0"
+    },
+    "CFW_Open_Data_Development_Permits_View": {
+      "name": "Development Permits",
+      "type": "feature server",
+      "service_url": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/CFW_Open_Data_Development_Permits_View/FeatureServer",
+      "feature_server": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/CFW_Open_Data_Development_Permits_View/FeatureServer/0"
+    },
+    "CFW_Open_Data_Nearby_Facilities_Table_view": {
+      "name": "Nearby Facilities",
+      "type": "feature server",
+      "service_url": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/CFW_Open_Data_Nearby_Facilities_Table_view/FeatureServer",
+      "feature_server": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/CFW_Open_Data_Nearby_Facilities_Table_view/FeatureServer/0"
+    },
+    "CFW_Open_Data_Police_Crime_Data_Table_view": {
+      "name": "FWPD Crime Data",
+      "type": "feature server",
+      "service_url": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/CFW_Open_Data_Police_Crime_Data_Table_view/FeatureServer",
+      "feature_server": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/CFW_Open_Data_Police_Crime_Data_Table_view/FeatureServer/0"
+    },
+    "CFW_Parcels_View": {
+      "name": "FW Parcels",
+      "type": "feature server",
+      "service_url": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/CFW_Parcels_View/FeatureServer",
+      "feature_server": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/CFW_Parcels_View/FeatureServer/0"
+    },
+    "CFW_Park_Boundaries_view": {
+      "name": "Park Boundaries",
+      "type": "feature server",
+      "service_url": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/CFW_Park_Boundaries_view/FeatureServer",
+      "feature_server": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/CFW_Park_Boundaries_view/FeatureServer/0"
+    },
+    "city_boundary": {
+      "name": "City Boundary",
+      "type": "feature server",
+      "service_url": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/city_boundary/FeatureServer",
+      "feature_server": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/city_boundary/FeatureServer/0"
+    },
+    "Designated_Investment_Zones": {
+      "name": "Designated Investment Zones",
+      "type": "feature server",
+      "service_url": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/Designated_Investment_Zones/FeatureServer",
+      "feature_server": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/Designated_Investment_Zones/FeatureServer/0"
+    },
+    "Floodplain_CFW_ETJ": {
+      "name": "Floodplain (ETJ)",
+      "type": "feature server",
+      "service_url": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/Floodplain_CFW_ETJ/FeatureServer",
+      "feature_server": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/Floodplain_CFW_ETJ/FeatureServer/0"
+    },
+    "Neighborhood_Boundaries": {
+      "name": "Neighborhood Boundaries",
+      "type": "feature server",
+      "service_url": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/Neighborhood_Boundaries/FeatureServer",
+      "feature_server": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/Neighborhood_Boundaries/FeatureServer/0"
+    },
+    "Neighborhood_Empowerment_Zones": {
+      "name": "Neighborhood Empowerment Zones",
+      "type": "feature server",
+      "service_url": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/Neighborhood_Empowerment_Zones/FeatureServer",
+      "feature_server": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/Neighborhood_Empowerment_Zones/FeatureServer/0"
+    },
+    "Neighborhoods_24_03_25": {
+      "name": "Neighborhoods",
+      "type": "feature server",
+      "service_url": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/Neighborhoods_24_03_25/FeatureServer",
+      "feature_server": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/Neighborhoods_24_03_25/FeatureServer/0"
+    },
+    "ServiceDistricts_Simple_view": {
+      "name": "Service Districts",
+      "type": "feature server",
+      "service_url": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/ServiceDistricts_Simple_view/FeatureServer",
+      "feature_server": "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/ArcGIS/rest/services/ServiceDistricts_Simple_view/FeatureServer/0"
+    }
+  }
 }

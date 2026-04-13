@@ -178,7 +178,7 @@ def scrape_all(where_clause="1=1", order_by="From_Date DESC", max_records=None,
 def scrape_recent(days=30, min_delay=1):
     """Fetch crime records from the last N days."""
     cutoff = (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%d")
-    where = f"From_Date >= date '{cutoff}'"
+    where = f"From_Date >= '{cutoff}'"
     return scrape_all(where_clause=where, order_by="From_Date DESC", min_delay=min_delay)
 
 

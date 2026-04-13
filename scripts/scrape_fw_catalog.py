@@ -2,122 +2,123 @@
 """
 Fort Worth Open Data Catalog Scraper.
 
-Uses Playwright to load the JavaScript-rendered ArcGIS Hub catalog page,
-wait for the dataset cards to load, then extract all dataset metadata.
+Uses the ArcGIS FeatureServer root index (services5.arcgis.com) to enumerate
+all available datasets, then cross-references against priority public-facing
+catalogs.
 
 Usage:
   python3 scripts/scrape_fw_catalog.py
 """
-import json, sys, os, time, re
+import json, requests, sys
 from pathlib import Path
-from playwright.sync_api import sync_playwright
+from datetime import datetime, timezone
 
-CATALOG_URL = "https://data.fortworthtexas.gov"
+BASE = "https://services5.arcgis.com/3ddLCBXe1bRt7mzj/arcgis/rest/services"
+OUT  = "data/raw/fw-open-data-catalog.json"
 
+# Priority datasets — manually curated from the 210-service FeatureServer index.
+# These are the high-value, actively maintained public-facing datasets.
+PRIORITY_NAMES = {
+    "CFW_Current_Traffic_Accidents",
+    "CFW_Open_Data_Police_Crime_Data_Table_view",
+    "CFW_Open_Data_Development_Permits_View",
+    "CFW_Open_Data_Code_Violations_Table_view",
+    "CFW_Open_Data_Certificates_of_Occupancy_Table_view",
+    "CFW_Open_Data_Nearby_Facilities_Table_view",
+    "CFW_Parcels_View",
+    "CFW_Park_Boundaries_view",
+    "CFW_FutureLandUse",
+    "Neighborhoods_24_03_25",
+    "Neighborhood_Boundaries",
+    "city_boundary",
+    "Designated_Investment_Zones",
+    "Floodplain_CFW_ETJ",
+    "ServiceDistricts_Simple_view",
+    "Neighborhood_Empowerment_Zones",
+}
 
-def scrape_catalog():
-    """Load the browse page, extract all dataset cards."""
-    with sync_playwright() as pw:
-        browser = pw.chromium.launch(
-            headless=True,
-            args=['--no-sandbox', '--disable-dev-shm-usage', '--disable-gpu']
-        )
-        context = browser.new_context(
-            user_agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36"
-        )
-        page = context.new_page()
-
-        print(f"Loading {CATALOG_URL}/browse...", file=sys.stderr)
-        page.goto(f"{CATALOG_URL}/browse", timeout=60000, wait_until="domcontentloaded")
-
-        # Wait for the dataset items to appear
-        # ArcGIS Hub uses React — items appear in a grid after JS loads
-        time.sleep(3)
-
-        # Scroll to trigger lazy loading (items load on scroll)
-        last_height = 0
-        scroll_count = 0
-        while scroll_count < 10:
-            page.evaluate("window.scrollBy(0, 800)")
-            page.wait_for_timeout(1500)
-            new_height = page.evaluate("document.body.scrollHeight")
-            if new_height == last_height:
-                break
-            last_height = new_height
-            scroll_count += 1
-            print(f"  Scroll {scroll_count}: height={new_height}", file=sys.stderr)
-
-        # Now get all the dataset cards
-        # ArcGIS Hub uses data-testid attributes on cards
-        cards = page.query_selector_all("[data-testid='card-container']")
-        print(f"Found {len(cards)} cards with data-testid", file=sys.stderr)
-
-        # Alternative: look for links with /dataset/ pattern
-        dataset_links = []
-        all_links = page.query_selector_all("a[href*='/dataset/']")
-        seen = set()
-        for link in all_links:
-            href = link.get_attribute("href") or ""
-            text = link.inner_text().strip()[:100]
-            if href and href not in seen:
-                seen.add(href)
-                # Extract slug from URL
-                slug = href.split('/dataset/')[-1].split('?')[0]
-                dataset_links.append({
-                    "slug": slug,
-                    "url": href,
-                    "title": text,
-                })
-
-        print(f"Found {len(dataset_links)} unique dataset links", file=sys.stderr)
-
-        # Now try to get more metadata for each dataset
-        datasets = []
-        for ds in dataset_links:
-            slug = ds["slug"]
-            # Try to access the dataset page to find the feature service URL
-            detail_url = f"{CATALOG_URL}/dataset/{slug}"
-            # Just store what we have for now
-            datasets.append({
-                "slug": slug,
-                "url": f"{CATALOG_URL}/dataset/{slug}",
-                "title": ds["title"],
-            })
-
-        browser.close()
-        return datasets
+LABELS = {
+    "CFW_Current_Traffic_Accidents": "CFW Traffic Accidents",
+    "CFW_Open_Data_Police_Crime_Data_Table_view": "FWPD Crime Data",
+    "CFW_Open_Data_Development_Permits_View": "Development Permits",
+    "CFW_Open_Data_Code_Violations_Table_view": "Code Violations",
+    "CFW_Open_Data_Certificates_of_Occupancy_Table_view": "Certificates of Occupancy",
+    "CFW_Open_Data_Nearby_Facilities_Table_view": "Nearby Facilities",
+    "CFW_Parcels_View": "FW Parcels",
+    "CFW_Park_Boundaries_view": "Park Boundaries",
+    "CFW_FutureLandUse": "Future Land Use",
+    "Neighborhoods_24_03_25": "Neighborhoods",
+    "Neighborhood_Boundaries": "Neighborhood Boundaries",
+    "city_boundary": "City Boundary",
+    "Designated_Investment_Zones": "Designated Investment Zones",
+    "Floodplain_CFW_ETJ": "Floodplain (ETJ)",
+    "ServiceDistricts_Simple_view": "Service Districts",
+    "Neighborhood_Empowerment_Zones": "Neighborhood Empowerment Zones",
+}
 
 
-def get_feature_service_urls():
-    """
-    For each dataset, try to find the ArcGIS feature service or API endpoint.
-    Uses the ArcGIS Hub API.
-    """
-    pass
+def get_count(svc_name, svc_type):
+    """Get feature count for a service."""
+    if "FeatureServer" in svc_type:
+        url = f"{BASE}/{svc_name}/FeatureServer/0"
+    else:
+        url = f"{BASE}/{svc_name}/MapServer/0"
+    try:
+        r = requests.get(url + "/query", params={
+            "f": "json", "where": "1=1", "returnCountOnly": "true"
+        }, timeout=15, headers={"User-Agent": "FortWorthIntelligence/1.0"})
+        d = r.json()
+        return d.get("count", -1)
+    except Exception:
+        return -1
 
 
 def main():
-    datasets = scrape_catalog()
+    print(f"Fetching FeatureServer index from {BASE}...", file=sys.stderr)
+    r = requests.get(BASE, params={"f": "json"}, timeout=30,
+                     headers={"User-Agent": "FortWorthIntelligence/1.0"})
+    all_services = r.json().get("services", [])
+    print(f"Total services: {len(all_services)}", file=sys.stderr)
 
-    out_path = Path(__file__).parent.parent / "data" / "raw" / "fw-open-data-catalog.json"
-    out_path.parent.mkdir(parents=True, exist_ok=True)
+    datasets = {}
+    matched = 0
+
+    for svc in all_services:
+        name = svc["name"]
+        if name not in PRIORITY_NAMES:
+            continue
+
+        svc_type = svc["type"].lower().replace("featureserver", "feature server")
+        url = svc.get("url", f"{BASE}/{name}/FeatureServer")
+        count = get_count(name, svc["type"])
+
+        datasets[name] = {
+            "name":           LABELS.get(name, name),
+            "type":           svc_type,
+            "service_url":    url,
+            "feature_server": f"{url}/0",
+            "record_count":   count,
+        }
+        matched += 1
+        print(f"  ✅ {name} ({svc_type}, {count:,} records)", file=sys.stderr)
 
     result = {
         "meta": {
-            "source": f"{CATALOG_URL}/browse",
-            "scraped_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-            "method": "Playwright DOM extraction",
+            "source":       BASE,
+            "scraped_at":   datetime.now(timezone.utc).isoformat(),
+            "method":       "FeatureServer index enumeration",
+            "total_services": len(all_services),
+            "matched_priority": matched,
         },
         "datasets": datasets,
     }
 
+    out_path = Path(__file__).parent.parent / OUT
+    out_path.parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, "w") as f:
         json.dump(result, f, indent=2)
 
-    print(f"Wrote {len(datasets)} datasets → {out_path}", file=sys.stderr)
-    print("\nDatasets found:")
-    for ds in datasets:
-        print(f"  {ds['title'][:70]}")
+    print(f"\nWrote {matched} datasets → {out_path}", file=sys.stderr)
 
 
 if __name__ == "__main__":
