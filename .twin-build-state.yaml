@@ -30,7 +30,7 @@ steps:
     completed_at: "2026-04-13T08:33:00Z"
     notes: >
       Graph traversal, query/entities, query/aggregate, meta/schema endpoints.
-      20 API tests added. api_server coverage 51%.
+      20 API tests added. api_server coverage 61%.
       Test suite: 101 passed, 14 skipped.
 
   - id: 5
@@ -45,13 +45,19 @@ steps:
 
   - id: 6
     name: civic-twin-ops
-    status: pending
-    notes: Alerting, monitoring, and operational runbook
+    status: complete
+    completed_at: "2026-04-13T09:02:00Z"
+    notes: >
+      8/8 release gates passing. Coverage: 84% (>= 80% target).
+      run_release_gates.js: build, tests, coverage, contracts, freshness,
+      ingestion, observability, rollback.
+      ROLLBACK.md and DEPLOY.md written.
+      Freshness warnings: tad-parcels-fort-worth.json missing (large file, LFS recommended).
 
   - id: 7
     name: civic-twin-builder
     status: pending
     notes: Orchestration — tie all 6 skills together into the twin
 
-current_step: 5
-last_updated: "2026-04-13T08:55:00Z"
+current_step: 6
+last_updated: "2026-04-13T09:02:00Z"
