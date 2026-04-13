@@ -204,8 +204,14 @@ class BatchResolveResponse(BaseModel):
 REPO = Path(__file__).parent
 META_FILE = REPO / "data" / "meta.json"
 VIEWER_DIR = REPO / "viewer"
+VIEWER3D_DIR = REPO / "viewer3d"
+DATA_3D_DIR = REPO / "data" / "3d"
 if VIEWER_DIR.exists():
     app.mount("/viewer", StaticFiles(directory=str(VIEWER_DIR), html=True), name="viewer")
+if VIEWER3D_DIR.exists():
+    app.mount("/viewer3d", StaticFiles(directory=str(VIEWER3D_DIR), html=True), name="viewer3d")
+if DATA_3D_DIR.exists():
+    app.mount("/3d", StaticFiles(directory=str(DATA_3D_DIR)), name="data3d")
 
 def get_meta():
     if META_FILE.exists():

@@ -101,9 +101,18 @@ COUNTY_CODES = {
 
 def parse_row(line, line_no):
     """Parse one pipe-delimited row. Returns dict or None if invalid."""
-    fields = line.rstrip("\r\n").split("|")
-    if len(fields) < 56:
+    try:
+        fields = line.rstrip(b"\r\n").split(b"|")
+        if len(fields) < 56:
+            return None
+        # Decode bytes to strings for all field comparisons and extractions
+        try:
+            fields = [f.decode("latin-1") for f in fields]
+        except Exception:
+            return None
+    except Exception:
         return None
+
     if fields[COLS["record_type"]] != "R":
         return None  # skip header / non-residential
 
