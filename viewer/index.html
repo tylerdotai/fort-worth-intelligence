@@ -289,7 +289,11 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 // ── Config ──────────────────────────────────────────────────────────────
+// In Docker/local: use current origin. In production: override here.
 const API_BASE = window.location.origin;
+
+// For Docker LAN access from other machines, the viewer detects the
+// current host and calls the API at the same origin — no CORS issues.
 const FW_CENTER = [32.755, -97.331];  // Fort Worth CBD
 const DEFAULT_ZOOM = 14;
 
