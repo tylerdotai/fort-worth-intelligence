@@ -19,8 +19,8 @@ import sqlite3, json, time, sys, requests, re
 from pathlib import Path
 from statistics import mean
 
-DB_PATH = "/home/tyler/fort-worth-intelligence/data/fw_cache.db"
-TAD_PATH = "/home/tyler/fort-worth-intelligence/data/tad/tad-parcels-fort-worth.json"
+DB_PATH = "/app/data/fw_cache.db"
+TAD_PATH = "/app/data/tad/tad-parcels-fort-worth.json"
 GEOCODER = "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress"
 
 # ── Normalize an address for cache lookup ─────────────────────────────────────

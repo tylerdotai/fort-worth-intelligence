@@ -470,7 +470,7 @@ def resolve_full(address: str, output_path: str = None) -> dict:
             "school_district": p0.get("school_name"),
             "exemptions":     p0.get("exemptions", "").split(",") if p0.get("exemptions") else [],
             "legal":          p0.get("legal_desc"),
-            "census_tract":  p0.get("census_tract"),
+            "census_tract":  geo.get("tract_code"),
             # ── temporal fields (spatial-temporal layer) ──
             "tax_year":       tax_year,
             "valid_from":     f"{tax_year}-01-01",      # Jan 1 of appraisal year
