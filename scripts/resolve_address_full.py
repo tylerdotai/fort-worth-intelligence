@@ -38,6 +38,8 @@ REPO      = Path(__file__).parent.parent
 TAD_PATH  = REPO / "data" / "tad" / "tad-parcels-fort-worth.json"
 OUT_DIR   = REPO / "data" / "resolved"
 CD_KML_DIR = REPO / "data" / "council-districts"
+PERMITS_PATH = REPO / "data" / "fw-permits.json"
+_permits_cache = None
 
 
 # ─── Census Geocoder ─────────────────────────────────────────────────────────
@@ -96,6 +98,41 @@ def load_tad():
     print(f"[OK] Loaded {len(parcels):,} TAD parcels → {len(idx):,} addresses", file=sys.stderr)
     _tad_cache = idx
     return idx
+
+
+# ─── Permits ──────────────────────────────────────────────────────────────────
+
+def load_permits():
+    global _permits_cache
+    if _permits_cache is not None:
+        return _permits_cache
+    if not PERMITS_PATH.exists():
+        print(f"[WARN] Permits data not found at {PERMITS_PATH}", file=sys.stderr)
+        _permits_cache = []
+        return _permits_cache
+    with open(PERMITS_PATH) as f:
+        d = json.load(f)
+    permits = d.get("permits", [])
+    print(f"[OK] Loaded {len(permits):,} permits", file=sys.stderr)
+    _permits_cache = permits
+    return permits
+
+
+def find_permits_by_coords(lat: float, lon: float, permits: list, max_results: int = 20, radius_deg: float = 0.01) -> list:
+    """Find permits within radius_deg of lat/lon. Returns sorted by date desc."""
+    matches = []
+    for p in permits:
+        coord = p.get("coordinates") or {}
+        plat = coord.get("lat")
+        plon = coord.get("lon")
+        if plat is None or plon is None:
+            continue
+        if abs(plat - lat) > radius_deg or abs(plon - lon) > radius_deg:
+            continue
+        dist = ((plat - lat) ** 2 + (plon - lon) ** 2) ** 0.5
+        matches.append((dist, p))
+    matches.sort(key=lambda x: x[0])
+    return [p for _, p in matches[:max_results]]
 
 
 def find_parcel(address: str, geo: dict, tad_idx: dict) -> list:
@@ -312,6 +349,8 @@ def resolve_full(address: str, output_path: str = None) -> dict:
         "school_district": None,
         "council_district": None,
         "utilities":       None,
+        "permits":         None,
+        "future_land_use": None,
         "_meta": {
             "geocoder":     None,
             "tad_lookup":   None,
@@ -388,7 +427,44 @@ def resolve_full(address: str, output_path: str = None) -> dict:
     parcel_city = parcels[0].get("situs_city", "FORT WORTH") if parcels else "FORT WORTH"
     result["utilities"] = resolve_utilities(address, parcel_city)
 
-    # 5. State Representative — via TCGIS StateRepresentative layer (EPSG:2276)
+    # 5. Permits — within 0.01 deg (~0.7 mi) of resolved coordinates
+    all_permits = load_permits()
+    nearby = find_permits_by_coords(lat, lon, all_permits) if all_permits and lat and lon else []
+    if nearby:
+        result["permits"] = {
+            "count": len(nearby),
+            "items": [
+                {
+                    "permit_no":         p.get("permit_no"),
+                    "type":              p.get("permit_type"),
+                    "subtype":           p.get("permit_subtype"),
+                    "work_description":  p.get("work_description"),
+                    "status":            p.get("current_status"),
+                    "file_date":         p.get("file_date"),
+                    "job_value":         p.get("job_value"),
+                    "use_type":          p.get("use_type"),
+                    "address":           p.get("address"),
+                    "owner":             p.get("owner_name"),
+                }
+                for p in nearby
+            ],
+            "source": "City of Fort Worth Open Data",
+        }
+        result["_meta"]["permit_lookup"] = f"{len(nearby)} permits within ~0.7mi"
+    else:
+        result["permits"] = {"count": 0, "items": [], "source": "City of Fort Worth Open Data"}
+        result["_meta"]["permit_lookup"] = "no permits within search radius"
+
+    # 6. Future Land Use — FW PlanningDevelopment MapServer layer 51
+    flu = resolve_future_land_use(lat, lon)
+    if flu:
+        result["future_land_use"] = flu
+        result["_meta"]["flu_lookup"] = f'{flu.get("land_use")} in {flu.get("growth_center") or "Fort Worth"}'
+    else:
+        result["future_land_use"] = None
+        result["_meta"]["flu_lookup"] = "not in FW planning area"
+
+    # 7. State Representative — via TCGIS StateRepresentative layer
     # Requires pyproj + shapely. Static lookup table for Fort Worth TX House districts.
     if HAS_PYPROJ and HAS_SHAPELY and lat and lon:
         from shapely.geometry import Point as SPoint
@@ -486,6 +562,67 @@ def resolve_full(address: str, output_path: str = None) -> dict:
 
 # ─── CLI ─────────────────────────────────────────────────────────────────────
 
+# ─── Future Land Use ──────────────────────────────────────────────────────────
+
+_FLU_SVC = (
+    "https://mapit.fortworthtexas.gov/ags/rest/services"
+    "/Planning_Development/PlanningDevelopment/MapServer/51"
+)
+
+def resolve_future_land_use(lat: float, lon: float) -> dict | None:
+    """
+    Query Future Land Use Categories for a lat/lon via ArcGIS bbox query.
+    Returns land use designation, growth center, and change type.
+    """
+    if not (lat and lon and HAS_PYPROJ):
+        return None
+    try:
+        from pyproj import Transformer
+        transformer = Transformer.from_crs("epsg:4326", "epsg:2276", always_xy=True)
+        x, y = transformer.transform(lon, lat)
+        # 150m bbox around point
+        bbox = f"{x-150},{y-150},{x+150},{y+150}"
+        params = urllib.parse.urlencode({
+            "f": "json",
+            "geometry": bbox,
+            "geometryType": "esriGeometryEnvelope",
+            "inSR": "EPSG:2276",
+            "spatialRel": "esriSpatialRelIntersects",
+            "outFields": "LU,FROM_,TO_,TYPE,DOCUMENT,MU_Category,GC_NAME",
+            "outSR": "EPSG:4326",
+            "resultRecordCount": 5,
+        })
+        req = urllib.request.Request(f"{_FLU_SVC}/query?{params}", headers={"User-Agent": "FortWorthIntelligence/1.0"})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            data = json.loads(r.read())
+        features = data.get("features", [])
+        if not features:
+            return None
+        # Deduplicate by LU
+        seen = set()
+        unique = []
+        for f in features:
+            lu = str(f["attributes"].get("LU") or "").strip()
+            if lu and lu not in seen:
+                seen.add(lu)
+                unique.append(f["attributes"])
+        if not unique:
+            return None
+        primary = unique[0]
+        return {
+            "land_use": str(primary.get("LU") or "").strip() or None,
+            "designation": str(primary.get("TO_") or "").strip() or str(primary.get("LU") or "").strip(),
+            "growth_center": str(primary.get("GC_NAME") or "").strip() or None,
+            "change_type": str(primary.get("TYPE") or "").strip() or None,
+            "document": str(primary.get("DOCUMENT") or "").strip() or None,
+            "alternatives": [
+                {"land_use": str(f.get("LU") or "").strip(), "growth_center": str(f.get("GC_NAME") or "").strip()}
+                for f in unique[1:]
+            ] if len(unique) > 1 else [],
+            "source": _FLU_SVC,
+        }
+    except Exception as e:
+        return None
 def main():
     p = argparse.ArgumentParser(description="Fort Worth full address resolution")
     p.add_argument("address", nargs="?", help="Address to resolve")
@@ -534,3 +671,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+

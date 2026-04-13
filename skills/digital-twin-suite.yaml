@@ -1,0 +1,23 @@
+suite: digital-twin
+version: 0.1.0
+mission: Build a production-ready civic intelligence substrate that can mature into a full digital twin.
+skills:
+  - name: civic-source-registry
+    purpose: Discover, verify, normalize, and prioritize civic data sources.
+  - name: civic-ingestion-pipeline
+    purpose: Pull, snapshot, dedupe, and track source data ingestion runs.
+  - name: civic-ontology-maintainer
+    purpose: Maintain entity, relationship, and ID contracts.
+  - name: civic-graph-api
+    purpose: Expose resolve, graph, and aggregate query surfaces.
+  - name: civic-spatial-temporal
+    purpose: Add geometry, time, diffs, and replay semantics.
+  - name: civic-twin-ops
+    purpose: Harden, validate, package, and ship the system.
+ship_sequence:
+  - civic-source-registry
+  - civic-ingestion-pipeline
+  - civic-ontology-maintainer
+  - civic-graph-api
+  - civic-spatial-temporal
+  - civic-twin-ops

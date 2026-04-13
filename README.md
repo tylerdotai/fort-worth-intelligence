@@ -14,6 +14,8 @@
     <br />
     <a href="docs/research-narrative.md">Research Narrative</a>
     ·
+    <a href="SKILLS.md"><strong>Skill Suite</strong></a>
+    ·
     <a href="https://github.com/tylerdotai/fort-worth-intelligence/issues">Report Bug</a>
     ·
     <a href="https://github.com/tylerdotai/fort-worth-intelligence/issues">Request Feature</a>
