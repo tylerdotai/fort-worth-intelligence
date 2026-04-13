@@ -106,11 +106,10 @@
 
 <script>
   // Cesium ion token (free tier — get yours at cesium.com/ion)
-  Cesium.Ion.defaultAccessToken =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4YjRiNTM0My1mYjkxLTRiYjYtOTcxOS1kZjQ1NTZkNzI3YzciLCJpZCI6MTY2MjYzLCJpYXQiOjE3MzI2NjgxMTR9.LNjS5J1bH9eDYSIpoNPZ3aqR8D1x3H-bW95BjTMnCGJw';
+  // No ion token needed — using flat terrain
 
   const viewer = new Cesium.Viewer('cesiumContainer', {
-    terrain: Cesium.Terrain.fromWorldTerrain(),
+    terrainProvider: new Cesium.EllipsoidTerrainProvider(),
     baseLayerPicker: false,
     geocoder: false,
     homeButton: false,
@@ -225,8 +224,7 @@
   function toggleTerr() {
     const on = document.getElementById('terrOn').checked;
     viewer.terrainProvider = on
-      ? Cesium.Terrain.fromWorldTerrain()
-      : new Cesium.EllipsoidTerrainProvider();
+      new Cesium.EllipsoidTerrainProvider();
   }
 
   async function geocode() {
