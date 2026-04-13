@@ -169,49 +169,101 @@ def find_council_district_by_block(block_address: str) -> str | None:
     return None
 
 
-# ─── Council District KML (Districts 2-9 available) ────────────────────────
-# Districts 1 and 10 have broken KML URLs on fortworthtexas.gov.
-# For those, use TCGIS/NCTCOG shapefile as fallback (not yet downloaded).
+# ─── Council Districts — via mapit.fortworthtexas.gov/OpenData_Boundaries/MapServer/2 ───
+# Source: https://data.fortworthtexas.gov/datasets/a97a4a16cfa240c99b4127b4728aceea_2
+# All 10 districts available. Spatial ref: EPSG:2276 (NAD83 StatePlane Texas North Central, feet).
 
-_district_polygons = {}
+_council_polygons = {}   # cached in memory: {dist_num: {"name": str, "polygon": Polygon}}
+_districts_loaded = False
 
-def load_district_polygon(district: int) -> Polygon | None:
-    """Load a council district polygon from the cached GeoJSON."""
-    geojson_path = CD_KML_DIR / f"district_{district}.geojson"
-    if not geojson_path.exists():
-        return None
-    with open(geojson_path) as f:
-        geo = json.load(f)
-    coords = geo.get("geometry", {}).get("coordinates", [[]])[0]
-    if not coords:
-        return None
-    # Ensure closed ring
-    ring = coords + [coords[0]] if coords[0] != coords[-1] else coords
-    return Polygon(ring)
+COUNCIL_SERVICE = (
+    "https://mapit.fortworthtexas.gov/ags/rest/services"
+    "/CIVIC/OpenData_Boundaries/MapServer/2"
+)
+COUNCIL_EPSG = "EPSG:2276"
+
+# ── council member roster (verified 2026) ────────────────────────────────────
+COUNCIL_MEMBERS = {
+    "2":  {"name": "Carlos Flores",        "email": "district2@fortworthtexas.gov"},
+    "3":  {"name": "Michael D. Crain",      "email": "district3@fortworthtexas.gov"},
+    "4":  {"name": "Charles Lauersdorf",    "email": "district4@fortworthtexas.gov"},
+    "5":  {"name": "Deborah Peoples",        "email": "district5@fortworthtexas.gov"},
+    "6":  {"name": "Mia Hall",              "email": "district6@fortworthtexas.gov"},
+    "7":  {"name": "Macy Hill",             "email": "district7@fortworthtexas.gov"},
+    "8":  {"name": "Chris Nettles",         "email": "district8@fortworthtexas.gov"},
+    "9":  {"name": "Elizabeth M. Beck",      "email": "district9@fortworthtexas.gov"},
+    "10": {"name": "Alan Blaylock",          "email": "district10@fortworthtexas.gov"},
+    "11": {"name": "Jeanette Martinez",      "email": "district11@fortworthtexas.gov"},
+}
 
 
-def find_district_by_kml(lat: float, lon: float) -> int | None:
+def load_council_districts() -> dict[int, Polygon]:
     """
-    Point-in-polygon using cached KML GeoJSON for Districts 2-9.
-    Returns the district number or None.
+    Fetch all 10 Fort Worth council district polygons from mapit.fortworthtexas.gov
+    and cache them.  Uses EPSG:2276 (StatePlane TX North Central, feet).
     """
-    global _district_polygons
-    point = Point(lon, lat)
+    global _council_polygons, _districts_loaded
+    if _districts_loaded:
+        return _council_polygons
+    if not (HAS_PYPROJ and HAS_SHAPELY):
+        print("[WARN] pyproj or shapely not available — council district lookup disabled",
+              file=sys.stderr)
+        _districts_loaded = True
+        return _council_polygons
 
-    for dist in range(2, 10):
-        if dist in _district_polygons:
-            poly = _district_polygons[dist]
-        else:
-            poly = load_district_polygon(dist)
-            if poly:
-                _district_polygons[dist] = poly
+    params = urllib.parse.urlencode({
+        "f": "json",
+        "where": "1=1",
+        "outFields": "OBJECTID,NAME,DISTRICT",
+        "returnGeometry": "true",
+        "resultRecordCount": 20,
+    })
+    req = urllib.request.Request(COUNCIL_SERVICE + "/query?" + params,
+                                 headers={"User-Agent": "Mozilla/5.0 (FortWorthIntelligence/1.0)"})
+    try:
+        with urllib.request.urlopen(req, timeout=20) as r:
+            data = json.loads(r.read())
+    except Exception as e:
+        print(f"[WARN] Could not fetch council districts: {e}", file=sys.stderr)
+        _districts_loaded = True
+        return _district_polygons
 
-        if poly and poly.is_valid:
-            try:
-                if contains(poly, point):
-                    return dist
-            except Exception:
-                pass
+    transformer = Transformer.from_crs("epsg:4326", COUNCIL_EPSG, always_xy=True)
+
+    for feat in data.get("features", []):
+        dist_str = str(feat["attributes"]["DISTRICT"])
+        name     = feat["attributes"]["NAME"]
+        rings    = feat["geometry"]["rings"][0]
+        poly_coords = [(ring[0], ring[1]) for ring in rings]
+        poly = Polygon(poly_coords)
+        _council_polygons[int(dist_str)] = {"name": name, "polygon": poly}
+
+    print(f"[OK] Loaded {len(_council_polygons)} council district polygons", file=sys.stderr)
+    _districts_loaded = True
+    return _council_polygons
+
+
+def find_district_by_tcgis(lat: float, lon: float) -> int | None:
+    """
+    Point-in-polygon against all 10 Fort Worth council districts.
+    Uses the mapit.fortworthtexas.gov OpenData_Boundaries MapServer layer 2.
+    Returns the district number (2-11) or None.
+    """
+    if not HAS_SHAPELY or not HAS_PYPROJ:
+        return None
+
+    polygons = load_council_districts()
+    if not polygons:
+        return None
+
+    # Transform lat/lon (EPSG:4326) → EPSG:2276
+    pt_x, pt_y = Transformer.from_crs("epsg:4326", COUNCIL_EPSG, always_xy=True).transform(lon, lat)
+    pt = Point(pt_x, pt_y)
+
+    for dist_num in sorted(polygons.keys()):
+        poly = polygons[dist_num]["polygon"]
+        if poly.is_valid and poly.contains(pt):
+            return dist_num
     return None
 
 
@@ -315,46 +367,19 @@ def resolve_full(address: str, output_path: str = None) -> dict:
         result["_caveats"].append("No TAD parcel found for this address")
         result["_meta"]["tad_lookup"] = "no_match"
 
-    # 3. Council district — via KML point-in-polygon (Districts 2-9 available)
-    # NOTE: Districts 1 and 10 have broken KML URLs on fortworthtexas.gov.
-    #       For production, use TCGIS shapefile: https://www.tarrantcountytx.gov/gis
-    # NOTE: Crime data council_district field reflects pre-redistricting (2011-2021) boundaries
-    #       and is not reliable for current council district lookup.
-    cd_from_kml = find_district_by_kml(lat, lon)
-    cd = str(cd_from_kml) if cd_from_kml else None
+    # 3. Council district — via mapit.fortworthtexas.gov (all 10 districts)
+    cd = find_district_by_tcgis(lat, lon)
     council_info = {}
-
     if cd:
-        COUNCIL_INFO = {
-            "2":  {"councilmember": "Carlos Flores",  "email": "district2@fortworthtexas.gov"},
-            "3":  {"councilmember": "Michael Crain", "email": "district3@fortworthtexas.gov"},
-            "4":  {"councilmember": "John Gray", "email": "district4@fortworthtexas.gov"},
-            "5":  {"councilmember": "Gyna B. Johnson", "email": "district5@fortworthtexas.gov"},
-            "6":  {"councilmember": "Thomas Meadows", "email": "district6@fortworthtexas.gov"},
-            "7":  {"councilmember": "Tiffany D. Chase", "email": "district7@fortworthtexas.gov"},
-            "8":  {"councilmember": "(verify current)", "email": "district8@fortworthtexas.gov"},
-            "9":  {"councilmember": "(verify current)", "email": "district9@fortworthtexas.gov"},
-            "10": {"councilmember": "(verify current — 2025 election)", "email": "district10@fortworthtexas.gov"},
-            "1":  {"councilmember": "(verify current — 2025 election)", "email": "district1@fortworthtexas.gov"},
-        }
-        info = COUNCIL_INFO.get(str(cd), {})
+        member = COUNCIL_MEMBERS.get(str(cd), {})
         council_info = {
-            "district_number": int(cd) if cd else None,
-            "source": "FWPD Crime Data (authoritative)" if cd_from_fwpd else "City KML boundary (point-in-polygon)",
-            "kml_available": cd_from_kml is not None,
-            **info,
+            "district_number": cd,
+            "councilmember":   member.get("name", "(verify current)"),
+            "email":           member.get("email", ""),
+            "source":          "mapit.fortworthtexas.gov/OpenData_Boundaries/MapServer/2",
         }
-
     result["council_district"] = council_info if council_info else None
-    result["_meta"]["cd_lookup"] = (
-        f"kml={cd_from_kml}"
-        if cd_from_kml else "not_found"
-    )
-
-    if not cd:
-        result["_caveats"].append("Council district not determined — Districts 1 & 10 have broken KML links; all 10 districts need TCGIS shapefile for precision")
-    if not cd:
-        result["_caveats"].append("Council district could not be determined")
+    result["_meta"]["cd_lookup"] = f"tcgis={cd}" if cd else "not_found"
 
     # 4. Utilities
     parcel_city = parcels[0].get("situs_city", "FORT WORTH") if parcels else "FORT WORTH"
@@ -398,11 +423,9 @@ def resolve_full(address: str, output_path: str = None) -> dict:
             x, y = transformer.transform(lon, lat)
             point = SPoint(x, y)
             # Try cached polygons first
-            if _district_polygons is None:
-                pass  # loaded on demand below
             found_district = None
-            if _district_polygons:
-                for d, poly in _district_polygons.items():
+            if _state_rep_polygons:
+                for d, poly in _state_rep_polygons.items():
                     if poly.is_valid and contains(poly, point):
                         found_district = d
                         break
@@ -424,7 +447,7 @@ def resolve_full(address: str, output_path: str = None) -> dict:
                     rings = feat.get("geometry", {}).get("rings", [])
                     if d and rings:
                         poly_d = Polygon(rings[0])
-                        _district_polygons[d] = poly_d
+                        _state_rep_polygons[d] = poly_d
                         if poly_d.is_valid and contains(poly_d, point):
                             found_district = d
             if found_district:
