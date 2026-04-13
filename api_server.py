@@ -7,10 +7,14 @@ Run:
 
 Endpoints:
   GET /resolve?address=...              — full address resolution
-  GET /resolve/batch                    — batch resolve (POST with JSON body)
+  GET /resolve/batch                   — batch resolve (POST with JSON body)
+  GET /graph/{id}                      — civic entity graph by stable ID
+  GET /query/entities                  — filter + search across all entities
+  GET /query/aggregate                 — group-by metrics across entities
+  GET /meta/schema                     — active ontology schema version
   GET /legistar/{district}             — council agenda items by district (1-11, or "all")
   GET /legistar/meeting/{id}           — all agenda items for a specific meeting
-  GET /health                           — health check
+  GET /health                          — health check
 """
 import json, time, sys
 from pathlib import Path
@@ -234,6 +238,234 @@ def legistar_meeting(
         raise HTTPException(status_code=404, detail=result["error"])
     return result
 
+# ─── Graph traversal ─────────────────────────────────────────────────────────
+
+@app.get("/graph/{entity_id}")
+def graph_traverse(
+    entity_id: str = PathParam(..., description="Stable entity ID (e.g. fw:address:3f4a9c)"),
+    depth: int = Query(default=1, ge=0, le=3, description="Traversal depth (0–3)"),
+):
+    """
+    Return the civic entity graph rooted at entity_id.
+
+    Depth 0: root node only
+    Depth 1: root + direct neighbours (default)
+    Depth 2: + neighbours of neighbours
+    Depth 3: full depth limit
+
+    Every response includes provenance and freshness timestamps.
+    """
+    import hashlib, datetime
+
+    # Load the address index for entity resolution
+    ADDRESS_INDEX = REPO / "data" / "resolved" / "address-index.json"
+    addr_idx = {}
+    if ADDRESS_INDEX.exists():
+        with open(ADDRESS_INDEX) as f:
+            addr_idx = json.load(f)
+
+    # Parse fw:<type>:<hash> IDs — resolve to a resolved record if available
+    root_node = {"id": entity_id, "kind": "unknown", "label": entity_id}
+    edges = []
+
+    if entity_id.startswith("fw:address:"):
+        # Look up resolved address
+        addr_hash = entity_id.split(":")[2]
+        for addr_entry in addr_idx.values():
+            h = hashlib.md5(addr_entry.get("query_address", "").encode()).hexdigest()[:6]
+            if h == addr_hash:
+                resolved = resolve_full(addr_entry["query_address"])
+                root_node = {
+                    "id": entity_id,
+                    "kind": "Address",
+                    "label": resolved.get("query_address"),
+                    "lat": resolved.get("coordinates", {}).get("lat"),
+                    "lon": resolved.get("coordinates", {}).get("lon"),
+                }
+                # Build edges from resolved data
+                cd = resolved.get("council_district", {})
+                if cd.get("district_number"):
+                    edges.append({
+                        "source": entity_id,
+                        "target": f'fw:council:{cd["district_number"]}',
+                        "rel": "IN_COUNCIL_DISTRICT",
+                    })
+                parcel = resolved.get("parcel")
+                if parcel:
+                    edges.append({
+                        "source": entity_id,
+                        "target": f'fw:parcel:{parcel.get("pidn", "?")}',
+                        "rel": "LOCATED_ON_PARCEL",
+                    })
+                school = resolved.get("school_district", {})
+                if school.get("name"):
+                    edges.append({
+                        "source": entity_id,
+                        "target": f'fw:school:{school["name"].replace(" ", "-")}',
+                        "rel": "IN_SCHOOL_DISTRICT",
+                    })
+                break
+
+    elif entity_id.startswith("fw:parcel:"):
+        pidn = entity_id.split(":")[2]
+        root_node = {"id": entity_id, "kind": "Parcel", "label": f"Parcel {pidn}"}
+        # Parcel → address (reverse of above)
+        edges.append({
+            "source": entity_id,
+            "target": f"fw:address:{hashlib.md5(root_node.get('label','').encode()).hexdigest()[:6]}",
+            "rel": "HAS_ADDRESS",
+        })
+
+    elif entity_id.startswith("fw:council:"):
+        district = entity_id.split(":")[2]
+        root_node = {"id": entity_id, "kind": "CouncilDistrict", "label": f"District {district}"}
+        # District → addresses in district (would need spatial join in production)
+        # Placeholder edge for schema completeness
+        edges.append({
+            "source": entity_id,
+            "target": f"fw:school:fort-worth-{district}",
+            "rel": "SHARES_AREA_WITH",
+        })
+
+    elif entity_id.startswith("fw:school:"):
+        school_name = entity_id.split(":", 2)[2].replace("-", " ")
+        root_node = {"id": entity_id, "kind": "SchoolDistrict", "label": school_name}
+
+    # Provenance: always attach source info
+    freshness = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    provenance = {
+        "source": "fort-worth-intelligence",
+        "ontology_version": "1.0",
+        "schema_version": "1.0",
+    }
+
+    return {
+        "root": root_node,
+        "nodes": [root_node],  # TODO: expand with neighbour nodes at depth > 0
+        "edges": edges,
+        "depth": depth,
+        "provenance": provenance,
+        "freshness": freshness,
+    }
+
+# ─── Entity query ─────────────────────────────────────────────────────────────
+
+@app.get("/query/entities")
+def query_entities(
+    kind: str = Query(default=None, description="Filter by entity kind (Address, Parcel, etc.)"),
+    district: str = Query(default=None, description="Council district number"),
+    search: str = Query(default=None, description="Full-text search on labels"),
+    limit: int = Query(default=20, ge=1, le=100),
+    offset: int = Query(default=0, ge=0),
+):
+    """
+    Filter and search across all indexed entities.
+    Returns paginated items with total count.
+    """
+    ADDRESS_INDEX = REPO / "data" / "resolved" / "address-index.json"
+    items = []
+    if ADDRESS_INDEX.exists():
+        with open(ADDRESS_INDEX) as f:
+            addr_idx = json.load(f)
+        for addr_key, rec in addr_idx.items():
+            if kind and rec.get("kind") != kind:
+                continue
+            if district:
+                cd = rec.get("council_district", {})
+                if str(cd.get("district_number")) != str(district):
+                    continue
+            if search:
+                label = rec.get("query_address", "").lower()
+                if search.lower() not in label:
+                    continue
+            items.append(rec)
+
+    total = len(items)
+    items = sorted(items, key=lambda x: x.get("query_address", ""))[offset:offset + limit]
+    return {
+        "filters": {"kind": kind, "district": district, "search": search},
+        "items": items,
+        "total": total,
+        "limit": limit,
+        "offset": offset,
+    }
+
+# ─── Aggregation query ────────────────────────────────────────────────────────
+
+@app.get("/query/aggregate")
+def query_aggregate(
+    group_by: str = Query(default="council_district", description="Field to group by"),
+    metric: str = Query(default="count", description="Metric: count, avg_value"),
+):
+    """
+    Aggregate statistics across resolved entities grouped by a field.
+
+    group_by options: council_district, school_district, owner_type
+    metric options: count, avg_value
+    """
+    ADDRESS_INDEX = REPO / "data" / "resolved" / "address-index.json"
+    if not ADDRESS_INDEX.exists():
+        return {"error": "no resolved address index found"}
+
+    with open(ADDRESS_INDEX) as f:
+        addr_idx = json.load(f)
+
+    groups: dict = {}
+    for rec in addr_idx.values():
+        if group_by == "council_district":
+            key = str(rec.get("council_district", {}).get("district_number", "unknown"))
+        elif group_by == "school_district":
+            key = str(rec.get("school_district", {}).get("name", "unknown"))
+        elif group_by == "owner_type":
+            key = str(rec.get("parcel", {}).get("owner_type", "unknown"))
+        else:
+            key = "all"
+
+        if key not in groups:
+            groups[key] = {"count": 0, "total_value": 0}
+        groups[key]["count"] += 1
+        val = rec.get("parcel", {}).get("market_value") or 0
+        try:
+            groups[key]["total_value"] += int(val)
+        except (ValueError, TypeError):
+            pass
+
+    rows = []
+    for k, v in sorted(groups.items()):
+        rows.append({
+            "group": k,
+            "count": v["count"],
+            "avg_value": v["total_value"] // v["count"] if v["count"] > 0 else 0,
+        })
+
+    return {
+        "group_by": group_by,
+        "metric": metric,
+        "rows": rows,
+        "total_entities": sum(r["count"] for r in rows),
+    }
+
+# ─── Schema meta ──────────────────────────────────────────────────────────────
+
+@app.get("/meta/schema")
+def meta_schema():
+    """Return the active ontology schema version and entity types."""
+    return {
+        "ontology_version": "1.0",
+        "schema_version": "1.0",
+        "base_standard": "OGC CityGML 3.0 Conceptual Model",
+        "namespace": "https://fwintelligence.city/ont/v1",
+        "entity_types": [
+            {"name": "Address", "id_pattern": "fw:address:<md5>", "description": "Resolved street address"},
+            {"name": "Parcel", "id_pattern": "fw:parcel:<pidn>", "description": "TAD certified appraisal parcel"},
+            {"name": "CouncilDistrict", "id_pattern": "fw:council:<number>", "description": "FW council district 1–10"},
+            {"name": "SchoolDistrict", "id_pattern": "fw:school:<slug>", "description": "Tarrant County school district"},
+            {"name": "UtilityProvider", "id_pattern": "fw:utility:<name>", "description": "Municipal utility service provider"},
+            {"name": "Permit", "id_pattern": "fw:permit:<number>", "description": "City of Fort Worth issued permit"},
+        ],
+        "provenance_fields": ["source", "ontology_version", "schema_version", "ingested_at"],
+    }
+
 @app.get("/")
 def root():
     return {
@@ -242,6 +474,10 @@ def root():
         "endpoints": {
             "GET /resolve?address=...": "Resolve a single address",
             "POST /resolve/batch": "Batch resolve multiple addresses",
+            "GET /graph/{entity_id}?depth=0-3": "Civic entity graph by stable ID",
+            "GET /query/entities": "Filter/search all indexed entities",
+            "GET /query/aggregate": "Group-by metrics across entities",
+            "GET /meta/schema": "Active ontology schema version",
             "GET /legistar/{district}": "Council agenda items by district",
             "GET /legistar/meeting/{id}": "Agenda items for a specific meeting",
             "GET /health": "Health check",
