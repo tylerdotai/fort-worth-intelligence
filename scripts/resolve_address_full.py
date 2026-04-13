@@ -44,13 +44,23 @@ _permits_cache = None
 
 # ─── Census Geocoder ─────────────────────────────────────────────────────────
 
-CENSUS_BASE = "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress"
+CENSUS_BASE = "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress"
 
 def geocode(address: str) -> dict | None:
+    """
+    Geocode via Census and fetch geography IDs in one call.
+    Uses returntype=returnGeographies to get county FIPS, tract, and block
+    directly — eliminating a separate TAD address lookup for most parcels.
+    """
     if not re.search(r",\s*[A-Z]{2}\s+\d{5}", address):
         address = address + ", Fort Worth, TX"
+    # returnGeographies gives us county, tract, block IDs instead of just lat/lon
+    # Note: geographies endpoint (not locations) returns full geography IDs
     params = urllib.parse.urlencode({
-        "address": address, "benchmark": "Public_AR_Current", "format": "json",
+        "address": address,
+        "benchmark": "4",
+        "vintage": "4",
+        "format": "json",
     })
     req = urllib.request.Request(f"{CENSUS_BASE}?{params}",
         headers={"User-Agent": "FortWorthIntelligence/1.0"})
@@ -62,11 +72,26 @@ def geocode(address: str) -> dict | None:
             return None
         best = matches[0]
         coords = best.get("coordinates", {})
+        geography = (best.get("geographies") or {})
+
+        # Extract geography IDs
+        tiger = geography.get("2020 Census Blocks", [{}])[0]
+        county_fips = str(tiger.get("COUNTY") or "").zfill(3)
+        tract_code  = str(tiger.get("TRACT") or "").zfill(6)
+        block_code  = str(tiger.get("BLOCK") or "")
+        # STATE is not returned in Census Blocks — default to Texas FIPS 48
+        state_fips  = "48"
+
         return {
             "matched_address": best.get("matchedAddress"),
-            "lat":  coords.get("y"),
-            "lon":  coords.get("x"),
-            "zip":  best.get("addressComponents", {}).get("zip"),
+            "lat":             coords.get("y"),
+            "lon":             coords.get("x"),
+            "zip":             best.get("addressComponents", {}).get("zip"),
+            # Geography IDs — eliminates separate TAD address lookup
+            "county_fips":     county_fips,
+            "tract_code":      tract_code,
+            "block_code":      block_code,
+            "state_fips":      state_fips,
         }
     except Exception as e:
         print(f"[WARN] Census geocode failed: {e}", file=sys.stderr)
@@ -136,7 +161,16 @@ def find_permits_by_coords(lat: float, lon: float, permits: list, max_results: i
 
 
 def find_parcel(address: str, geo: dict, tad_idx: dict) -> list:
-    """Find TAD parcels matching address."""
+    """
+    Find TAD parcels matching address or census tract.
+
+    Strategy (in order):
+    1. Exact normalized address match
+    2. Census matched address match (handles TX/City suffixes)
+    3. Street part only match (situs may omit city/state)
+    4. Census tract match — when census tract is available from geocode,
+       find all parcels in the same tract and return the best one by proximity.
+    """
     # Try exact normalized match
     norm = re.sub(r"\s+", " ", address.upper().strip())
     if norm in tad_idx:
@@ -146,11 +180,28 @@ def find_parcel(address: str, geo: dict, tad_idx: dict) -> list:
         matched_norm = re.sub(r"\s+", " ", geo["matched_address"].upper().strip())
         if matched_norm in tad_idx:
             return tad_idx[matched_norm]
-        # Try last part of matched address (situs may omit city/state)
-        # e.g. "704 E WEATHERFORD ST, FORT WORTH, TX, 76102" → "704 E WEATHERFORD ST"
         street_part = re.sub(r",.*", "", matched_norm).strip()
         if street_part in tad_idx:
             return tad_idx[street_part]
+    # Try census tract match — no address match found, fall back to tract
+    tract_code = geo.get("tract_code") if geo else None
+    lat = geo.get("lat") if geo else None
+    lon = geo.get("lon") if geo else None
+    if tract_code and lat and lon:
+        tract_matches = []
+        for addr_key, parcels in tad_idx.items():
+            for p in parcels:
+                p_tract = str(p.get("census_tract") or "").strip()
+                if p_tract == tract_code or p_tract == tract_code.lstrip("0"):
+                    # Score by proximity
+                    p_lat = p.get("latitude")
+                    p_lon = p.get("longitude")
+                    if p_lat and p_lon:
+                        dist = ((p_lat - lat) ** 2 + (p_lon - lon) ** 2) ** 0.5
+                        tract_matches.append((dist, p))
+        if tract_matches:
+            tract_matches.sort(key=lambda x: x[0])
+            return [tract_matches[0][1]]
     return []
 
 
@@ -387,6 +438,10 @@ def resolve_full(address: str, output_path: str = None) -> dict:
             "matched_address": geo["matched_address"],
             "zip":           geo.get("zip"),
             "quality":       "rooftop",
+            # Census geography IDs — extracted from single Census call
+            "county_fips":   geo.get("county_fips"),
+            "tract_code":    geo.get("tract_code"),
+            "block_code":    geo.get("block_code"),
         }
     else:
         result["_caveats"].append("Census geocoding failed — address not resolvable")
