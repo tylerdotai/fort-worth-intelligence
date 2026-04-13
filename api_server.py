@@ -12,6 +12,7 @@ Endpoints:
   GET /query/entities                  — filter + search across all entities
   GET /query/aggregate                 — group-by metrics across entities
   GET /meta/schema                     — active ontology schema version
+  GET /citygml?address=...        — CityGML 3.0 XML encoding of resolved address
   GET /legistar/{district}             — council agenda items by district (1-11, or "all")
   GET /legistar/meeting/{id}           — all agenda items for a specific meeting
   GET /health                          — health check
@@ -20,7 +21,7 @@ import json, time, sys
 from pathlib import Path
 from typing import Optional
 
-from fastapi import FastAPI, Query, HTTPException, Path as PathParam
+from fastapi import FastAPI, Query, HTTPException, Path as PathParam, Response
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -31,6 +32,7 @@ sys.path.insert(0, str(SCRIPTS_DIR))
 
 # Import after path setup
 from scripts.resolve_address_full import resolve_full
+from scripts.citygml_encoder import citygml_document
 
 # ─── Legistar data loader ───────────────────────────────────────────────────
 
@@ -480,6 +482,39 @@ def root():
             "GET /meta/schema": "Active ontology schema version",
             "GET /legistar/{district}": "Council agenda items by district",
             "GET /legistar/meeting/{id}": "Agenda items for a specific meeting",
+            "GET /citygml/{entity_id}": "CityGML 3.0 XML encoding",
             "GET /health": "Health check",
         },
     }
+
+# ─── CityGML 3.0 export ──────────────────────────────────────────────────────
+
+@app.get("/citygml")
+def citygml_export(
+    address: str = Query(..., description="Street address to encode as CityGML 3.0 XML"),
+):
+    """
+    Return a resolved address as an OGC CityGML 3.0 XML document.
+
+    Wraps the address in CityModel/Site with:
+    - gml:id, validFrom/validTo temporal window
+    - fw:parcelRef, fw:councilDistrictRef, fw:schoolDistrictRef
+    - Address with EPSG:4326 point location
+    - lod0Geometry polygon from council district GeoJSON
+    - metaDataMetadata with schema version and snapshot ID
+    """
+    import hashlib
+    from scripts.citygml_encoder import citygml_document
+
+    resolved = resolve_full(address)
+    coords = resolved.get("coordinates") or {}
+    lat, lon = coords.get("lat"), coords.get("lon")
+    addr_hash = hashlib.md5(address.encode()).hexdigest()[:6]
+    entity_id = f"fw:address:{addr_hash}"
+
+    xml_body = citygml_document(resolved, entity_id)
+    return Response(
+        content=xml_body,
+        media_type="application/xml",
+        headers={"Content-Disposition": f'attachment; filename="{entity_id}.xml"'},
+    )
