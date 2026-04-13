@@ -176,6 +176,9 @@ def find_council_district_by_block(block_address: str) -> str | None:
 _council_polygons = {}   # cached in memory: {dist_num: {"name": str, "polygon": Polygon}}
 _districts_loaded = False
 
+# ── TX House Rep polygon cache (separate from council districts) ──────────────
+_state_rep_polygons = {}   # {dist_num: Polygon}
+
 COUNCIL_SERVICE = (
     "https://mapit.fortworthtexas.gov/ags/rest/services"
     "/CIVIC/OpenData_Boundaries/MapServer/2"
@@ -226,7 +229,7 @@ def load_council_districts() -> dict[int, Polygon]:
     except Exception as e:
         print(f"[WARN] Could not fetch council districts: {e}", file=sys.stderr)
         _districts_loaded = True
-        return _district_polygons
+        return _council_polygons
 
     transformer = Transformer.from_crs("epsg:4326", COUNCIL_EPSG, always_xy=True)
 
